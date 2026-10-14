@@ -122,28 +122,48 @@
   </header>
 
   <!-- =======================================================
-       2. HERO BANNER - SERENO, ELEGANTE & IMPACTANTE
+       2. HERO SLIDER DE PROMOCIONES OFICIALES SUNSOL
        ======================================================= -->
-  <section class="hero-clean" id="inicio">
-    <div class="hero-clean-bg"></div>
-    <div class="container">
-      <div class="hero-clean-content">
-        <div class="hero-pre-badge">
-          <i class="fas fa-umbrella-beach"></i> El Arte de Vivir el Caribe
+  <section class="hero-promos-slider-section" id="inicio">
+    <div class="container hero-slider-container">
+      <div class="hero-slider-wrapper" id="heroSlider">
+        <!-- Slide 1: Temporada Baja -->
+        <div class="hero-slide active" data-index="0" onclick="openBookingModal()" title="Cotizar Temporada Baja">
+          <img src="assets/images/banner-temporada-baja.png" alt="Sunsol Hoteles Temporada Baja - Sol, Playa y Diversión en tus Vacaciones" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-calendar-check"></i> Cotizar Temporada Baja</span>
+          </div>
         </div>
-        <h1 class="hero-clean-title">
-          Momentos Inolvidables en el Caribe Venezolano
-        </h1>
-        <p class="hero-clean-subtitle">
-          Descubre la hospitalidad, serenidad y confort de nuestros resorts Todo Incluido en las mejores playas de la Isla de Margarita y la Isla de Coche.
-        </p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#hoteles" class="btn-sunsol-primary">
-            Explorar Hoteles
-          </a>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal()" style="background: rgba(255,255,255,0.9); border-color: white; color: var(--sunsol-blue-dark);">
-            <i class="fab fa-whatsapp"></i> Hablar con un Asesor
-          </button>
+
+        <!-- Slide 2: Preventa Navidad -->
+        <div class="hero-slide" data-index="1" onclick="openBookingModal()" title="Asegurar Cupos Preventa Navidad 2026">
+          <img src="assets/images/banner-preventa-navidad.png" alt="Sunsol Hoteles Preventa Navidad - Del 21 al 27 de Diciembre de 2026" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-gift"></i> Reservar Preventa Navidad</span>
+          </div>
+        </div>
+
+        <!-- Slide 3: Day Pass Todo Incluido -->
+        <div class="hero-slide" data-index="2" onclick="openDayPassModal()" title="Solicitar Day Pass Todo Incluido">
+          <img src="assets/images/banner-daypass-todo-incluido.png" alt="Sunsol Hoteles Day Pass Todo Incluido - ¡Vive Ecoland, Isla Caribe o Unik!" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-ticket-alt"></i> Solicitar Day Pass</span>
+          </div>
+        </div>
+
+        <!-- Flechas de navegación -->
+        <button class="hero-slider-arrow prev" id="heroPrevBtn" aria-label="Banner anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-slider-arrow next" id="heroNextBtn" aria-label="Banner siguiente">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores / Dots -->
+        <div class="hero-slider-dots" id="heroDots">
+          <button class="hero-dot active" data-index="0" aria-label="Banner 1: Temporada Baja"></button>
+          <button class="hero-dot" data-index="1" aria-label="Banner 2: Preventa Navidad"></button>
+          <button class="hero-dot" data-index="2" aria-label="Banner 3: Day Pass Todo Incluido"></button>
         </div>
       </div>
     </div>

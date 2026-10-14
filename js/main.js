@@ -20,6 +20,7 @@ if (window.supabase && SUPABASE_CONFIG.url && SUPABASE_CONFIG.anonKey) {
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
+  initHeroSlider();
   initBookingDates();
   renderHotels();
   renderGallery('all');
@@ -877,3 +878,79 @@ function initResortMap() {
   });
 }
 window.initResortMap = initResortMap;
+
+/* ==========================================================
+   HERO BANNER PROMOS OFICIALES (SLIDER DE TEMPORADA)
+   ========================================================== */
+function initHeroSlider() {
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-dot");
+  const prevBtn = document.getElementById("heroPrevBtn");
+  const nextBtn = document.getElementById("heroNextBtn");
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer = null;
+
+  function showSlide(idx) {
+    current = (idx + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle("active", i === current));
+    dots.forEach((d, i) => d.classList.toggle("active", i === current));
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    timer = setInterval(() => showSlide(current + 1), 5000);
+  }
+
+  function stopAutoPlay() {
+    if (timer) clearInterval(timer);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showSlide(current - 1);
+      startAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showSlide(current + 1);
+      startAutoPlay();
+    });
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showSlide(idx);
+      startAutoPlay();
+    });
+  });
+
+  const wrapper = document.getElementById("heroSlider");
+  if (wrapper) {
+    wrapper.addEventListener("mouseenter", stopAutoPlay);
+    wrapper.addEventListener("mouseleave", startAutoPlay);
+
+    // Gestos táctiles en teléfonos
+    let touchStartX = 0;
+    wrapper.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoPlay();
+    }, { passive: true });
+
+    wrapper.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 40) showSlide(current + 1);
+      if (touchEndX > touchStartX + 40) showSlide(current - 1);
+      startAutoPlay();
+    }, { passive: true });
+  }
+
+  startAutoPlay();
+}
+window.initHeroSlider = initHeroSlider;

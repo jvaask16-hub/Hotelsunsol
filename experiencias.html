@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -124,13 +124,68 @@
     </div>
   </section>
 
+  <!-- SLIDER DE BANNERS OFICIALES DE EXPERIENCIAS (FULL-WIDTH) -->
+  <section class="hero-promos-slider-section" id="experiencias-promos-slider" style="margin-top: -2.5rem; margin-bottom: 2.5rem;">
+    <div class="container hero-slider-container">
+      <div class="hero-slider-wrapper" id="heroSlider">
+        <!-- Slide 1: Sunsol Festival Cruise -->
+        <div class="hero-slide active" data-index="0" onclick="openBookingModal('punta-blanca')" title="Sunsol Festival Cruise Day Pass en Isla de Coche">
+          <img src="assets/images/banner-festival-cruise-coche.png" alt="Sunsol Festival Cruise Day Pass en Isla de Coche" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-ship"></i> Consultar Festival Cruise</span>
+          </div>
+        </div>
+
+        <!-- Slide 2: Sunsol Coche Express -->
+        <div class="hero-slide" data-index="1" onclick="openBookingModal('punta-blanca')" title="Sunsol Coche Express Day Pass">
+          <img src="assets/images/banner-coche-express.png" alt="Sunsol Coche Express Day Pass" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-bolt"></i> Reservar Coche Express</span>
+          </div>
+        </div>
+
+        <!-- Slide 3: Sunsol Pádel Club -->
+        <div class="hero-slide" data-index="2" onclick="openBookingModal('unik')" title="Sunsol Pádel Club en Parque Costazul">
+          <img src="assets/images/banner-padel-club.png" alt="Sunsol Pádel Club - El Templo del Pádel" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-table-tennis-paddle-ball"></i> Reservar Cancha de Pádel</span>
+          </div>
+        </div>
+
+        <!-- Slide 4: Day Pass Todo Incluido -->
+        <div class="hero-slide" data-index="3" onclick="openDayPassModal()" title="Day Pass Todo Incluido en Hoteles Sunsol">
+          <img src="assets/images/banner-daypass-todo-incluido.png" alt="Day Pass Todo Incluido Sunsol Hoteles" class="hero-slide-img">
+          <div class="hero-slide-overlay">
+            <span class="hero-slide-btn"><i class="fas fa-ticket-alt"></i> Solicitar Day Pass</span>
+          </div>
+        </div>
+
+        <!-- Flechas de navegación -->
+        <button class="hero-slider-arrow prev" id="heroPrevBtn" aria-label="Banner anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-slider-arrow next" id="heroNextBtn" aria-label="Banner siguiente">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicadores / Dots -->
+        <div class="hero-slider-dots" id="heroDots">
+          <button class="hero-dot active" data-index="0" aria-label="Banner 1: Festival Cruise"></button>
+          <button class="hero-dot" data-index="1" aria-label="Banner 2: Coche Express"></button>
+          <button class="hero-dot" data-index="2" aria-label="Banner 3: Pádel Club"></button>
+          <button class="hero-dot" data-index="3" aria-label="Banner 4: Day Pass"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTENIDO EXPERIENCIAS -->
-  <main class="container section-spacious">
+  <main class="container section-spacious" style="padding-top: 1rem;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem;">
       <!-- Experiencia 1: Crucero Festival Cruise a Coche -->
       <div class="experience-clean-card">
         <div class="exp-clean-img" style="height: 240px;">
-          <img src="assets/images/banner-festival-cruise-coche.png" alt="Sunsol Festival Cruise Day Pass en Coche" style="object-position: center top;">
+          <img src="assets/images/exp-festival-cruise.jpg" alt="Sunsol Festival Cruise Day Pass en Coche" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 700; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">ISLA DE COCHE</span>
@@ -147,7 +202,7 @@
       <!-- Experiencia 2: Coche Express Day Pass -->
       <div class="experience-clean-card">
         <div class="exp-clean-img" style="height: 240px;">
-          <img src="assets/images/banner-coche-express.png" alt="Sunsol Coche Express Day Pass" style="object-position: center center;">
+          <img src="assets/images/exp-coche-express.jpg" alt="Sunsol Coche Express Day Pass" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 700; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">DAY PASS DIRECTO</span>
@@ -164,7 +219,7 @@
       <!-- Experiencia 3: Sunsol Pádel Club -->
       <div class="experience-clean-card">
         <div class="exp-clean-img" style="height: 240px;">
-          <img src="assets/images/banner-padel-club.png" alt="Sunsol Pádel Club" style="object-position: center top;">
+          <img src="assets/images/exp-padel-club.jpg" alt="Sunsol Pádel Club" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 700; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">DEPORTE &amp; LIFESTYLE</span>
@@ -177,6 +232,7 @@
           </button>
         </div>
       </div>
+
 
       <!-- Experiencia 4: The Essential Spa -->
       <div class="experience-clean-card">

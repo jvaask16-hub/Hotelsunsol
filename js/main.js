@@ -130,7 +130,7 @@ function renderHotels() {
   container.innerHTML = SUNSOL_DATA.hotels.map(h => {
     const pageUrl = `${h.id}.html`;
     return `
-    <article class="hotel-luxury-card">
+    <article class="hotel-luxury-card" onclick="window.location.href='${pageUrl}'" style="cursor: pointer;">
       <div class="hotel-card-image-wrap">
         <a href="${pageUrl}"><img src="${h.imageMain}" alt="${h.name}" loading="lazy"></a>
       </div>
@@ -153,15 +153,6 @@ function renderHotels() {
           <span style="font-size: 0.72rem; color: #00AA6C; font-weight: 700; margin-top: 0.2rem;">
             <i class="fas fa-certificate"></i> TripAdvisor Travelers' Choice
           </span>
-        </div>
-
-        <div class="hotel-btn-row">
-          <a href="${pageUrl}" class="btn-hotel-details">
-            Ver Hotel
-          </a>
-          <button type="button" class="btn-hotel-book" onclick="openBookingModal('${h.id}')">
-            Reservar
-          </button>
         </div>
       </div>
     </article>

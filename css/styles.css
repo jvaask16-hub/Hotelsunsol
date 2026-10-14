@@ -518,19 +518,44 @@ button {
   transform: scale(1.06);
 }
 
-.hotel-location-tag {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(21, 42, 80, 0.85);
-  backdrop-filter: blur(6px);
-  color: #FFFFFF;
-  padding: 0.3rem 0.75rem;
-  border-radius: var(--radius-full);
+.hotel-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.hotel-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-weight: 700;
+  color: var(--sunsol-blue);
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--bg-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+.hotel-location-badge i {
+  color: var(--sunsol-wave);
+  font-size: 0.75rem;
+}
+
+.hotel-plan-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0369A1;
+  background: #E0F2FE;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .hotel-card-details-box {

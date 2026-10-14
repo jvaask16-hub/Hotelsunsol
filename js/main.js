@@ -132,11 +132,13 @@ function renderHotels() {
     <article class="hotel-luxury-card">
       <div class="hotel-card-image-wrap">
         <a href="${pageUrl}"><img src="${h.imageMain}" alt="${h.name}" loading="lazy"></a>
-        <span class="hotel-location-tag">${h.region}</span>
       </div>
       <div class="hotel-card-details-box">
+        <div class="hotel-card-meta-row">
+          <span class="hotel-location-badge"><i class="fas fa-map-marker-alt"></i> ${h.region}</span>
+          <span class="hotel-plan-badge">${h.planType}</span>
+        </div>
         <h3 class="hotel-title-text"><a href="${pageUrl}" style="color: inherit;">${h.name}</a></h3>
-        <span class="hotel-plan-label">${h.planType}</span>
         <p class="hotel-card-summary">${h.description.slice(0, 115)}...</p>
         
         <div class="hotel-price-row" style="flex-direction: column; align-items: flex-start; gap: 0.25rem;">

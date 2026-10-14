@@ -2247,3 +2247,188 @@ button {
   }
 }
 
+/* ==========================================================
+   GEOLOCALIZACIÓN INTERACTIVA SUNSOL (MAPA LEAFLET)
+   ========================================================== */
+.geo-tab-btn {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.geo-tab-btn:hover {
+  border-color: var(--sunsol-blue);
+  color: var(--sunsol-blue);
+  background: #F8FAFC;
+}
+
+.geo-tab-btn.active {
+  background: var(--sunsol-blue);
+  color: #FFFFFF;
+  border-color: var(--sunsol-blue);
+  box-shadow: 0 4px 12px rgba(34, 65, 124, 0.25);
+}
+
+.geo-btn-banner-toggle {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #475569;
+}
+
+/* Custom Marker Pins */
+.sunsol-map-pin {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.sunsol-pin-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #152A50;
+  border: 2.5px solid #D4AF37;
+  border-radius: 50%;
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(21, 42, 80, 0.4);
+  transition: transform 0.25s ease;
+  font-size: 1rem;
+}
+
+.sunsol-pin-wrapper:hover {
+  transform: scale(1.18);
+  border-color: #FFFFFF;
+  background: #22417C;
+}
+
+.sunsol-pin-pulse {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  border: 2px solid #D4AF37;
+  animation: mapPulsePin 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes mapPulsePin {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Custom Leaflet Popups */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-shadow: 0 12px 35px rgba(21, 42, 80, 0.25) !important;
+  border: 1.5px solid var(--border-color) !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  width: 280px !important;
+}
+
+.sunsol-popup-card {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--text-main);
+}
+
+.sunsol-popup-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.sunsol-popup-body {
+  padding: 0.85rem 1rem;
+}
+
+.sunsol-popup-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--sunsol-blue-dark);
+  margin: 0 0 0.2rem 0;
+  font-family: var(--font-serif);
+}
+
+.sunsol-popup-loc {
+  font-size: 0.72rem;
+  color: var(--sunsol-wave);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.sunsol-popup-price {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--sunsol-blue);
+  margin-bottom: 0.65rem;
+}
+
+.sunsol-popup-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.sunsol-popup-btn {
+  padding: 0.4rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  #geo-map-viewport {
+    height: 380px !important;
+  }
+
+  #geo-hotel-detail-panel > div {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  #geo-hotel-detail-panel img {
+    height: 200px !important;
+  }
+
+  .geo-hotel-filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .geo-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+

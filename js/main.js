@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initLightbox();
   initModalListeners();
   initResortMap();
+  initSunsolPropertyMap();
 });
 
 /* ==========================================================
@@ -1423,3 +1424,375 @@ function initHeroSlider() {
   startAutoPlay();
 }
 window.initHeroSlider = initHeroSlider;
+
+/* ==========================================================
+   GEOLOCALIZACIÓN INTERACTIVA SUNSOL HOTELES (LEAFLET & CARTODB)
+   Isla de Margarita e Isla de Coche
+   ========================================================== */
+const SUNSOL_PROPERTIES_MAP = {
+  "ecoland": {
+    id: "ecoland",
+    name: "Sunsol Ecoland Beach Resort",
+    tagline: "Resort Todo Incluido de Playa, Laguna & Spa",
+    location: "Playa Puerto Cruz, Municipio Gómez, Isla de Margarita",
+    coords: [11.1162, -63.9318],
+    zoom: 14,
+    icon: "fa-water",
+    badge: "Playa Puerto Cruz",
+    priceText: "Desde $85 USD / pers. / noche",
+    image: "assets/images/ecoland-main.jpg",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=11.1162,-63.9318",
+    hotelPageUrl: "hotel-ecoland.html",
+    airportDistance: "38 km (aprox. 45 min) del Aeropuerto Internacional Santiago Mariño (PMV)",
+    ferryDistance: "42 km (aprox. 50 min) del Terminal de Ferrys Punta de Piedras",
+    description: "Ubicado frente a las arenas doradas de Playa Puerto Cruz, rodeado por una laguna natural de agua dulce, club de playa, piscinas monumentales y senderismo ecológico."
+  },
+  "isla-caribe": {
+    id: "isla-caribe",
+    name: "Sunsol Isla Caribe",
+    tagline: "Resort Todo Incluido Frente al Mar Caribe",
+    location: "Playa El Tirano, Municipio Antolín del Campo, Isla de Margarita",
+    coords: [11.0850, -63.7997],
+    zoom: 14,
+    icon: "fa-umbrella-beach",
+    badge: "Playa El Tirano",
+    priceText: "Desde $90 USD / pers. / noche",
+    image: "assets/images/isla-caribe-main.jpg",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=11.0850,-63.7997",
+    hotelPageUrl: "hotel-isla-caribe.html",
+    airportDistance: "32 km (aprox. 40 min) del Aeropuerto Santiago Mariño (PMV)",
+    ferryDistance: "36 km (aprox. 45 min) del Terminal de Ferrys Punta de Piedras",
+    description: "Ambiente familiar vibrante en Playa El Tirano, con piscinas tipo lago, shows nocturnos, gastronomía buffet caribeña y acceso directo a la playa."
+  },
+  "unik": {
+    id: "unik",
+    name: "Sunsol Unik Hotel",
+    tagline: "Hotel Boutique de Lujo & Negocios",
+    location: "Av. Jovito Villalba, C.C. Parque Costazul, Pampatar",
+    coords: [10.9981, -63.8188],
+    zoom: 15,
+    icon: "fa-gem",
+    badge: "Pampatar - CC Parque Costazul",
+    priceText: "Desde $90 USD / pers. / noche",
+    image: "assets/images/unik-main.jpg",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=10.9981,-63.8188",
+    hotelPageUrl: "hotel-unik.html",
+    airportDistance: "22 km (aprox. 25 min) del Aeropuerto Santiago Mariño (PMV)",
+    ferryDistance: "25 km (aprox. 30 min) del Terminal de Ferrys Punta de Piedras",
+    description: "Vanguardia urbana y hospitalidad boutique en Pampatar, a pasos del C.C. Parque Costazul, con piscina rooftop, gastronomía de autor y salones para eventos corporativos."
+  },
+  "punta-blanca": {
+    id: "punta-blanca",
+    name: "Sunsol Punta Blanca",
+    tagline: "Exclusive Star Island & Beach Resort (Isla de Coche)",
+    location: "Playa La Punta, Isla de Coche (Zarpe exclusivo desde Playa El Yaque)",
+    coords: [10.7811, -63.9555],
+    zoom: 14,
+    icon: "fa-ship",
+    badge: "Isla de Coche",
+    priceText: "Desde $130 USD / pers. / noche",
+    image: "assets/images/punta-blanca-main.jpg",
+    googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=10.7811,-63.9555",
+    hotelPageUrl: "hotel-punta-blanca.html",
+    airportDistance: "10 min traslado terrestre a Playa El Yaque + 20 min en lancha rápida a Coche",
+    ferryDistance: "25 min a Playa El Yaque + 20 min en lancha rápida privada",
+    description: "El paraíso caribeño de arenas blancas y aguas turquesas en Isla de Coche. Servicio todo incluido premium con traslados marítimos diarios ida y vuelta desde Playa El Yaque."
+  }
+};
+
+let sunsolMapInstance = null;
+let sunsolMapMarkers = {};
+
+function initSunsolPropertyMap() {
+  const mapContainer = document.getElementById("sunsol-leaflet-map");
+  if (!mapContainer || typeof L === "undefined") return;
+
+  // Centro de visualización entre Margarita y Coche
+  const defaultCenter = [10.9500, -63.8800];
+  const defaultZoom = 10;
+
+  try {
+    sunsolMapInstance = L.map("sunsol-leaflet-map", {
+      center: defaultCenter,
+      zoom: defaultZoom,
+      minZoom: 9,
+      maxZoom: 18,
+      scrollWheelZoom: false
+    });
+
+    // CartoDB Voyager tiles (estilo náutico limpio y elegante)
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: "abcd",
+      maxZoom: 19
+    }).addTo(sunsolMapInstance);
+
+    // Marcadores de las 4 propiedades Sunsol
+    Object.keys(SUNSOL_PROPERTIES_MAP).forEach(key => {
+      const prop = SUNSOL_PROPERTIES_MAP[key];
+
+      const customIcon = L.divIcon({
+        className: "sunsol-custom-marker-wrapper",
+        html: `
+          <div class="sunsol-pin-wrapper">
+            <div class="sunsol-pin-pulse"></div>
+            <div class="sunsol-map-pin">
+              <i class="fas ${prop.icon}"></i>
+            </div>
+          </div>
+        `,
+        iconSize: [36, 36],
+        iconAnchor: [18, 18],
+        popupAnchor: [0, -18]
+      });
+
+      const marker = L.marker(prop.coords, { icon: customIcon }).addTo(sunsolMapInstance);
+
+      // Pop-up con estilo de tarjeta Sunsol
+      const popupHtml = `
+        <div class="sunsol-popup-card">
+          <img src="${prop.image}" alt="${prop.name}" class="sunsol-popup-img">
+          <div class="sunsol-popup-body">
+            <h4 class="sunsol-popup-title">${prop.name}</h4>
+            <div class="sunsol-popup-loc"><i class="fas fa-map-marker-alt"></i> ${prop.badge}</div>
+            <div class="sunsol-popup-price">${prop.priceText}</div>
+            <div class="sunsol-popup-actions">
+              <a href="${prop.hotelPageUrl}" class="sunsol-popup-btn" style="background: var(--bg-soft); color: var(--sunsol-blue-dark); border: 1px solid var(--border-color);">
+                <i class="fas fa-info-circle"></i> Ver Hotel
+              </a>
+              <button onclick="openBookingModal('${prop.id}')" class="sunsol-popup-btn" style="background: var(--sunsol-blue); color: #FFFFFF; border: none; cursor: pointer;">
+                <i class="fas fa-calendar-check"></i> Cotizar
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      marker.bindPopup(popupHtml, { maxWidth: 300 });
+
+      marker.on("click", () => {
+        renderPropertyDetailPanel(key);
+        // Actualizar botón activo en las pestañas
+        document.querySelectorAll(".geo-tab-btn").forEach(btn => {
+          btn.classList.toggle("active", btn.getAttribute("onclick")?.includes(key));
+        });
+      });
+
+      sunsolMapMarkers[key] = marker;
+    });
+
+    // Ruta Marítima Náutica: Playa El Yaque -> Isla de Coche (Sunsol Punta Blanca)
+    const elYaqueCoords = [10.9000, -63.9600];
+    const cocheCoords = SUNSOL_PROPERTIES_MAP["punta-blanca"].coords;
+
+    // Marcador de zarpe Playa El Yaque
+    const zarpeIcon = L.divIcon({
+      className: "sunsol-zarpe-marker",
+      html: `
+        <div style="background: #0284C7; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); border: 2px solid white;">
+          <i class="fas fa-anchor" style="font-size: 11px;"></i>
+        </div>
+      `,
+      iconSize: [28, 28],
+      iconAnchor: [14, 14]
+    });
+
+    const zarpeMarker = L.marker(elYaqueCoords, { icon: zarpeIcon }).addTo(sunsolMapInstance);
+    zarpeMarker.bindPopup(`
+      <div style="padding: 0.5rem; font-family: Montserrat, sans-serif; font-size: 0.82rem;">
+        <strong style="color: #0284C7; display: block; margin-bottom: 0.2rem;"><i class="fas fa-anchor"></i> Playa El Yaque (Margarita)</strong>
+        Punto oficial de zarpe en lanchas rápidas hacia <strong>Sunsol Punta Blanca</strong> (Isla de Coche). Tiempo estimado: 20 min.
+      </div>
+    `);
+
+    // Línea punteada de navegación marítima
+    L.polyline([elYaqueCoords, cocheCoords], {
+      color: "#0284C7",
+      weight: 3,
+      dashArray: "6, 8",
+      opacity: 0.85
+    }).addTo(sunsolMapInstance).bindTooltip("Ruta marítima express a Isla de Coche (20 min)", { sticky: true });
+
+    // Renderizar panel inicial
+    renderPropertyDetailPanel("all");
+
+  } catch (err) {
+    console.error("Error inicializando mapa Sunsol Leaflet:", err);
+  }
+}
+window.initSunsolPropertyMap = initSunsolPropertyMap;
+
+/* Control de Enfoque desde los Botones / Pestañas */
+window.focusPropertyMap = function(hotelId, btnElement) {
+  // Asegurarse de que el mapa sea visible si estaba el afiche
+  const mapViewport = document.getElementById("geo-map-viewport");
+  const bannerViewport = document.getElementById("geo-banner-viewport");
+  if (mapViewport && bannerViewport && bannerViewport.style.display !== "none") {
+    bannerViewport.style.display = "none";
+    mapViewport.style.display = "block";
+    if (sunsolMapInstance) sunsolMapInstance.invalidateSize();
+  }
+
+  // Actualizar estado activo de las pestañas
+  if (btnElement) {
+    document.querySelectorAll(".geo-tab-btn").forEach(btn => btn.classList.remove("active"));
+    btnElement.classList.add("active");
+  }
+
+  if (!sunsolMapInstance) return;
+
+  if (hotelId === "all") {
+    // Encuadrar toda Margarita y Coche
+    const bounds = L.latLngBounds([
+      [10.74, -64.10], // Suroeste (Isla de Coche / Cubagua)
+      [11.16, -63.75]  // Noreste (Playa Puerto Cruz / El Tirano)
+    ]);
+    sunsolMapInstance.flyToBounds(bounds, { padding: [40, 40], duration: 1.2 });
+    sunsolMapInstance.closePopup();
+    renderPropertyDetailPanel("all");
+  } else if (SUNSOL_PROPERTIES_MAP[hotelId]) {
+    const prop = SUNSOL_PROPERTIES_MAP[hotelId];
+    sunsolMapInstance.flyTo(prop.coords, prop.zoom, { duration: 1.2 });
+    const marker = sunsolMapMarkers[hotelId];
+    if (marker) {
+      setTimeout(() => marker.openPopup(), 1200);
+    }
+    renderPropertyDetailPanel(hotelId);
+  }
+};
+
+/* Alternar entre Mapa Interactivo y Afiche Publicitario */
+window.toggleMapBannerView = function(btnElement) {
+  const mapViewport = document.getElementById("geo-map-viewport");
+  const bannerViewport = document.getElementById("geo-banner-viewport");
+  if (!mapViewport || !bannerViewport) return;
+
+  const isMapHidden = mapViewport.style.display === "none";
+
+  if (isMapHidden) {
+    // Volver al mapa interactivo
+    bannerViewport.style.display = "none";
+    mapViewport.style.display = "block";
+    if (btnElement) {
+      btnElement.innerHTML = `<i class="fas fa-image"></i> Ver Afiche`;
+      btnElement.classList.remove("active");
+    }
+    if (sunsolMapInstance) {
+      setTimeout(() => sunsolMapInstance.invalidateSize(), 150);
+    }
+  } else {
+    // Mostrar afiche publicitario
+    mapViewport.style.display = "none";
+    bannerViewport.style.display = "block";
+    if (btnElement) {
+      btnElement.innerHTML = `<i class="fas fa-map-marked-alt"></i> Ver Mapa Interactivo`;
+      btnElement.classList.add("active");
+    }
+  }
+};
+
+/* Renderizar Panel de Detalles Dinámicos debajo del Mapa */
+function renderPropertyDetailPanel(hotelId) {
+  const panel = document.getElementById("geo-hotel-detail-panel");
+  if (!panel) return;
+
+  if (hotelId === "all" || !SUNSOL_PROPERTIES_MAP[hotelId]) {
+    panel.innerHTML = `
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: center;">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px;">
+            Red de Destinos
+          </span>
+          <h4 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--sunsol-blue-dark); margin: 0.25rem 0 0.5rem;">
+            4 Destinos en Margarita e Isla de Coche
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+            Selecciona un hotel en los botones superiores o haz click sobre los marcadores del mapa para ver rutas, distancias exactas y tiempos de traslado.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: flex-start;">
+          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 140px;">
+            <i class="fas fa-plane-arrival" style="color: var(--sunsol-blue); font-size: 1.3rem;"></i>
+            <div>
+              <strong style="display: block; font-size: 0.82rem; color: var(--sunsol-blue-dark);">Aeropuerto PMV</strong>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Santiago Mariño</span>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 140px;">
+            <i class="fas fa-ship" style="color: var(--sunsol-wave); font-size: 1.3rem;"></i>
+            <div>
+              <strong style="display: block; font-size: 0.82rem; color: var(--sunsol-blue-dark);">Terminal Ferrys</strong>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Punta de Piedras</span>
+            </div>
+          </div>
+          <div style="background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 140px;">
+            <i class="fas fa-shield-alt" style="color: #00AA6C; font-size: 1.3rem;"></i>
+            <div>
+              <strong style="display: block; font-size: 0.82rem; color: var(--sunsol-blue-dark);">Traslados Seguros</strong>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Asistencia Sunsol</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const p = SUNSOL_PROPERTIES_MAP[hotelId];
+  panel.innerHTML = `
+    <div style="display: grid; grid-template-columns: 280px 1fr; gap: 1.75rem; align-items: center;">
+      <div style="position: relative; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm);">
+        <img src="${p.image}" alt="${p.name}" style="width: 100%; height: 170px; object-fit: cover; display: block;">
+        <span style="position: absolute; top: 10px; left: 10px; background: rgba(21, 42, 80, 0.9); color: #FFFFFF; font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 30px; backdrop-filter: blur(4px);">
+          <i class="fas ${p.icon}"></i> ${p.badge}
+        </span>
+      </div>
+
+      <div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;">
+          <div>
+            <h4 style="font-family: var(--font-serif); font-size: 1.35rem; color: var(--sunsol-blue-dark); margin: 0;">
+              ${p.name}
+            </h4>
+            <span style="font-size: 0.82rem; color: var(--sunsol-wave); font-weight: 600;">
+              <i class="fas fa-map-marker-alt"></i> ${p.location}
+            </span>
+          </div>
+          <span style="font-size: 0.95rem; font-weight: 800; color: var(--sunsol-blue); background: #E8EEF5; padding: 0.35rem 0.75rem; border-radius: 20px;">
+            ${p.priceText}
+          </span>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin: 0.4rem 0 0.85rem;">
+          ${p.description}
+        </p>
+
+        <!-- Distancias Clave -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.6rem; margin-bottom: 1rem; font-size: 0.8rem; color: var(--text-main);">
+          <div style="background: #FFFFFF; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-plane-departure" style="color: var(--sunsol-blue);"></i>
+            <span><strong>Aeropuerto:</strong> ${p.airportDistance}</span>
+          </div>
+          <div style="background: #FFFFFF; padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-ship" style="color: var(--sunsol-wave);"></i>
+            <span><strong>Terminal Ferrys:</strong> ${p.ferryDistance}</span>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+          <a href="${p.hotelPageUrl}" class="btn-clean btn-clean-primary" style="padding: 0.55rem 1.1rem; font-size: 0.82rem;">
+            <i class="fas fa-info-circle"></i> Ficha Completa del Hotel
+          </a>
+          <button onclick="openBookingModal('${p.id}')" class="btn-clean" style="padding: 0.55rem 1.1rem; font-size: 0.82rem; background: var(--sunsol-gold); color: #FFFFFF; border: none; font-weight: 700; cursor: pointer;">
+            <i class="fas fa-calculator"></i> Cotizar Estadía
+          </button>
+          <a href="${p.googleMapsUrl}" target="_blank" rel="noopener noreferrer" class="btn-clean btn-clean-secondary" style="padding: 0.55rem 1.1rem; font-size: 0.82rem;">
+            <i class="fas fa-directions"></i> Abrir en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+window.renderPropertyDetailPanel = renderPropertyDetailPanel;
+

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -13,6 +13,9 @@
   <!-- Tipografías & Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
+  <!-- Leaflet Mapas Interactivos -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <!-- Estilos Oficiales Sunsol -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -261,22 +264,58 @@
         <!-- Renderizado dinámicamente con js/main.js -->
       </div>
 
-      <!-- MAPA DE UBICACIÓN OFICIAL DE LAS PROPIEDADES -->
-      <div style="margin-top: 3.5rem; background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-sm);">
-        <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <!-- MAPA DE UBICACIÓN INTERACTIVO DE LAS PROPIEDADES -->
+      <div class="geo-explorer-card" style="margin-top: 3.5rem; background: #FFFFFF; border-radius: var(--radius-md); border: 1.5px solid var(--border-color); overflow: hidden; box-shadow: var(--shadow-md);">
+        <!-- Top Controls Bar -->
+        <div style="padding: 1.5rem 1.75rem; border-bottom: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; background: #FFFFFF;">
           <div>
-            <span style="font-size: 0.75rem; font-weight: 700; color: var(--sunsol-blue); text-transform: uppercase; letter-spacing: 1px;">Geolocalización Sunsol</span>
-            <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--sunsol-blue-dark); margin-top: 0.2rem;">Conoce la Ubicación de Nuestras Propiedades</h3>
+            <span style="font-size: 0.75rem; font-weight: 800; color: var(--sunsol-blue); text-transform: uppercase; letter-spacing: 1.5px; display: inline-flex; align-items: center; gap: 0.4rem;">
+              <i class="fas fa-map-marked-alt"></i> Geolocalización Interactiva Sunsol
+            </span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--sunsol-blue-dark); margin-top: 0.2rem;">
+              Conoce la Ubicación de Nuestras Propiedades
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0.2rem 0 0;">
+              Explora en el mapa en vivo de Margarita y Coche o selecciona un hotel para ver rutas y distancias.
+            </p>
           </div>
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <a href="isla-caribe.html" class="btn-clean-outline" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Isla Caribe</a>
-            <a href="punta-blanca.html" class="btn-clean-outline" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Punta Blanca Coche</a>
-            <a href="ecoland.html" class="btn-clean-outline" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Ecoland</a>
-            <a href="unik.html" class="btn-clean-outline" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Unik Hotel</a>
+
+          <!-- Selector de Hoteles / Vistas -->
+          <div class="geo-hotel-filter-tabs" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="geo-tab-btn active" onclick="focusPropertyMap('all', this)">
+              <i class="fas fa-globe-americas"></i> Todos
+            </button>
+            <button class="geo-tab-btn" onclick="focusPropertyMap('isla-caribe', this)">
+              <i class="fas fa-umbrella-beach"></i> Isla Caribe
+            </button>
+            <button class="geo-tab-btn" onclick="focusPropertyMap('punta-blanca', this)">
+              <i class="fas fa-ship"></i> Punta Blanca Coche
+            </button>
+            <button class="geo-tab-btn" onclick="focusPropertyMap('ecoland', this)">
+              <i class="fas fa-water"></i> Ecoland
+            </button>
+            <button class="geo-tab-btn" onclick="focusPropertyMap('unik', this)">
+              <i class="fas fa-gem"></i> Unik Hotel
+            </button>
+            <button class="geo-tab-btn geo-btn-banner-toggle" onclick="toggleMapBannerView(this)" title="Ver afiche ilustrado oficial">
+              <i class="fas fa-image"></i> Ver Afiche
+            </button>
           </div>
         </div>
-        <div style="text-align: center; background: #F8FAFC; padding: 1.25rem;">
+
+        <!-- Vista 1: Mapa Interactivo Leaflet -->
+        <div id="geo-map-viewport" style="position: relative; width: 100%; height: 500px; background: #E2E8F0;">
+          <div id="sunsol-leaflet-map" style="width: 100%; height: 100%; z-index: 1;"></div>
+        </div>
+
+        <!-- Vista 2: Afiche Oficial Alternativo (Oculto por defecto) -->
+        <div id="geo-banner-viewport" style="display: none; text-align: center; background: #F8FAFC; padding: 1.25rem;">
           <img src="assets/images/banner-ubicacion-propiedades.png" alt="Ubicación oficial de los hoteles Sunsol en Margarita y Coche" style="width: 100%; max-height: 520px; object-fit: contain; border-radius: var(--radius-sm);">
+        </div>
+
+        <!-- Detalle Dinámico de la Propiedad Seleccionada -->
+        <div id="geo-hotel-detail-panel" style="padding: 1.5rem 1.75rem; background: var(--bg-soft); border-top: 1px solid var(--border-color);">
+          <!-- Renderizado dinámicamente con JavaScript -->
         </div>
       </div>
     </div>
@@ -635,6 +674,7 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/data.js"></script>
   <script src="js/html2pdf.bundle.min.js"></script>
   <script src="js/main.js"></script>

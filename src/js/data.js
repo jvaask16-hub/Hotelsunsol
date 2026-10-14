@@ -393,7 +393,7 @@ const SUNSOL_DATA = {
       category: "playas",
       title: "Embarcación Sunsol Festival Cruise",
       hotel: "Traslado a Coche",
-      url: "assets/images/banner-festival-cruise-coche.png"
+      url: "assets/images/exp-festival-cruise.jpg"
     },
     {
       id: 4,

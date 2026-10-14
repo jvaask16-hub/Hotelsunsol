@@ -661,55 +661,55 @@ window.downloadVoucherPDF = function(event) {
   let inclusionsHTML = '';
   if (hotelId === 'punta-blanca') {
     inclusionsHTML = `
-      <div><i class="fas fa-ship" style="color: #22417C; width: 14px;"></i> <strong>Horario de los zarpes:</strong> Yaque-Coche 14:30 | Coche-Yaque 13:00</div>
-      <div><i class="fas fa-water" style="color: #22417C; width: 14px;"></i> <strong>Traslado marítimo:</strong> Lanchas ida y vuelta incluidas</div>
-      <div><i class="fas fa-utensils" style="color: #22417C; width: 14px;"></i> <strong>Alojamiento:</strong> PLAN TODO INCLUIDO</div>
-      <div><i class="fas fa-clock" style="color: #22417C; width: 14px;"></i> <strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</div>
-      <div><i class="fas fa-hamburger" style="color: #22417C; width: 14px;"></i> <strong>Comidas:</strong> Desayuno, almuerzo, cena buffet y snacks</div>
-      <div><i class="fas fa-cocktail" style="color: #22417C; width: 14px;"></i> <strong>Bar abierto:</strong> Bebidas alcohólicas y no alcohólicas ilimitadas</div>
-      <div><i class="fas fa-swimming-pool" style="color: #22417C; width: 14px;"></i> <strong>Piscina:</strong> 1 piscina con borde infinito</div>
-      <div><i class="fas fa-umbrella-beach" style="color: #22417C; width: 14px;"></i> <strong>Playa La Punta:</strong> Club de playa con toldos y tumbonas</div>
-      <div><i class="fas fa-volleyball-ball" style="color: #22417C; width: 14px;"></i> <strong>Actividades recreativas:</strong> Diarias en piscina y playa</div>
-      <div><i class="fas fa-child" style="color: #22417C; width: 14px;"></i> <strong>Entretenimiento:</strong> Parque infantil & Discoteca</div>
-      <div><i class="fas fa-wifi" style="color: #22417C; width: 14px;"></i> <strong>Conectividad:</strong> Wifi en áreas comunes</div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-ship" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Horario de zarpes:</strong> Yaque-Coche 14:30 | Coche-Yaque 13:00</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-water" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Traslado marítimo:</strong> Lanchas ida y vuelta incluidas</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-utensils" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Alojamiento:</strong> PLAN TODO INCLUIDO</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-clock" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-hamburger" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Comidas:</strong> Desayuno, almuerzo, cena buffet y snacks</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-cocktail" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Bar abierto:</strong> Bebidas alcohólicas y no alcohólicas ilimitadas</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-swimming-pool" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Piscina:</strong> 1 piscina con borde infinito</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-umbrella-beach" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Playa La Punta:</strong> Club de playa con toldos y tumbonas</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-volleyball-ball" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Actividades recreativas:</strong> Diarias en piscina y playa</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-child" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Entretenimiento:</strong> Parque infantil & Discoteca</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-wifi" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Conectividad:</strong> Wifi en áreas comunes</span></div>
     `;
   } else if (hotelId === 'isla-caribe') {
     inclusionsHTML = `
-      <div><i class="fas fa-utensils" style="color: #22417C; width: 14px;"></i> <strong>Alojamiento:</strong> PLAN TODO INCLUIDO</div>
-      <div><i class="fas fa-clock" style="color: #22417C; width: 14px;"></i> <strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</div>
-      <div><i class="fas fa-concierge-bell" style="color: #22417C; width: 14px;"></i> <strong>Comidas:</strong> Tipo buffet (desayuno, almuerzo, cena)</div>
-      <div><i class="fas fa-pizza-slice" style="color: #22417C; width: 14px;"></i> <strong>Snacks:</strong> Meriendas caribeñas continuas</div>
-      <div><i class="fas fa-cocktail" style="color: #22417C; width: 14px;"></i> <strong>Bebidas nacionales:</strong> Ilimitadas con y sin alcohol</div>
-      <div><i class="fas fa-swimming-pool" style="color: #22417C; width: 14px;"></i> <strong>3 Piscinas:</strong> Temáticas con bar mojado</div>
-      <div><i class="fas fa-umbrella-beach" style="color: #22417C; width: 14px;"></i> <strong>Club de Playa:</strong> Privado en Playa El Tirano</div>
-      <div><i class="fas fa-child" style="color: #22417C; width: 14px;"></i> <strong>Familia:</strong> Parque infantil & Discoteca / Teatro</div>
-      <div><i class="fas fa-volleyball-ball" style="color: #22417C; width: 14px;"></i> <strong>Deportes:</strong> Cancha de voleibol de playa & Gimnasio</div>
-      <div><i class="fas fa-wifi" style="color: #22417C; width: 14px;"></i> <strong>Conectividad:</strong> Wifi en áreas comunes</div>
-      <div><i class="fas fa-calendar-check" style="color: #22417C; width: 14px;"></i> <strong>Animación:</strong> Actividades recreativas diarias</div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-utensils" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Alojamiento:</strong> PLAN TODO INCLUIDO</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-clock" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-concierge-bell" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Comidas:</strong> Tipo buffet (desayuno, almuerzo, cena)</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-pizza-slice" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Snacks:</strong> Meriendas caribeñas continuas</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-cocktail" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Bebidas nacionales:</strong> Ilimitadas con y sin alcohol</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-swimming-pool" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>3 Piscinas:</strong> Temáticas con bar mojado</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-umbrella-beach" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Club de Playa:</strong> Privado en Playa El Tirano</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-child" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Familia:</strong> Parque infantil & Discoteca / Teatro</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-volleyball-ball" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Deportes:</strong> Cancha de voleibol & Gimnasio</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-wifi" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Conectividad:</strong> Wifi en áreas comunes</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-calendar-check" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Animación:</strong> Actividades recreativas diarias</span></div>
     `;
   } else if (hotelId === 'ecoland') {
     inclusionsHTML = `
-      <div><i class="fas fa-utensils" style="color: #22417C; width: 14px;"></i> <strong>Alojamiento:</strong> PLAN TODO INCLUIDO</div>
-      <div><i class="fas fa-clock" style="color: #22417C; width: 14px;"></i> <strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</div>
-      <div><i class="fas fa-water" style="color: #22417C; width: 14px;"></i> <strong>Laguna Natural:</strong> Navegable con botes de pedal</div>
-      <div><i class="fas fa-swimming-pool" style="color: #22417C; width: 14px;"></i> <strong>4 Piscinas:</strong> Temáticas familiares y aqua bar</div>
-      <div><i class="fas fa-umbrella-beach" style="color: #22417C; width: 14px;"></i> <strong>Playa Puerto Cruz:</strong> Salida directa y club de playa</div>
-      <div><i class="fas fa-concierge-bell" style="color: #22417C; width: 14px;"></i> <strong>Gastronomía:</strong> Buffet internacional y snacks</div>
-      <div><i class="fas fa-cocktail" style="color: #22417C; width: 14px;"></i> <strong>Bebidas:</strong> Licores y cócteles nacionales ilimitados</div>
-      <div><i class="fas fa-table-tennis" style="color: #22417C; width: 14px;"></i> <strong>Deportes:</strong> Canchas de tenis, golfito y básquet</div>
-      <div><i class="fas fa-hiking" style="color: #22417C; width: 14px;"></i> <strong>Entorno:</strong> Dunas, senderos ecológicos y miradores</div>
-      <div><i class="fas fa-wifi" style="color: #22417C; width: 14px;"></i> <strong>Conectividad:</strong> Wifi en lobby y áreas comunes</div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-utensils" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Alojamiento:</strong> PLAN TODO INCLUIDO</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-clock" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-water" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Laguna Natural:</strong> Navegable con botes de pedal</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-swimming-pool" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>4 Piscinas:</strong> Temáticas familiares y aqua bar</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-umbrella-beach" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Playa Puerto Cruz:</strong> Salida directa y club de playa</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-concierge-bell" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Gastronomía:</strong> Buffet internacional y snacks continuos</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-cocktail" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Bebidas:</strong> Licores y cócteles nacionales ilimitados</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-table-tennis" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Deportes:</strong> Canchas de tenis, golfito y básquet</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-hiking" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Entorno:</strong> Dunas, senderos ecológicos y miradores</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-wifi" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Conectividad:</strong> Wifi en lobby y áreas comunes</span></div>
     `;
   } else {
     inclusionsHTML = `
-      <div><i class="fas fa-concierge-bell" style="color: #22417C; width: 14px;"></i> <strong>Plan Elegido:</strong> Todo Incluido o Desayuno Buffet</div>
-      <div><i class="fas fa-clock" style="color: #22417C; width: 14px;"></i> <strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</div>
-      <div><i class="fas fa-swimming-pool" style="color: #22417C; width: 14px;"></i> <strong>Rooftop Pool:</strong> Piscina infinita con vista a la bahía</div>
-      <div><i class="fas fa-glass-martini-alt" style="color: #22417C; width: 14px;"></i> <strong>Rooftop Lounge:</strong> Coctelería de autor y tapas</div>
-      <div><i class="fas fa-shopping-bag" style="color: #22417C; width: 14px;"></i> <strong>Parque Costazul:</strong> Acceso peatonal directo al mall</div>
-      <div><i class="fas fa-dumbbell" style="color: #22417C; width: 14px;"></i> <strong>Fitness Center:</strong> Gimnasio equipado de última generación</div>
-      <div><i class="fas fa-briefcase" style="color: #22417C; width: 14px;"></i> <strong>Business Center:</strong> Salas de conferencias ejecutivas</div>
-      <div><i class="fas fa-wifi" style="color: #22417C; width: 14px;"></i> <strong>Fibra Óptica:</strong> Internet Wi-Fi de alta velocidad</div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-concierge-bell" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Plan Elegido:</strong> Desayuno Buffet o Todo Incluido</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-clock" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Horarios:</strong> Check-in: 3:00 PM | Check-out: 12:00 PM</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-swimming-pool" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Rooftop Pool:</strong> Piscina infinita con vista a la bahía</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-glass-martini-alt" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Rooftop Lounge:</strong> Coctelería de autor y tapas</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-shopping-bag" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Parque Costazul:</strong> Acceso peatonal directo al mall</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-dumbbell" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Fitness Center:</strong> Gimnasio equipado de última generación</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-briefcase" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Business Center:</strong> Salas de conferencias ejecutivas</span></div>
+      <div style="display: flex; align-items: baseline; gap: 7px;"><i class="fas fa-wifi" style="color: #22417C; width: 13px; text-align: center; font-size: 10px;"></i> <span><strong>Fibra Óptica:</strong> Internet Wi-Fi de alta velocidad</span></div>
     `;
   }
 
@@ -789,7 +789,7 @@ window.downloadVoucherPDF = function(event) {
       filename:     `Voucher-Cotizacion-Sunsol-${hotelId}-${quoteCode}.pdf`,
       image:        { type: 'jpeg', quality: 0.98 },
       html2canvas:  { scale: 2, useCORS: true, logging: false },
-      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
     };
 
     window.html2pdf().set(opt).from(elementToPrint).save().then(() => {
@@ -807,132 +807,140 @@ window.downloadVoucherPDF = function(event) {
 
 function generateVoucherDocumentHTML(data) {
   return `
-    <div style="width: 780px; box-sizing: border-box; background: #FFFFFF; font-family: 'Montserrat', Arial, sans-serif; color: #1E293B; padding: 24px; position: relative; border: 1px solid #E2E8F0;">
+    <div style="width: 800px; height: 1040px; min-height: 1040px; max-height: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0F172A; padding: 22px 26px; position: relative; border: 1px solid #CBD5E1; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+      
       <!-- TOP LUXURY BRAND BAR -->
-      <div style="height: 6px; background: linear-gradient(90deg, #152A50 0%, #22417C 45%, #4A7EC2 75%, #D4AF37 100%); margin: -24px -24px 18px -24px;"></div>
+      <div style="height: 5px; background: linear-gradient(90deg, #152A50 0%, #22417C 35%, #0284C7 70%, #D97706 100%); margin: -22px -26px 0 -26px;"></div>
 
       <!-- HEADER BRAND & VOUCHER TITLE -->
-      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 14px; margin-bottom: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px;">
         <div style="display: flex; align-items: center; gap: 14px;">
           <img src="assets/images/logo-sunsol-clean.png" alt="Sunsol Hoteles" style="height: 48px; width: auto; object-fit: contain;">
           <div>
-            <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; color: #22417C; text-transform: uppercase;">Cadena Hotelera Oficial &bull; Venezuela</div>
-            <div style="font-size: 11px; color: #64748B;">Isla de Margarita &bull; Isla de Coche</div>
+            <div style="font-size: 10.5px; font-weight: 800; letter-spacing: 1.5px; color: #152A50; text-transform: uppercase;">SUNSOL HOTELES &bull; CADENA HOTELERA OFICIAL</div>
+            <div style="font-size: 11px; color: #64748B; font-weight: 500; margin-top: 2px;">Isla de Margarita &bull; Isla de Coche &bull; Venezuela</div>
           </div>
         </div>
         <div style="text-align: right;">
-          <span style="background: #152A50; color: #FFFFFF; font-size: 10px; font-weight: 800; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.5px; display: inline-block;">
-            DOCUMENTO DE VIAJE / VOUCHER DE COTIZACIÓN
+          <span style="background: #152A50; color: #FFFFFF; font-size: 9.5px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; display: inline-block;">
+            DOCUMENTO OFICIAL DE VIAJE
           </span>
-          <div style="font-size: 16px; font-weight: 800; color: #22417C; margin-top: 3px;">
+          <div style="font-size: 18px; font-weight: 800; color: #152A50; margin-top: 3px; letter-spacing: -0.3px;">
             Cotización #${data.code}
           </div>
-          <div style="font-size: 10px; color: #64748B;">
-            Fecha de Emisión: <strong>${data.fechaEmision}</strong>
+          <div style="font-size: 10.5px; color: #64748B; margin-top: 1px;">
+            Emisión: <strong>${data.fechaEmision}</strong> &bull; Válido por 72 Horas
           </div>
         </div>
       </div>
 
       <!-- GUEST & ADVISOR BAR -->
-      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 11px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
         <div>
-          <span style="font-size: 9px; font-weight: 700; color: #64748B; text-transform: uppercase; display: block;">Estimado(a)</span>
-          <strong style="color: #152A50; font-size: 13px;">${data.guestName}</strong>
-          <div style="font-size: 10.5px; color: #64748B; margin-top: 2px;">
-            Gracias por elegir <strong>SUNSOL HOTELES</strong>. Esta propuesta corresponde a su solicitud.
+          <span style="font-size: 9px; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.6px; display: block;">Huésped Titular</span>
+          <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 2px;">
+            <strong style="color: #0F172A; font-size: 13.5px; font-weight: 800;">${data.guestName}</strong>
+            <span style="font-size: 10.5px; color: #64748B;">${data.guestPhone}</span>
           </div>
         </div>
+        <div style="text-align: center; border-left: 1px solid #E2E8F0; border-right: 1px solid #E2E8F0; padding: 0 16px;">
+          <span style="font-size: 9px; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.6px; display: block;">Asesor Oficial Sunsol</span>
+          <strong style="color: #1E40AF; font-size: 12.5px; font-weight: 700; display: block; margin-top: 2px;">${data.advisorName}</strong>
+          <span style="font-size: 10px; color: #64748B;">${data.advisorPhone}</span>
+        </div>
         <div style="text-align: right;">
-          <span style="font-size: 9px; font-weight: 700; color: #64748B; text-transform: uppercase; display: block;">Asesor Oficial Asignado</span>
-          <strong style="color: #22417C; font-size: 12px;">${data.advisorName}</strong>
-          <div style="font-size: 10px; color: #00875A; font-weight: 700; margin-top: 2px;">
-            <i class="fas fa-clock"></i> Vigencia Garantizada: 72 Horas
+          <div style="background: #ECFDF5; border: 1px solid #A7F3D0; color: #047857; font-size: 10px; font-weight: 800; padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px;">
+            <i class="fas fa-shield-alt" style="color: #10B981;"></i> Tarifa Congelada (72h)
+          </div>
+          <div style="font-size: 9.5px; color: #059669; font-weight: 700; margin-top: 3px;">
+            Vigente hasta: ${data.fechaLimite}
           </div>
         </div>
       </div>
 
       <!-- HOTEL SHOWCASE ROW -->
-      <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 6px; padding: 14px; margin-bottom: 16px;">
+      <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 13px 16px; align-items: center;">
         <div>
-          <div style="display: inline-block; background: #22417C; color: #FFFFFF; font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; margin-bottom: 4px;">
-            ${data.hotelRegion}
+          <div style="display: inline-block; background: #EFF6FF; color: #1D4ED8; font-size: 9.5px; font-weight: 800; padding: 3px 9px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px;">
+            ${data.hotelRegion} &bull; PLAN TODO INCLUIDO
           </div>
-          <h2 style="font-size: 19px; font-weight: 800; color: #152A50; margin: 0 0 4px 0; font-family: 'Playfair Display', Georgia, serif;">
+          <h2 style="font-size: 20px; font-weight: 800; color: #0F224A; margin: 0 0 3px 0; letter-spacing: -0.3px;">
             ${data.hotelName}
           </h2>
-          <div style="font-size: 11px; color: #4A7EC2; font-weight: 700; margin-bottom: 8px;">
-            <i class="fas fa-map-marker-alt"></i> ${data.hotelLocation} &bull; PLAN TODO INCLUIDO
+          <div style="font-size: 11px; color: #0284C7; font-weight: 600; margin-bottom: 6px;">
+            <i class="fas fa-map-marker-alt"></i> ${data.hotelLocation} &bull; Acceso y Servicios Exclusivos
           </div>
           <p style="font-size: 10.5px; color: #475569; line-height: 1.45; margin: 0;">
             ${data.hotelDescription}
           </p>
         </div>
 
-        <div style="position: relative; border-radius: 6px; overflow: hidden; border: 2px solid #D4AF37; height: 130px;">
+        <div style="position: relative; border-radius: 8px; overflow: hidden; border: 1.5px solid #CBD5E1; height: 135px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
           <img src="${data.hotelImage}" alt="${data.hotelName}" style="width: 100%; height: 100%; object-fit: cover;">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(21,42,80,0.9)); padding: 4px 8px; color: #FFFFFF; font-size: 9.5px; font-weight: 700;">
-            <i class="fas fa-shield-alt" style="color: #34D399;"></i> Tarifa Oficial Garantizada
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(15,23,42,0.88)); padding: 6px 10px; color: #FFFFFF; font-size: 9.5px; font-weight: 700; display: flex; justify-content: space-between; align-items: center;">
+            <span><i class="fas fa-check-circle" style="color: #34D399; margin-right: 4px;"></i> Instalaciones Oficiales</span>
+            <span style="color: #FBBF24; letter-spacing: 1px;">★★★★★</span>
           </div>
         </div>
       </div>
 
       <!-- LA TARIFA INCLUYE (2 COLUMNS CHECKLIST) -->
-      <div style="border: 1px solid #E2E8F0; border-radius: 6px; overflow: hidden; margin-bottom: 16px;">
-        <div style="background: #152A50; color: #FFFFFF; padding: 6px 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center;">
-          <span><i class="fas fa-concierge-bell" style="color: #D4AF37; margin-right: 6px;"></i> LA TARIFA INCLUYE</span>
-          <span style="font-size: 9.5px; color: #93C5FD; font-weight: 600;">Plan Todo Incluido Sunsol</span>
+      <div style="border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;">
+        <div style="background: #152A50; color: #FFFFFF; padding: 7px 14px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center;">
+          <span><i class="fas fa-concierge-bell" style="color: #FBBF24; margin-right: 6px;"></i> LA TARIFA INCLUYE &bull; SERVICIOS & BENEFICIOS</span>
+          <span style="background: rgba(255,255,255,0.18); color: #E0F2FE; font-size: 9px; font-weight: 700; padding: 2px 9px; border-radius: 12px;">TODO INCLUIDO ILIMITADO</span>
         </div>
-        <div style="padding: 10px 12px; background: #FAFCFE;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; font-size: 10px; line-height: 1.4; color: #334155;">
+        <div style="padding: 10px 14px; background: #FAFCFE;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px 18px; font-size: 10px; line-height: 1.42; color: #334155;">
             ${data.inclusionsHTML}
           </div>
         </div>
       </div>
 
       <!-- DETALLE DE HABITACIÓN & LIQUIDACIÓN -->
-      <div style="border: 1px solid #E2E8F0; border-radius: 6px; overflow: hidden; margin-bottom: 14px;">
+      <div style="border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;">
         <table style="width: 100%; border-collapse: collapse; font-size: 11px; text-align: left;">
           <thead>
-            <tr style="background: #F1F5F9; color: #1E293B; font-weight: 800; font-size: 10px; text-transform: uppercase; border-bottom: 1.5px solid #CBD5E1;">
-              <th style="padding: 7px 12px;">Hotel & Habitación</th>
-              <th style="padding: 7px 12px;">Fechas / Horarios</th>
-              <th style="padding: 7px 12px; text-align: center;">Huéspedes & Noches</th>
-              <th style="padding: 7px 12px; text-align: right;">Total</th>
+            <tr style="background: #F1F5F9; color: #334155; font-weight: 800; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1.5px solid #CBD5E1;">
+              <th style="padding: 8px 14px;">Habitación & Régimen</th>
+              <th style="padding: 8px 14px;">Fechas / Horarios</th>
+              <th style="padding: 8px 14px; text-align: center;">Huéspedes & Noches</th>
+              <th style="padding: 8px 14px; text-align: right;">Total USD</th>
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom: 1px solid #F1F5F9;">
-              <td style="padding: 9px 12px;">
-                <strong style="color: #152A50; display: block; font-size: 11.5px;">${data.hotelName}</strong>
-                <span style="color: #64748B;">${data.roomName} &bull; $${data.pricePerPerson} USD/pers./noche</span>
+              <td style="padding: 9px 14px;">
+                <strong style="color: #0F224A; display: block; font-size: 12px; font-weight: 800;">${data.hotelName}</strong>
+                <span style="color: #64748B; font-size: 10.5px;">${data.roomName} &bull; $${data.pricePerPerson} USD/pers./noche</span>
               </td>
-              <td style="padding: 9px 12px;">
-                <div><strong>In:</strong> ${data.checkin} (3:00 PM)</div>
-                <div><strong>Out:</strong> ${data.checkout} (12:00 PM)</div>
+              <td style="padding: 9px 14px;">
+                <div style="font-size: 10.5px;"><strong>In:</strong> ${data.checkin} (3:00 PM)</div>
+                <div style="font-size: 10.5px;"><strong>Out:</strong> ${data.checkout} (12:00 PM)</div>
               </td>
-              <td style="padding: 9px 12px; text-align: center;">
-                <strong>${data.diffDays} Noche(s)</strong><br>
-                <span style="color: #64748B;">${data.adults} Adulto(s)${data.children > 0 ? ` + ${data.children} Niño(s)` : ''}</span>
+              <td style="padding: 9px 14px; text-align: center;">
+                <strong style="font-size: 11.5px; color: #0F172A;">${data.diffDays} Noche(s)</strong><br>
+                <span style="color: #64748B; font-size: 10px;">${data.adults} Adulto(s)${data.children > 0 ? ` + ${data.children} Niño(s)` : ''}</span>
               </td>
-              <td style="padding: 9px 12px; text-align: right; font-weight: 800; font-size: 12.5px; color: #152A50;">
+              <td style="padding: 9px 14px; text-align: right; font-weight: 800; font-size: 13px; color: #0F224A;">
                 $${data.subtotalRoom.toFixed(2)} USD
               </td>
             </tr>
             ${data.suplemento > 0 ? `
             <tr style="border-bottom: 1px solid #F1F5F9; background: #FFFBEB;">
-              <td style="padding: 7px 12px; color: #B45309;" colspan="3">
+              <td style="padding: 7px 14px; color: #B45309;" colspan="3">
                 <strong><i class="fas fa-info-circle"></i> Suplemento 1 Noche Coche:</strong> Cargo operacional estadía de 1 sola noche
               </td>
-              <td style="padding: 7px 12px; text-align: right; font-weight: 700; color: #B45309;">
+              <td style="padding: 7px 14px; text-align: right; font-weight: 800; color: #B45309;">
                 +$${data.suplemento.toFixed(2)} USD
               </td>
             </tr>` : ''}
             ${data.addOns > 0 ? `
             <tr style="border-bottom: 1px solid #F1F5F9; background: #F8FAFC;">
-              <td style="padding: 7px 12px; color: #334155;" colspan="3">
+              <td style="padding: 7px 14px; color: #334155;" colspan="3">
                 <strong>Servicios Adicionales:</strong> ${data.addOnsText}
               </td>
-              <td style="padding: 7px 12px; text-align: right; font-weight: 700; color: #334155;">
+              <td style="padding: 7px 14px; text-align: right; font-weight: 800; color: #334155;">
                 +$${data.addOns.toFixed(2)} USD
               </td>
             </tr>` : ''}
@@ -941,54 +949,55 @@ function generateVoucherDocumentHTML(data) {
       </div>
 
       <!-- TOTAL A PAGAR & PLAN EN CUOTAS 40% -->
-      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 12px; margin-bottom: 14px;">
-        <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 6px; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between;">
+      <div style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 14px;">
+        <div style="background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 8px; padding: 11px 16px; display: flex; flex-direction: column; justify-content: space-between;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed #CBD5E1; padding-bottom: 4px;">
-            <span style="font-size: 10.5px; color: #64748B; font-weight: 600;">Sub-total:</span>
+            <span style="font-size: 10px; color: #64748B; font-weight: 600;">Subtotal de la Estadía:</span>
             <strong style="font-size: 11px; color: #1E293B;">$${data.total.toFixed(2)} USD</strong>
           </div>
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 4px;">
-            <span style="font-size: 11.5px; color: #152A50; font-weight: 800; text-transform: uppercase;">TOTAL A PAGAR:</span>
-            <strong style="font-size: 19px; color: #22417C; font-weight: 800;">$${data.total.toFixed(2)} USD</strong>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 5px;">
+            <span style="font-size: 11px; color: #0F224A; font-weight: 800; text-transform: uppercase;">TOTAL GENERAL:</span>
+            <strong style="font-size: 21px; color: #152A50; font-weight: 800; letter-spacing: -0.5px;">$${data.total.toFixed(2)} USD</strong>
           </div>
         </div>
 
-        <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 8px; padding: 11px 16px; display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <span style="font-size: 9px; font-weight: 800; color: #15803D; text-transform: uppercase; letter-spacing: 0.5px; display: block;">Para Reservar Hoy (40% Inicial)</span>
-            <div style="font-size: 18px; font-weight: 800; color: #16A34A; line-height: 1.1;">
+            <span style="font-size: 9px; font-weight: 800; color: #15803D; text-transform: uppercase; letter-spacing: 0.6px; display: block;">INICIAL PARA RESERVAR (40%)</span>
+            <div style="font-size: 21px; font-weight: 800; color: #16A34A; line-height: 1.1; letter-spacing: -0.5px;">
               $${data.anticipo40.toFixed(2)} USD
             </div>
+            <span style="font-size: 9.5px; font-weight: 700; color: #15803D;">Congela tu tarifa hoy mismo</span>
           </div>
-          <div style="text-align: right; max-width: 190px;">
-            <div style="font-size: 9.5px; color: #166534; font-weight: 700;">Saldo en Cuotas Flexibles</div>
-            <div style="font-size: 9px; color: #15803D; line-height: 1.3; margin-top: 2px;">
-              Cancela el saldo restante hasta <strong>5 días antes</strong> de tu viaje.
+          <div style="text-align: right; max-width: 185px;">
+            <div style="font-size: 10px; color: #166534; font-weight: 800;">SALDO 60%: $${data.saldo60.toFixed(2)} USD</div>
+            <div style="font-size: 9.5px; color: #15803D; line-height: 1.35; margin-top: 2px;">
+              Cancela en cuotas sin intereses hasta <strong>5 días antes</strong> de tu llegada.
             </div>
           </div>
         </div>
       </div>
 
       <!-- CLAUSULA DE VIGENCIA 72 HORAS -->
-      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-left: 4px solid #22417C; border-radius: 6px; padding: 8px 12px; margin-bottom: 14px; font-size: 9.5px; line-height: 1.4; color: #1E3A8A;">
-        <strong><i class="fas fa-shield-alt"></i> Vigencia Garantizada de 72 Horas:</strong> Con el fin de brindarle total tranquilidad en la planificación de su viaje, esta propuesta cuenta con una vigencia garantizada de 72 horas a partir de su emisión. Durante este lapso, el sistema mantendrá congelada tanto la tarifa promocional como la disponibilidad de las habitaciones seleccionadas.
-        <div style="margin-top: 3px; font-size: 9.5px; font-weight: 700; color: #1D4ED8;">
-          Límite de pago para congelar tarifa: ${data.fechaLimite}
-        </div>
+      <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-left: 4px solid #1D4ED8; border-radius: 8px; padding: 9px 14px; font-size: 10px; line-height: 1.45; color: #1E3A8A;">
+        <strong><i class="fas fa-shield-alt" style="color: #1D4ED8; margin-right: 5px;"></i> Garantía de Tarifa Congelada por 72 Horas:</strong> Con el fin de brindarle total tranquilidad en la planificación de su viaje, esta propuesta cuenta con una vigencia garantizada de 72 horas a partir de su emisión. Durante este lapso, el sistema mantendrá congelada tanto la tarifa como la disponibilidad. Para validar, abone el 40% antes del <strong>${data.fechaLimite}</strong>.
       </div>
 
       <!-- FOOTER & OFFICIAL ADVISOR CONTACT -->
-      <div style="border-top: 1.5px solid #E2E8F0; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: #64748B;">
+      <div style="border-top: 1.5px solid #E2E8F0; padding-top: 9px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #475569;">
         <div>
-          <div style="color: #1E293B; font-weight: 700;">
-            <i class="fas fa-envelope" style="color: #22417C;"></i> Contacto asesor: <strong>${data.advisorEmail}</strong> &bull; <i class="fab fa-whatsapp" style="color: #16A34A;"></i> Teléfono: <strong>${data.advisorPhone}</strong>
+          <div style="color: #0F172A; font-weight: 700;">
+            <i class="fab fa-whatsapp" style="color: #16A34A; margin-right: 3px;"></i> WhatsApp: <strong>${data.advisorPhone}</strong> &bull; <i class="fas fa-envelope" style="color: #22417C; margin-left: 6px; margin-right: 3px;"></i> Email: <strong>${data.advisorEmail}</strong>
           </div>
-          <div style="color: #94A3B8; margin-top: 2px;">
+          <div style="color: #64748B; font-size: 9.5px; margin-top: 2px;">
             <strong>Ubicación:</strong> ${data.hotelAddress}
           </div>
         </div>
-        <div style="text-align: right; font-style: italic; color: #22417C; font-weight: 600; font-size: 10px;">
-          "Gracias por elegir a Sunsol Hoteles para crear sus próximos recuerdos."
+        <div style="text-align: right;">
+          <span style="background: #E2E8F0; color: #334155; font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.5px;">DOCUMENTO OFICIAL VALIDADOR</span>
+          <div style="font-style: italic; color: #152A50; font-weight: 600; font-size: 9.5px; margin-top: 2px;">
+            "Creando momentos inolvidables en Venezuela"
+          </div>
         </div>
       </div>
     </div>
@@ -1008,10 +1017,10 @@ function printVoucherFallback(htmlContent) {
       <head>
         <title>Voucher Oficial de Cotización - Sunsol Hoteles</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <style>
-          @page { size: A4 portrait; margin: 6mm; }
-          body { margin: 0; padding: 0; background: #FFFFFF; font-family: 'Montserrat', Arial, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+          @page { size: letter portrait; margin: 6mm; }
+          body { margin: 0; padding: 0; background: #FFFFFF; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         </style>
       </head>
       <body>

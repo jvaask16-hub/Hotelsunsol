@@ -364,14 +364,14 @@ window.openBookingModal = function(preselectedHotelId = '') {
       <!-- SERVICIOS ADICIONALES (VOUCHER Y POLÍTICAS) -->
       <div style="background: #FAFCFE; border: 1px dashed var(--border-color); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-size: 0.82rem;">
         <span style="font-weight: 700; color: var(--sunsol-blue-dark); text-transform: uppercase; font-size: 0.75rem; display: block; margin-bottom: 0.4rem;">
-          <i class="fas fa-plus-circle" style="color: var(--sunsol-blue);"></i> Servicios Opcionales ($25/persona)
+          <i class="fas fa-plus-circle" style="color: var(--sunsol-blue);"></i> Servicios Opcionales ($25 Adulto / $15 Niño &bull; Infantes Gratis)
         </span>
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
           <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-main);">
-            <input type="checkbox" id="add-early" onchange="calculateQuote()"> Early Check-in ($25 USD c/u)
+            <input type="checkbox" id="add-early" onchange="calculateQuote()"> Early Check-in ($25 Ad. / $15 Niño)
           </label>
           <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-main);">
-            <input type="checkbox" id="add-late" onchange="calculateQuote()"> Late Check-out ($25 USD c/u)
+            <input type="checkbox" id="add-late" onchange="calculateQuote()"> Late Check-out ($25 Ad. / $15 Niño)
           </label>
         </div>
         <div id="coche-zarpe-note" style="display: none; margin-top: 0.5rem; color: var(--sunsol-blue); font-size: 0.78rem;">
@@ -495,12 +495,12 @@ window.calculateQuote = function() {
     zarpeNote.style.display = hotelId === "punta-blanca" ? "block" : "none";
   }
 
-  // Servicios Adicionales (Early/Late check-out: $25 USD por persona)
+  // Servicios Adicionales (Early/Late check-out: $25 USD Adulto, $15 USD Niño de 4 a 10 años, Infantes gratis)
   const addEarly = document.getElementById("add-early")?.checked;
   const addLate = document.getElementById("add-late")?.checked;
   let addOns = 0;
-  if (addEarly) addOns += 25 * (adults + children);
-  if (addLate) addOns += 25 * (adults + children);
+  if (addEarly) addOns += (25 * adults) + (15 * children);
+  if (addLate) addOns += (25 * adults) + (15 * children);
 
   const total = subtotal + suplemento + addOns;
   const anticipo40 = Math.round(total * 0.40);
@@ -533,6 +533,21 @@ window.handleReservationSubmit = function(e) {
   const d2 = new Date(checkout);
   const diffDays = Math.max(1, Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24)));
 
+  // Servicios Adicionales en el mensaje
+  const addEarly = document.getElementById("add-early")?.checked;
+  const addLate = document.getElementById("add-late")?.checked;
+  let addOnsMsg = '';
+  const numAdults = parseInt(adults) || 2;
+  const numChildren = parseInt(children) || 0;
+  if (addEarly) {
+    const earlyCost = (25 * numAdults) + (15 * numChildren);
+    addOnsMsg += `➕ *Early Check-in:* $${earlyCost} USD ($25 Ad. / $15 Niño)%0A`;
+  }
+  if (addLate) {
+    const lateCost = (25 * numAdults) + (15 * numChildren);
+    addOnsMsg += `➕ *Late Check-out:* $${lateCost} USD ($25 Ad. / $15 Niño)%0A`;
+  }
+
   // Guardar en Supabase si está disponible
   if (supabaseClient) {
     supabaseClient.from('reservas').insert([{
@@ -561,6 +576,7 @@ window.handleReservationSubmit = function(e) {
               `👥 *Huéspedes:* ${adults} Adulto(s) | ${children} Niño(s) (4-10) | ${infants} Infante(s)%0A` +
               `💵 *Tarifa:* $${pricePerPerson} USD por persona / por noche%0A` +
               (hotelId === 'punta-blanca' && diffDays === 1 ? `➕ *Suplemento 1 noche:* $50.00 USD%0A` : ``) +
+              addOnsMsg +
               `💰 *TOTAL A PAGAR:* ${total}%0A` +
               `💳 *Reserva con el 40%:* ${downpayment}%0A` +
               `🗓️ *Saldo:* En cuotas (100% cancelado 5 días antes de la llegada)%0A` +
@@ -617,14 +633,20 @@ window.downloadVoucherPDF = function(event) {
   let addOns = 0;
   let addOnsArr = [];
   if (addEarly) {
-    const earlyCost = 25 * (adults + children);
+    const earlyCost = (25 * adults) + (15 * children);
     addOns += earlyCost;
-    addOnsArr.push(`Early Check-in ($${earlyCost} USD)`);
+    const desc = children > 0 
+      ? `Early Check-in ($${earlyCost} USD - ${adults} ad. x $25 + ${children} niñ. x $15)` 
+      : `Early Check-in ($${earlyCost} USD - ${adults} ad. x $25)`;
+    addOnsArr.push(desc);
   }
   if (addLate) {
-    const lateCost = 25 * (adults + children);
+    const lateCost = (25 * adults) + (15 * children);
     addOns += lateCost;
-    addOnsArr.push(`Late Check-out ($${lateCost} USD)`);
+    const desc = children > 0 
+      ? `Late Check-out ($${lateCost} USD - ${adults} ad. x $25 + ${children} niñ. x $15)` 
+      : `Late Check-out ($${lateCost} USD - ${adults} ad. x $25)`;
+    addOnsArr.push(desc);
   }
 
   const total = subtotalRoom + suplemento + addOns;
@@ -1062,7 +1084,7 @@ window.openHotelDetails = function(hotelId) {
         <ul style="margin: 0; padding-left: 1.2rem; color: var(--text-muted); line-height: 1.6;">
           <li><strong>Reserva con el 40%</strong> de la cotización y el saldo restante en cuotas.</li>
           <li>El 100% de la estadía debe estar cancelado <strong>5 días antes de la llegada</strong>.</li>
-          <li>Early Check-in y Late Check-out disponibles por <strong>$25 USD por persona</strong>.</li>
+          <li>Early Check-in y Late Check-out disponibles por <strong>$25 USD Adultos / $15 USD Niños</strong> (Infantes gratis).</li>
           <li><strong>Vigencia garantizada de 72 horas</strong> para congelar tarifa y disponibilidad.</li>
         </ul>
       </div>

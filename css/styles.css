@@ -1208,7 +1208,7 @@ button {
 .modal-dialog {
   background: #FFFFFF;
   width: 100%;
-  max-width: 720px;
+  max-width: 740px;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-float);
@@ -1236,8 +1236,107 @@ button {
 }
 
 .modal-body {
-  padding: 2rem;
+  padding: 1.75rem;
   overflow-y: auto;
+}
+
+/* Acciones armonizadas del Modal de Cotización */
+.modal-footer-harmonized {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.modal-footer-harmonized .modal-actions-right {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.modal-footer-harmonized .btn-modal-close {
+  padding: 0.65rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748B;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.modal-footer-harmonized .btn-modal-close:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+  border-color: #94A3B8;
+}
+
+.modal-footer-harmonized .btn-modal-pdf {
+  background: #FFFFFF;
+  border: 1.5px solid var(--sunsol-blue);
+  color: var(--sunsol-blue);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.modal-footer-harmonized .btn-modal-pdf:hover {
+  background: var(--sunsol-wave-light);
+  border-color: var(--sunsol-blue-light);
+}
+
+.modal-footer-harmonized .btn-modal-submit {
+  background: var(--sunsol-blue);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(34, 65, 124, 0.22);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.modal-footer-harmonized .btn-modal-submit:hover {
+  background: var(--sunsol-blue-dark);
+  box-shadow: 0 6px 16px rgba(34, 65, 124, 0.3);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 660px) {
+  .modal-footer-harmonized {
+    flex-direction: column-reverse;
+    gap: 0.6rem;
+  }
+  .modal-footer-harmonized .modal-actions-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+  }
+  .modal-footer-harmonized button,
+  .modal-footer-harmonized .modal-actions-right button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
 }
 
 /* ==========================================================

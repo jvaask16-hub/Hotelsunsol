@@ -41,7 +41,7 @@ const SUNSOL_DATA = {
       title: "Sunsol Punta Blanca en Isla de Coche",
       subtitle: "Traslado Marítimo en Lanchas Yaque-Coche Incluido | Alimentos Buffet | Bebidas Ilimitadas | Piscina Borde Infinito",
       discountBadge: "RESERVA CON 40% & PAGA EN CUOTAS",
-      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=85",
+      image: "assets/images/punta-blanca-hero.jpg",
       hotelId: "punta-blanca"
     },
     {
@@ -50,7 +50,7 @@ const SUNSOL_DATA = {
       title: "Disfruta un Día Diferente en el Paraíso",
       subtitle: "Pasadía Todo Incluido en Isla de Coche o Margarita: Piscinas, playa privada, almuerzo buffet, snacks y bebidas ilimitadas",
       discountBadge: "DAY PASS DISPONIBLE TODOS LOS DÍAS",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=85",
+      image: "assets/images/banner-coche-express.png",
       hotelId: "punta-blanca"
     },
     {
@@ -59,7 +59,7 @@ const SUNSOL_DATA = {
       title: "Sunsol Ecoland & Playa Puerto Cruz",
       subtitle: "El resort más completo de Margarita: Laguna natural con botes, 4 piscinas temáticas y acceso a las mejores aguas del Caribe",
       discountBadge: "TARIFA ESPECIAL TODO INCLUIDO",
-      image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1920&q=85",
+      image: "assets/images/ecoland-hero.jpg",
       hotelId: "ecoland"
     },
     {
@@ -68,7 +68,7 @@ const SUNSOL_DATA = {
       title: "Sunsol Isla Caribe en Playa El Tirano",
       subtitle: "Check-in 3:00 PM | Comidas Buffet & Snacks | 3 Piscinas | Bebidas Nacionales Ilimitadas | Club de Playa y Animación",
       discountBadge: "DESDE $90 USD POR PERSONA / NOCHE",
-      image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=85",
+      image: "assets/images/isla-caribe-hero.jpg",
       hotelId: "isla-caribe"
     },
     {
@@ -77,7 +77,7 @@ const SUNSOL_DATA = {
       title: "Reserva con el 40% de la Cotización",
       subtitle: "Asegura tus fechas congelando tarifa por 72h y paga el resto en cómodas cuotas hasta 5 días antes de tu viaje",
       discountBadge: "RESERVA CON EL 40%",
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=85",
+      image: "assets/images/banner-pago-cuotas.png",
       hotelId: "all"
     }
   ],
@@ -97,17 +97,16 @@ const SUNSOL_DATA = {
       reviewsCount: 1650,
       checkinTime: "3:00 PM",
       checkoutTime: "12:00 PM",
-      imageMain: "assets/images/hotel-isla-caribe-real.png",
-      imageAerial: "assets/images/hotel-isla-caribe-real.png",
+      imageMain: "assets/images/isla-caribe-main.jpg",
+      imageAerial: "assets/images/isla-caribe-hero.jpg",
       gallery: [
-        "assets/images/hotel-isla-caribe-real.png",
-        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80"
+        "assets/images/isla-caribe-main.jpg",
+        "assets/images/isla-caribe-pool.jpg",
+        "assets/images/isla-caribe-beach.jpg",
+        "assets/images/isla-caribe-restaurant.jpg",
+        "assets/images/isla-caribe-room-real.jpg"
       ],
       description: "Ubicado frente a las costas de Playa El Tirano en la Isla de Margarita. Disfruta de un auténtico resort Todo Incluido con 3 piscinas, club de playa privado, variada gastronomía buffet, teatro nocturno y actividades para toda la familia.",
-      // Inclusiones exactas del Voucher Oficial #55314
       tarifaIncluye: [
         "Alojamiento con PLAN TODO INCLUIDO",
         "Check-in: 3:00 PM | Check-out: 12:00 PM",
@@ -132,9 +131,9 @@ const SUNSOL_DATA = {
         "Discoteca, teatro y entretenimiento diario"
       ],
       rooms: [
-        { name: "Habitación Estándar", capacity: "2 Adultos", price: 90 },
-        { name: "Habitación Vista al Mar", capacity: "2 Adultos + 2 Niños", price: 110 },
-        { name: "Suite Familiar Caribe", capacity: "4 Adultos", price: 160 }
+        { name: "Habitación Doble Área Real", capacity: "2 Adultos", price: 90, image: "assets/images/isla-caribe-room-real.jpg" },
+        { name: "Cabaña Rústica Área Tropical", capacity: "2 Adultos + 2 Niños", price: 110, image: "assets/images/isla-caribe-room-tropical.jpg" },
+        { name: "Senior Suite Área Tropical", capacity: "4 Adultos", price: 160, image: "assets/images/isla-caribe-room-suite.jpg" }
       ],
       emailEventos: "eventos.islacaribe@sunsolhoteles.com",
       mapUrl: "https://maps.google.com/maps?q=Sunsol+Isla+Caribe+Margarita&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -157,17 +156,16 @@ const SUNSOL_DATA = {
         ida: "Yaque — Coche: 14:30 (2:30 PM)",
         retorno: "Coche — Yaque: 13:00 (1:00 PM - coordinar con recepción)"
       },
-      imageMain: "assets/images/hotel-punta-blanca-real.png",
-      imageAerial: "assets/images/hotel-punta-blanca-real.png",
+      imageMain: "assets/images/punta-blanca-main.jpg",
+      imageAerial: "assets/images/punta-blanca-hero.jpg",
       gallery: [
-        "assets/images/hotel-punta-blanca-real.png",
-        "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1000&q=80"
+        "assets/images/punta-blanca-main.jpg",
+        "assets/images/punta-blanca-beach.jpg",
+        "assets/images/punta-blanca-restaurant.jpg",
+        "assets/images/punta-blanca-room-suite.jpg",
+        "assets/images/punta-blanca-room-king.jpg"
       ],
       description: "Ubicado en las arenas blancas y aguas cristalinas de Playa La Punta en la paradisíaca Isla de Coche. Ofrece traslado marítimo en lanchas incluido, piscina panorámica de borde infinito con cascada, discoteca y relajación total.",
-      // Inclusiones exactas del Voucher Oficial #55315
       tarifaIncluye: [
         "Horario de zarpes coordinados: Yaque-Coche 14:30 | Coche-Yaque 13:00",
         "Traslado marítimo en lanchas ida y vuelta (Yaque-Coche-Yaque) INCLUIDO",
@@ -192,9 +190,9 @@ const SUNSOL_DATA = {
         "Horario de zarpes: Yaque-Coche 14:30 | Coche-Yaque 13:00"
       ],
       rooms: [
-        { name: "Habitación Estándar", capacity: "2 Adultos", price: 110 },
-        { name: "Bungalow Familiar Coche", capacity: "3 Adultos o 2+2", price: 145 },
-        { name: "Suite Frente al Mar 'Starfish'", capacity: "2 Adultos (Especial Parejas)", price: 185 }
+        { name: "Cabaña Estándar Doble", capacity: "2 Adultos", price: 110, image: "assets/images/punta-blanca-room-double.jpg" },
+        { name: "Suite con Ducha al Aire Libre", capacity: "3 Adultos o 2+2", price: 145, image: "assets/images/punta-blanca-room-suite.jpg" },
+        { name: "Suite King Size Frente al Mar", capacity: "2 Adultos (Especial Parejas)", price: 185, image: "assets/images/punta-blanca-room-king.jpg" }
       ],
       emailEventos: "eventos.puntablanca@sunsolhoteles.com",
       mapUrl: "https://maps.google.com/maps?q=Sunsol+Punta+Blanca+Isla+de+Coche&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -210,14 +208,14 @@ const SUNSOL_DATA = {
       planType: "PLAN TODO INCLUIDO",
       rating: 4.8,
       reviewsCount: 1890,
-      imageMain: "assets/images/hotel-ecoland-real.png",
-      imageAerial: "assets/images/hotel-ecoland-real.png",
+      imageMain: "assets/images/ecoland-main.jpg",
+      imageAerial: "assets/images/ecoland-hero.jpg",
       gallery: [
-        "assets/images/hotel-ecoland-real.png",
-        "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1000&q=80"
+        "assets/images/ecoland-main.jpg",
+        "assets/images/ecoland-beach.jpg",
+        "assets/images/ecoland-kayak.jpg",
+        "assets/images/ecoland-room-oasis.jpg",
+        "assets/images/ecoland-spa.jpg"
       ],
       description: "El complejo vacacional más extenso e impresionante de la región. Cuenta con una laguna natural navegable en botes de pedal, 4 piscinas temáticas, dunas de arena y acceso a Playa Puerto Cruz y Playa Zaragoza.",
       features: [
@@ -229,9 +227,9 @@ const SUNSOL_DATA = {
         "Canchas de tenis, voleibol de playa y gimnasio"
       ],
       rooms: [
-        { name: "Habitación Estándar Colina", capacity: "2 Adultos", price: 110 },
-        { name: "Habitación Premium Laguna", capacity: "2 Adultos + 2 Niños", price: 135 },
-        { name: "Master Suite Vista Mar Puerto Cruz", capacity: "4 Adultos", price: 190 }
+        { name: "Habitación Estándar Área Laguna", capacity: "2 Adultos", price: 110, image: "assets/images/ecoland-room-laguna.jpg" },
+        { name: "Junior Suite Área Oasis", capacity: "2 Adultos + 2 Niños", price: 135, image: "assets/images/ecoland-room-oasis.jpg" },
+        { name: "Habitación King Vista al Mar", capacity: "4 Adultos", price: 190, image: "assets/images/ecoland-room-king.jpg" }
       ],
       emailEventos: "eventos.ecoland@sunsolhoteles.com",
       mapUrl: "https://maps.google.com/maps?q=Sunsol+Ecoland+Playa+Puerto+Cruz&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -247,13 +245,14 @@ const SUNSOL_DATA = {
       planType: "TODO INCLUIDO O SOLO DESAYUNO",
       rating: 4.9,
       reviewsCount: 950,
-      imageMain: "assets/images/hotel-unik-real.png",
-      imageAerial: "assets/images/hotel-unik-real.png",
+      imageMain: "assets/images/unik-main.jpg",
+      imageAerial: "assets/images/unik-hero.jpg",
       gallery: [
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80"
+        "assets/images/unik-main.jpg",
+        "assets/images/unik-hero.jpg",
+        "assets/images/unik-restaurant.jpg",
+        "assets/images/unik-room-king.jpg",
+        "assets/images/unik-pool.jpg"
       ],
       description: "Hotel Boutique de arquitectura vanguardista y confort prémium en la zona más exclusiva de Pampatar, contiguo al CC Parque Costazul. Ofrece piscina infinita en la azotea, gastronomía de autor y salones corporativos.",
       features: [
@@ -265,9 +264,9 @@ const SUNSOL_DATA = {
         "Conexión con el Sunsol Pádel Club"
       ],
       rooms: [
-        { name: "Habitación Deluxe King (Plan Desayuno)", capacity: "2 Adultos", price: 130 },
-        { name: "Deluxe Queen Doble (Plan Desayuno)", capacity: "2 Adultos + 2 Niños", price: 150 },
-        { name: "Habitación Ejecutiva Todo Incluido", capacity: "2 Adultos", price: 220 }
+        { name: "Habitación Deluxe King", capacity: "2 Adultos", price: 130, image: "assets/images/unik-room-king.jpg" },
+        { name: "Habitación Doble Queen", capacity: "2 Adultos + 2 Niños", price: 150, image: "assets/images/unik-room-double.jpg" },
+        { name: "Master Suite Unik Luxury", capacity: "2 Adultos", price: 220, image: "assets/images/unik-room-suite.jpg" }
       ],
       emailEventos: "eventos.unik@sunsolhoteles.com",
       mapUrl: "https://maps.google.com/maps?q=Sunsol+Unik+Hotel+Pampatar&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -280,7 +279,7 @@ const SUNSOL_DATA = {
       id: "quinceaneras",
       title: "Plan Quinceañeras",
       badge: "CELEBRACIÓN JUVENIL",
-      image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/isla-caribe-beach.jpg",
       description: "Hacemos que sus 15 años sean inolvidables frente al mar Caribe con glamour, sesión fotográfica y diversión para sus amigos.",
       includes: [
         "Cóctel de bienvenida temático",
@@ -294,7 +293,7 @@ const SUNSOL_DATA = {
       id: "romantico",
       title: "Plan Romántico & Lunas de Miel",
       badge: "MOMENTO ÍNTIMO",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/punta-blanca-beach.jpg",
       description: "Diseñado para aniversarios, propuestas de matrimonio o parejas que buscan renovar su amor frente a los más hermosos atardeceres.",
       includes: [
         "Decoración romántica especial en la habitación con pétalos",
@@ -308,7 +307,7 @@ const SUNSOL_DATA = {
       id: "bodas",
       title: "Plan de Bodas en la Playa",
       badge: "EL SÍ, ACEPTO SOÑADO",
-      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/punta-blanca-main.jpg",
       description: "Casarse descalzos sobre la arena blanca de Isla de Coche o frente al mar de Playa Puerto Cruz con montaje nupcial de ensueño.",
       includes: [
         "Ceremonia privada en playa o jardín con arco nupcial floral",
@@ -322,7 +321,7 @@ const SUNSOL_DATA = {
       id: "corporativo",
       title: "Eventos Corporativos & Convenciones",
       badge: "NEGOCIOS & CONGRESOS",
-      image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/unik-lobby.jpg",
       description: "Espacios modernos y salones de conferencias en Sunsol Unik y Sunsol Ecoland equipados con tecnología audiovisual de última generación.",
       includes: [
         "Salones climatizados con aforos desde 20 hasta 500 personas",
@@ -341,7 +340,7 @@ const SUNSOL_DATA = {
       subtitle: "SPA · BOUTIQUE · SALÓN DE BELLEZA",
       hotel: "Sunsol Isla Caribe",
       tag: "Relajación Total",
-      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/ecoland-spa.jpg",
       description: "Masajes con piedras calientes, faciales hidratantes, aromaterapia caribeña y tratamientos de belleza para consentirte durante tus vacaciones."
     },
     {
@@ -350,7 +349,7 @@ const SUNSOL_DATA = {
       subtitle: "CONFITERÍA & DULCES",
       hotel: "Sunsol Isla Caribe",
       tag: "Para los Peques",
-      image: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/isla-caribe-pool.jpg",
       description: "Estación dulce con algodones de azúcar artesanales, golosinas tropicales, palomitas de maíz y confitería frente a la piscina."
     },
     {
@@ -359,7 +358,7 @@ const SUNSOL_DATA = {
       subtitle: "HELADERÍA ARTESANAL",
       hotel: "Sunsol Isla Caribe",
       tag: "Sabor Tropical",
-      image: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/isla-caribe-restaurant.jpg",
       description: "Divertida heladería ambientada en un iglú polar donde disfrutar helados cremosos, merengadas y sabores de frutas venezolanas."
     },
     {
@@ -368,7 +367,7 @@ const SUNSOL_DATA = {
       subtitle: "PISTAS DE PÁDEL · GASTRONOMÍA",
       hotel: "CC Parque Costazul",
       tag: "Deporte & Lifestyle",
-      image: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/banner-padel-club.png",
       description: "Modernas pistas panorámicas de pádel profesional con iluminación nocturna, área social lounge y opciones gastronómicas gourmet."
     }
   ],
@@ -380,84 +379,84 @@ const SUNSOL_DATA = {
       category: "playas",
       title: "Playa La Punta - Isla de Coche",
       hotel: "Sunsol Punta Blanca",
-      url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/punta-blanca-beach.jpg"
     },
     {
       id: 2,
       category: "piscinas",
       title: "Piscina Principal y Palmeras",
       hotel: "Sunsol Ecoland",
-      url: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/ecoland-main.jpg"
     },
     {
       id: 3,
       category: "playas",
       title: "Embarcación Sunsol Festival Cruise",
       hotel: "Traslado a Coche",
-      url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/banner-festival-cruise-coche.png"
     },
     {
       id: 4,
       category: "habitaciones",
       title: "Suite Frente al Mar",
       hotel: "Sunsol Punta Blanca",
-      url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/punta-blanca-room-suite.jpg"
     },
     {
       id: 5,
       category: "gastronomia",
       title: "Buffet Caribeño & Coctelería",
       hotel: "Sunsol Isla Caribe",
-      url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/isla-caribe-restaurant.jpg"
     },
     {
       id: 6,
       category: "piscinas",
       title: "Rooftop Pool & Sunset Lounge",
       hotel: "Sunsol Unik",
-      url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/unik-pool.jpg"
     },
     {
       id: 7,
       category: "spa",
       title: "Masaje Relajante en The Essential",
       hotel: "Sunsol Isla Caribe",
-      url: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/ecoland-spa.jpg"
     },
     {
       id: 8,
       category: "piscinas",
       title: "Laguna Natural Navegable",
       hotel: "Sunsol Ecoland",
-      url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/ecoland-kayak.jpg"
     },
     {
       id: 9,
       category: "playas",
       title: "Vista Aérea Playa Puerto Cruz",
       hotel: "Sunsol Ecoland",
-      url: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/ecoland-beach.jpg"
     },
     {
       id: 10,
       category: "habitaciones",
       title: "Habitación Premium Contemporánea",
       hotel: "Sunsol Unik",
-      url: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/unik-room-suite.jpg"
     },
     {
       id: 11,
       category: "gastronomia",
       title: "Cena Romántica en la Playa",
       hotel: "Sunsol Punta Blanca",
-      url: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/punta-blanca-restaurant.jpg"
     },
     {
       id: 12,
       category: "deportes",
       title: "Sunsol Pádel Club Nocturno",
       hotel: "Parque Costazul",
-      url: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=1200&q=85"
+      url: "assets/images/banner-padel-club.png"
     }
   ],
 

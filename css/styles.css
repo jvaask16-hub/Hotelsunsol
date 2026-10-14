@@ -2431,4 +2431,84 @@ button {
   }
 }
 
+/* ==========================================================
+   BANNER OFICIAL: PAGO EN CÓMODAS CUOTAS (INTERACTIVO)
+   ========================================================== */
+.banner-cuotas-section {
+  margin: 3.5rem auto;
+}
+
+.banner-cuotas-interactive {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(21, 42, 80, 0.16);
+  border: 1.5px solid var(--border-color);
+  background: #0B2778;
+}
+
+.banner-cuotas-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.banner-cuotas-overlay-btn {
+  position: absolute;
+  left: 77.3%;
+  top: 78.1%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  color: #0B2778;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: clamp(0.7rem, 1.2vw, 0.98rem);
+  font-weight: 800;
+  padding: clamp(0.42rem, 0.85vw, 0.78rem) clamp(0.8rem, 1.6vw, 1.6rem);
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.banner-cuotas-overlay-btn i {
+  color: #0B2778;
+  font-size: 1.05em;
+  transition: color 0.2s ease;
+}
+
+.banner-cuotas-overlay-btn:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color: var(--sunsol-gold);
+}
+
+.banner-cuotas-overlay-btn:hover i {
+  color: var(--sunsol-gold);
+}
+
+.banner-cuotas-overlay-btn:active {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+@media (max-width: 480px) {
+  .banner-cuotas-overlay-btn {
+    font-size: 0.6rem;
+    padding: 0.32rem 0.55rem;
+    border-radius: 6px;
+    gap: 0.3rem;
+  }
+}
+
+
 

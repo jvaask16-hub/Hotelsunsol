@@ -1,0 +1,341 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%" style="background:#0F1E36;">
+  <defs>
+    <!-- Gradientes y Filtros -->
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00A896" />
+      <stop offset="50%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+
+    <linearGradient id="sandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2C997" />
+      <stop offset="40%" stop-color="#ECD8AF" />
+      <stop offset="100%" stop-color="#F5E8C7" />
+    </linearGradient>
+
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3F20" />
+      <stop offset="60%" stop-color="#2D5A27" />
+      <stop offset="100%" stop-color="#244B22" />
+    </linearGradient>
+
+    <linearGradient id="poolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="40%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <linearGradient id="padelTurf" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+
+    <linearGradient id="soccerTurf" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#15803D" />
+      <stop offset="100%" stop-color="#166534" />
+    </linearGradient>
+
+    <linearGradient id="churuataGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B45309" />
+      <stop offset="50%" stop-color="#92400E" />
+      <stop offset="100%" stop-color="#78350F" />
+    </linearGradient>
+
+    <filter id="shadowFilter" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0B132B" flood-opacity="0.35"/>
+    </filter>
+
+    <filter id="glowPool" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#38BDF8" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- ==================== BASE DEL TERRENO ==================== -->
+  <!-- 1. Césped Tropical del Resort -->
+  <rect width="1200" height="750" fill="url(#grassGrad)"/>
+
+  <!-- 2. Ribera de Laguna / Canal Natural Oeste -->
+  <path d="M0,0 Q80,180 30,340 T70,550 L0,580 Z" fill="#0369A1" opacity="0.85"/>
+  <path d="M0,0 Q70,170 20,330 T60,540 L0,570 Z" fill="#0284C7" opacity="0.6"/>
+
+  <!-- 3. Gran Playa de Arena Blanca / Dorada (Playa Puerto Cruz) -->
+  <path d="M0,450 C220,440 380,470 560,460 C780,450 980,480 1200,470 L1200,750 L0,750 Z" fill="url(#sandGrad)"/>
+
+  <!-- 4. Mar Caribe Turquesa en la Costa Sur -->
+  <path d="M0,670 C240,650 480,680 720,660 C950,640 1100,665 1200,655 L1200,750 L0,750 Z" fill="url(#oceanGrad)" opacity="0.95"/>
+  <!-- Línea de espuma de olas -->
+  <path d="M0,670 C240,650 480,680 720,660 C950,640 1100,665 1200,655" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.75" stroke-dasharray="8 6"/>
+  <path d="M0,685 C240,665 480,695 720,675 C950,655 1100,680 1200,670" fill="none" stroke="#BAE6FD" stroke-width="2" opacity="0.5"/>
+
+  <!-- ==================== SENDEROS Y CAMINERÍAS ==================== -->
+  <g stroke="#D4C29A" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <!-- Sendero principal Norte-Sur -->
+    <path d="M480,40 L480,440 C480,470 520,500 560,530"/>
+    <!-- Sendero a Piscinas -->
+    <path d="M480,180 C360,180 280,160 220,200 L180,220"/>
+    <!-- Sendero al Sport Club -->
+    <path d="M480,120 L640,120 L780,140"/>
+    <!-- Sendero al Spa y Golfito -->
+    <path d="M480,310 L700,310 C780,310 840,330 920,330"/>
+    <!-- Sendero de playa -->
+    <path d="M120,490 Q600,470 1100,500"/>
+  </g>
+  <!-- Ribete de camino de adoquines -->
+  <g stroke="#FDE68A" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M480,40 L480,440 C480,470 520,500 560,530"/>
+    <path d="M480,180 C360,180 280,160 220,200 L180,220"/>
+  </g>
+
+  <!-- ==================== SPORT CLUB (NORTE & ESTE) ==================== -->
+  <!-- Contorno de la zona Sport Club -->
+  <rect x="495" y="45" width="655" height="360" rx="16" fill="#132A13" opacity="0.3" stroke="#22543D" stroke-width="1.5"/>
+
+  <!-- 1. CANCHA DE PÁDEL PANORÁMICA -->
+  <g filter="url(#shadowFilter)">
+    <rect x="520" y="65" width="85" height="150" rx="4" fill="#0F172A" stroke="#38BDF8" stroke-width="2"/>
+    <rect x="524" y="69" width="77" height="142" rx="2" fill="url(#padelTurf)"/>
+    <!-- Líneas reglamentarias pádel -->
+    <rect x="532" y="77" width="61" height="126" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <!-- Línea central de servicio -->
+    <line x1="562.5" y1="100" x2="562.5" y2="180" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="532" y1="100" x2="593" y2="100" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="532" y1="180" x2="593" y2="180" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <!-- Red central -->
+    <line x1="520" y1="140" x2="605" y2="140" stroke="#E2E8F0" stroke-width="2.5" stroke-dasharray="2 1"/>
+    <!-- Paredes de cristal -->
+    <rect x="520" y="65" width="85" height="6" fill="#7DD3FC" opacity="0.8"/>
+    <rect x="520" y="209" width="85" height="6" fill="#7DD3FC" opacity="0.8"/>
+  </g>
+  <text x="562" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#E2E8F0" text-anchor="middle">PÁDEL CLUB</text>
+
+  <!-- 2. CANCHA DE BÁSQUETBOL -->
+  <g filter="url(#shadowFilter)">
+    <rect x="625" y="65" width="130" height="90" rx="4" fill="#0C4A6E" stroke="#38BDF8" stroke-width="1.5"/>
+    <rect x="630" y="70" width="120" height="80" rx="2" fill="#0284C7"/>
+    <circle cx="690" cy="110" r="16" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="690" y1="70" x2="690" y2="150" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Áreas y canastas -->
+    <path d="M630,95 A15,15 0 0,1 630,125 Z" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <circle cx="636" cy="110" r="3" fill="#F97316"/>
+    <path d="M750,95 A15,15 0 0,0 750,125 Z" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <circle cx="744" cy="110" r="3" fill="#F97316"/>
+  </g>
+  <text x="690" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#E2E8F0" text-anchor="middle">BÁSQUETBOL</text>
+
+  <!-- 3. CANCHA DE FUTBOLITO / TENIS -->
+  <g filter="url(#shadowFilter)">
+    <rect x="625" y="175" width="130" height="100" rx="4" fill="#052E16" stroke="#22C55E" stroke-width="1.5"/>
+    <rect x="630" y="180" width="120" height="90" rx="2" fill="url(#soccerTurf)"/>
+    <!-- Franjas de corte de césped -->
+    <rect x="645" y="180" width="15" height="90" fill="#15803D" opacity="0.4"/>
+    <rect x="675" y="180" width="15" height="90" fill="#15803D" opacity="0.4"/>
+    <rect x="705" y="180" width="15" height="90" fill="#15803D" opacity="0.4"/>
+    <!-- Líneas de fútbol -->
+    <rect x="634" y="184" width="112" height="82" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <line x1="690" y1="184" x2="690" y2="266" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <circle cx="690" cy="225" r="14" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.9"/>
+    <!-- Porterías -->
+    <rect x="630" y="213" width="5" height="24" fill="#FFFFFF"/>
+    <rect x="741" y="213" width="5" height="24" fill="#FFFFFF"/>
+  </g>
+  <text x="690" y="290" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#E2E8F0" text-anchor="middle">FUTBOLITO &amp; TENIS</text>
+
+  <!-- 4. GOLFITO / MINIGOLF -->
+  <g filter="url(#shadowFilter)">
+    <rect x="775" y="65" width="170" height="210" rx="12" fill="#14532D" stroke="#4ADE80" stroke-width="1.5"/>
+    <!-- Circuitos de minigolf orgánicos -->
+    <path d="M790,95 Q840,80 870,110 T820,150 Z" fill="#22C55E" opacity="0.8"/>
+    <circle cx="850" cy="120" r="3" fill="#FFFFFF"/>
+    <path d="M890,90 Q930,100 920,140 T880,130 Z" fill="#22C55E" opacity="0.8"/>
+    <!-- Trampas de arena (bunkers) -->
+    <ellipse cx="830" cy="100" rx="10" ry="6" fill="#FDE68A"/>
+    <ellipse cx="910" cy="115" rx="8" ry="5" fill="#FDE68A"/>
+
+    <!-- Pistas inferiores -->
+    <path d="M795,175 Q850,165 890,195 T840,245 T795,210 Z" fill="#22C55E" opacity="0.8"/>
+    <circle cx="865" cy="210" r="3.5" fill="#FFFFFF"/>
+    <path d="M900,165 Q935,180 925,230 T885,220 Z" fill="#22C55E" opacity="0.8"/>
+    <ellipse cx="910" cy="200" rx="8" ry="5" fill="#FDE68A"/>
+  </g>
+  <text x="860" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#E2E8F0" text-anchor="middle">CIRCUITO GOLFITO</text>
+
+  <!-- 5. THE ESSENTIAL SPA & WELLNESS -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="1025" cy="170" r="58" fill="#1E293B" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="1025" cy="170" r="50" fill="#334155"/>
+    <!-- Pabellón Zen central con domo -->
+    <circle cx="1025" cy="170" r="32" fill="#D4AF37" opacity="0.9"/>
+    <circle cx="1025" cy="170" r="24" fill="#78350F"/>
+    <circle cx="1025" cy="170" r="16" fill="#D4AF37"/>
+    <!-- Piscinas térmicas de hidroterapia -->
+    <circle cx="985" cy="215" r="16" fill="url(#poolGrad)" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="1065" cy="215" r="16" fill="url(#poolGrad)" stroke="#E2E8F0" stroke-width="1.5"/>
+  </g>
+  <text x="1025" y="100" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#FDE047" text-anchor="middle" letter-spacing="0.5">THE ESSENTIAL SPA</text>
+
+  <!-- ==================== PISCINAS OASIS (OESTE) ==================== -->
+  <!-- Piscina Principal Oasis -->
+  <g filter="url(#glowPool)">
+    <!-- Borde de piedra blanca -->
+    <path d="M120,180 C180,120 320,130 350,210 C380,290 320,380 230,370 C150,360 90,260 120,180 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="4"/>
+    <!-- Espejo de agua turquesa -->
+    <path d="M128,185 C184,130 312,138 340,212 C368,286 312,370 228,362 C154,354 98,260 128,185 Z" fill="url(#poolGrad)"/>
+    <!-- Líneas de oleaje y reflejos -->
+    <path d="M160,200 Q220,180 270,210" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+    <path d="M180,240 Q250,220 300,260" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6"/>
+    <path d="M170,300 Q230,280 270,320" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
+    <!-- Bar acuático sumergido -->
+    <circle cx="310" cy="210" r="14" fill="#0369A1" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="310" y="213" font-size="7" font-weight="800" fill="#FFFFFF" text-anchor="middle">BAR</text>
+  </g>
+
+  <!-- Piscina Oasis Kids (Honguito) -->
+  <g filter="url(#glowPool)">
+    <ellipse cx="360" cy="115" rx="38" ry="30" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="3"/>
+    <ellipse cx="360" cy="115" rx="34" ry="26" fill="url(#poolGrad)"/>
+    <!-- Paraguas / Honguito central -->
+    <circle cx="360" cy="115" r="10" fill="#EF4444" stroke="#FFFFFF" stroke-width="1.5"/>
+    <circle cx="360" cy="115" r="4" fill="#FFFFFF"/>
+  </g>
+  <text x="360" y="76" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#7DD3FC" text-anchor="middle">PISCINA KIDS</text>
+
+  <!-- Restaurante Oasis (Churuata Principal) -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="210" cy="330" r="36" fill="url(#churuataGrad)" stroke="#78350F" stroke-width="2"/>
+    <!-- Patrón cónico de palma tejida -->
+    <circle cx="210" cy="330" r="26" fill="#78350F" opacity="0.4"/>
+    <circle cx="210" cy="330" r="14" fill="#D97706"/>
+    <circle cx="210" cy="330" r="6" fill="#F59E0B"/>
+  </g>
+  <text x="210" y="380" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#FEF08A" text-anchor="middle">REST OASIS</text>
+
+  <!-- ==================== CANCHA VOLEIBOL PLAYA ==================== -->
+  <g filter="url(#shadowFilter)">
+    <rect x="490" y="340" width="80" height="52" rx="4" fill="#FAF1D6" stroke="#D4AF37" stroke-width="2"/>
+    <line x1="530" y1="340" x2="530" y2="392" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="2 1"/>
+    <circle cx="510" cy="366" r="4" fill="#F59E0B"/>
+    <circle cx="550" cy="366" r="4" fill="#3B82F6"/>
+  </g>
+  <text x="530" y="332" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#F8FAFC" text-anchor="middle">VOLEIBOL PLAYA</text>
+
+  <!-- ==================== ÁREA DE PLAYA: REST & BAR LAS UVAS ==================== -->
+  <!-- Churuata Restaurante Uvas -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="870" cy="510" r="40" fill="url(#churuataGrad)" stroke="#78350F" stroke-width="2.5"/>
+    <circle cx="870" cy="510" r="28" fill="#78350F" opacity="0.4"/>
+    <circle cx="870" cy="510" r="16" fill="#D97706"/>
+    <circle cx="870" cy="510" r="7" fill="#F59E0B"/>
+  </g>
+  <text x="870" y="565" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="800" fill="#1E293B" text-anchor="middle">REST &amp; BAR UVAS</text>
+
+  <!-- Churuata Bar Uvas (Beach Bar) -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="760" cy="590" r="22" fill="url(#churuataGrad)" stroke="#78350F" stroke-width="2"/>
+    <circle cx="760" cy="590" r="8" fill="#F59E0B"/>
+  </g>
+  <text x="760" y="625" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#1E293B" text-anchor="middle">BAR UVAS</text>
+
+  <!-- Green Bar (Playa Oeste) -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="170" cy="490" r="24" fill="url(#churuataGrad)" stroke="#78350F" stroke-width="2"/>
+    <circle cx="170" cy="490" r="9" fill="#F59E0B"/>
+  </g>
+  <text x="170" y="525" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#1E293B" text-anchor="middle">GREEN BAR</text>
+
+  <!-- Eco Kids Club (Playa Este) -->
+  <g filter="url(#shadowFilter)">
+    <rect x="965" y="480" width="55" height="42" rx="6" fill="#10B981" stroke="#047857" stroke-width="2"/>
+    <polygon points="960,480 992.5,455 1025,480" fill="#EF4444"/>
+  </g>
+  <text x="992" y="535" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#1E293B" text-anchor="middle">ECO KIDS</text>
+
+  <!-- Toldos y Camastros alineados en Playa Puerto Cruz -->
+  <g fill="#A16207" opacity="0.85">
+    <!-- Fila 1 de palapas -->
+    <circle cx="260" cy="510" r="7"/><circle cx="290" cy="510" r="7"/><circle cx="320" cy="510" r="7"/>
+    <circle cx="350" cy="510" r="7"/><circle cx="380" cy="510" r="7"/><circle cx="410" cy="510" r="7"/>
+    <circle cx="440" cy="510" r="7"/><circle cx="470" cy="510" r="7"/><circle cx="500" cy="510" r="7"/>
+    <circle cx="530" cy="510" r="7"/><circle cx="560" cy="510" r="7"/><circle cx="590" cy="510" r="7"/>
+    <circle cx="620" cy="510" r="7"/><circle cx="650" cy="510" r="7"/><circle cx="680" cy="510" r="7"/>
+    <!-- Fila 2 de palapas -->
+    <circle cx="275" cy="540" r="7"/><circle cx="305" cy="540" r="7"/><circle cx="335" cy="540" r="7"/>
+    <circle cx="365" cy="540" r="7"/><circle cx="395" cy="540" r="7"/><circle cx="425" cy="540" r="7"/>
+    <circle cx="455" cy="540" r="7"/><circle cx="485" cy="540" r="7"/><circle cx="515" cy="540" r="7"/>
+    <circle cx="545" cy="540" r="7"/><circle cx="575" cy="540" r="7"/><circle cx="605" cy="540" r="7"/>
+    <circle cx="635" cy="540" r="7"/><circle cx="665" cy="540" r="7"/><circle cx="695" cy="540" r="7"/>
+    <!-- Fila 3 frente al mar -->
+    <circle cx="290" cy="570" r="7"/><circle cx="320" cy="570" r="7"/><circle cx="350" cy="570" r="7"/>
+    <circle cx="380" cy="570" r="7"/><circle cx="410" cy="570" r="7"/><circle cx="440" cy="570" r="7"/>
+    <circle cx="470" cy="570" r="7"/><circle cx="500" cy="570" r="7"/><circle cx="530" cy="570" r="7"/>
+    <circle cx="560" cy="570" r="7"/><circle cx="590" cy="570" r="7"/><circle cx="620" cy="570" r="7"/>
+  </g>
+
+  <!-- ==================== PALMERAS Y VEGETACIÓN TROPICAL ==================== -->
+  <!-- Macro de Palmera: sombra + tronco + hojas en estrella -->
+  <g id="palmTree">
+    <ellipse cx="6" cy="6" rx="14" ry="10" fill="#0B1C10" opacity="0.35"/>
+    <circle cx="0" cy="0" r="4" fill="#78350F"/>
+    <path d="M0,0 Q-15,-18 -26,-15 Q-15,-10 0,0" fill="#22C55E"/>
+    <path d="M0,0 Q-2,-24 0,-30 Q6,-22 0,0" fill="#16A34A"/>
+    <path d="M0,0 Q18,-18 28,-14 Q16,-8 0,0" fill="#22C55E"/>
+    <path d="M0,0 Q24,-2 30,8 Q18,8 0,0" fill="#15803D"/>
+    <path d="M0,0 Q16,18 20,28 Q10,18 0,0" fill="#22C55E"/>
+    <path d="M0,0 Q-4,24 -8,30 Q-6,18 0,0" fill="#16A34A"/>
+    <path d="M0,0 Q-22,14 -30,16 Q-18,6 0,0" fill="#15803D"/>
+  </g>
+
+  <!-- Agrupaciones de Palmeras estratégicas -->
+  <use href="#palmTree" x="110" y="80"/>
+  <use href="#palmTree" x="170" y="90" transform="scale(0.85)"/>
+  <use href="#palmTree" x="80" y="240"/>
+  <use href="#palmTree" x="60" y="380"/>
+  <use href="#palmTree" x="130" y="420" transform="scale(0.9)"/>
+  <use href="#palmTree" x="290" y="420"/>
+  <use href="#palmTree" x="380" y="400"/>
+  <use href="#palmTree" x="430" y="440" transform="scale(1.1)"/>
+  <use href="#palmTree" x="450" y="240"/>
+  <use href="#palmTree" x="420" y="160" transform="scale(0.8)"/>
+  <use href="#palmTree" x="480" y="80"/>
+  <use href="#palmTree" x="615" y="440"/>
+  <use href="#palmTree" x="680" y="420" transform="scale(1.1)"/>
+  <use href="#palmTree" x="740" y="460"/>
+  <use href="#palmTree" x="810" y="440" transform="scale(0.9)"/>
+  <use href="#palmTree" x="910" y="430"/>
+  <use href="#palmTree" x="970" y="410" transform="scale(1.2)"/>
+  <use href="#palmTree" x="1080" y="420"/>
+  <use href="#palmTree" x="1130" y="460" transform="scale(0.9)"/>
+  <use href="#palmTree" x="1120" y="260"/>
+  <use href="#palmTree" x="1110" y="110" transform="scale(1.1)"/>
+  <use href="#palmTree" x="980" y="70"/>
+  <use href="#palmTree" x="760" y="70" transform="scale(0.8)"/>
+
+  <!-- ==================== CARTELA DE TÍTULO Y ORIENTACIÓN ==================== -->
+  <!-- Rosa de los vientos / Brújula náutica -->
+  <g transform="translate(60, 60)" filter="url(#shadowFilter)">
+    <circle cx="0" cy="0" r="26" fill="#0F172A" stroke="#D4AF37" stroke-width="2"/>
+    <circle cx="0" cy="0" r="22" fill="#1E293B"/>
+    <!-- Agujas norte/sur -->
+    <polygon points="0,-18 4,0 -4,0" fill="#EF4444"/>
+    <polygon points="0,18 4,0 -4,0" fill="#CBD5E1"/>
+    <polygon points="18,0 0,4 0,-4" fill="#CBD5E1"/>
+    <polygon points="-18,0 0,4 0,-4" fill="#CBD5E1"/>
+    <circle cx="0" cy="0" r="3" fill="#D4AF37"/>
+    <text x="0" y="-8" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="800" fill="#FFFFFF" text-anchor="middle">N</text>
+  </g>
+
+  <!-- Banner Oficial Superior de la Zona -->
+  <g transform="translate(600, 32)" filter="url(#shadowFilter)">
+    <rect x="-240" y="-18" width="480" height="36" rx="18" fill="#152A50" stroke="#D4AF37" stroke-width="2"/>
+    <text x="0" y="5" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">
+      SUNSOL ECOLAND &bull; ÁREA OASIS &amp; SPORT CLUB
+    </text>
+  </g>
+
+  <!-- Etiqueta de la Playa -->
+  <g transform="translate(600, 715)">
+    <rect x="-130" y="-14" width="260" height="28" rx="14" fill="rgba(15, 23, 42, 0.75)" stroke="#38BDF8" stroke-width="1.5"/>
+    <text x="0" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">
+      PLAYA PUERTO CRUZ &bull; MAR CARIBE
+    </text>
+  </g>
+</svg>

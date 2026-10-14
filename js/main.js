@@ -155,10 +155,10 @@ function renderHotels() {
         </div>
 
         <div class="hotel-btn-row">
-          <a href="${pageUrl}" class="btn-sunsol-secondary" style="text-align: center; justify-content: center;">
+          <a href="${pageUrl}" class="btn-hotel-details">
             Ver Hotel
           </a>
-          <button class="btn-sunsol-primary" onclick="openBookingModal('${h.id}')">
+          <button type="button" class="btn-hotel-book" onclick="openBookingModal('${h.id}')">
             Reservar
           </button>
         </div>

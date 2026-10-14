@@ -97,10 +97,10 @@ const SUNSOL_DATA = {
       reviewsCount: 1650,
       checkinTime: "3:00 PM",
       checkoutTime: "12:00 PM",
-      imageMain: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=80",
-      imageAerial: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80",
+      imageMain: "assets/images/hotel-isla-caribe-real.png",
+      imageAerial: "assets/images/hotel-isla-caribe-real.png",
       gallery: [
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1000&q=80",
+        "assets/images/hotel-isla-caribe-real.png",
         "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1000&q=80",
@@ -157,14 +157,14 @@ const SUNSOL_DATA = {
         ida: "Yaque — Coche: 14:30 (2:30 PM)",
         retorno: "Coche — Yaque: 13:00 (1:00 PM - coordinar con recepción)"
       },
-      imageMain: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80",
-      imageAerial: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+      imageMain: "assets/images/hotel-punta-blanca-real.png",
+      imageAerial: "assets/images/hotel-punta-blanca-real.png",
       gallery: [
+        "assets/images/hotel-punta-blanca-real.png",
         "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80"
+        "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1000&q=80"
       ],
       description: "Ubicado en las arenas blancas y aguas cristalinas de Playa La Punta en la paradisíaca Isla de Coche. Ofrece traslado marítimo en lanchas incluido, piscina panorámica de borde infinito con cascada, discoteca y relajación total.",
       // Inclusiones exactas del Voucher Oficial #55315
@@ -210,14 +210,14 @@ const SUNSOL_DATA = {
       planType: "PLAN TODO INCLUIDO",
       rating: 4.8,
       reviewsCount: 1890,
-      imageMain: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80",
-      imageAerial: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1000&q=80",
+      imageMain: "assets/images/hotel-ecoland-real.png",
+      imageAerial: "assets/images/hotel-ecoland-real.png",
       gallery: [
+        "assets/images/hotel-ecoland-real.png",
         "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1000&q=80",
-        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1000&q=80"
+        "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1000&q=80"
       ],
       description: "El complejo vacacional más extenso e impresionante de la región. Cuenta con una laguna natural navegable en botes de pedal, 4 piscinas temáticas, dunas de arena y acceso a Playa Puerto Cruz y Playa Zaragoza.",
       features: [
@@ -247,8 +247,8 @@ const SUNSOL_DATA = {
       planType: "TODO INCLUIDO O SOLO DESAYUNO",
       rating: 4.9,
       reviewsCount: 950,
-      imageMain: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
-      imageAerial: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80",
+      imageMain: "assets/images/hotel-unik-real.png",
+      imageAerial: "assets/images/hotel-unik-real.png",
       gallery: [
         "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80",
         "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80",

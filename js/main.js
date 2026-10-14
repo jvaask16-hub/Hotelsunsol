@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGalleryFilters();
   initLightbox();
   initModalListeners();
+  initResortMap();
 });
 
 /* ==========================================================
@@ -792,3 +793,87 @@ window.handleCleanSearch = function(e) {
   const hotel = document.getElementById("clean-hotel")?.value;
   openBookingModal(hotel);
 };
+
+/* ==========================================================
+   COMPONENTE: MAPA INTERACTIVO DE ZONAS RESORT (ECO LAND)
+   ========================================================== */
+function initResortMap() {
+  const tabs = document.querySelectorAll(".map-tab-btn");
+  const scenes = document.querySelectorAll(".map-view-scene");
+  const popup = document.getElementById("mapInfoPopup");
+  if (!tabs.length || !scenes.length) return;
+
+  // 1. Alternancia de Áreas / Pestañas
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const targetArea = tab.getAttribute("data-area");
+      
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      scenes.forEach(scene => {
+        if (scene.getAttribute("data-scene") === targetArea) {
+          scene.classList.add("active");
+        } else {
+          scene.classList.remove("active");
+        }
+      });
+
+      // Cerrar popup al cambiar de zona
+      if (popup) popup.classList.remove("active");
+      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+    });
+  });
+
+  // 2. Interacción con Marcadores (Hotspots)
+  document.querySelectorAll(".map-hotspot").forEach(hotspot => {
+    hotspot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const title = hotspot.getAttribute("data-title") || "Punto de Interés";
+      const desc = hotspot.getAttribute("data-desc") || "Instalación oficial de Sunsol Ecoland.";
+      const category = hotspot.getAttribute("data-category") || "Amenidad";
+      const icon = hotspot.getAttribute("data-icon") || "fa-map-pin";
+      const hotelId = hotspot.getAttribute("data-hotel") || "ecoland";
+
+      // Resaltar marcador activo
+      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+      hotspot.classList.add("active");
+
+      // Rellenar popup
+      if (popup) {
+        const catElem = popup.querySelector(".popup-category-tag");
+        const titleElem = popup.querySelector(".popup-title");
+        const descElem = popup.querySelector(".popup-description");
+        const ctaBtn = popup.querySelector(".popup-cta-btn");
+
+        if (catElem) catElem.innerHTML = `<i class="fas ${icon}"></i> ${category}`;
+        if (titleElem) titleElem.textContent = title;
+        if (descElem) descElem.textContent = desc;
+        if (ctaBtn) {
+          ctaBtn.onclick = () => openBookingModal(hotelId);
+        }
+
+        popup.classList.add("active");
+      }
+    });
+  });
+
+  // 3. Botón de Cierre del Pop-up
+  const closeBtn = document.getElementById("mapPopupClose");
+  if (closeBtn && popup) {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      popup.classList.remove("active");
+      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+    });
+  }
+
+  // Cerrar popup al hacer click fuera
+  document.addEventListener("click", (e) => {
+    if (popup && !popup.contains(e.target) && !e.target.closest(".map-hotspot")) {
+      popup.classList.remove("active");
+      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+    }
+  });
+}
+window.initResortMap = initResortMap;

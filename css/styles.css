@@ -1,0 +1,1413 @@
+/* ==========================================================
+   SUNSOL HOTELES - SISTEMA DE DISEÑO OFICIAL & ELEGANTE
+   Paleta extraída del logotipo oficial: Azul Zafiro Imperial y Océano
+   Estética limpia, serena, minimalista y de lujo caribeño
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Paleta cromática oficial del logotipo Sunsol */
+  --sunsol-blue: #22417C;         /* Azul Real institucional del logo */
+  --sunsol-blue-dark: #152A50;    /* Azul marino profundo para contrastes y footer */
+  --sunsol-blue-light: #2A4F96;   /* Azul para estados hover activos */
+  --sunsol-wave: #4A7EC2;         /* Azul cian / onda del mar del logo */
+  --sunsol-wave-light: #EBF3FC;   /* Tinte suave de mar para fondos y acentos */
+  --sunsol-gold: #C29B38;         /* Acento dorado sutil de lujo caribeño */
+  --sunsol-gold-light: #FBF6E9;
+
+  /* Fondos limpios y aireados */
+  --bg-pure: #FFFFFF;
+  --bg-soft: #F8FAFD;
+  --bg-subtle: #F0F4FA;
+  --border-color: #E2E8F0;
+  --border-light: #EEF2F6;
+
+  /* Tipografía */
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  /* Sombras suaves y refinadas */
+  --shadow-sm: 0 2px 8px rgba(34, 65, 124, 0.05);
+  --shadow-md: 0 8px 24px rgba(34, 65, 124, 0.08);
+  --shadow-lg: 0 16px 40px rgba(34, 65, 124, 0.12);
+  --shadow-float: 0 20px 48px rgba(21, 42, 80, 0.14);
+
+  /* Bordes y transiciones */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset básico y fluido */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-pure);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition);
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================
+   HEADER PRINCIPAL LIMPIO (SIN RECARGA VISUAL)
+   ========================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 2px 14px rgba(21, 42, 80, 0.04);
+  transition: var(--transition);
+}
+
+.header-top-info {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 0.4rem 0;
+}
+
+.header-top-info .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-contact-pills {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.top-contact-pills a {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.top-contact-pills a:hover {
+  color: var(--sunsol-blue);
+}
+
+.top-utilities {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-link-btn {
+  color: var(--sunsol-blue);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.top-link-btn:hover {
+  color: var(--sunsol-blue-light);
+  text-decoration: underline;
+}
+
+/* Barra de navegación */
+.navbar-main {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo-img {
+  height: 54px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-links-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu-item a {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.2px;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-menu-item a:hover,
+.nav-menu-item a.active {
+  color: var(--sunsol-blue);
+}
+
+.nav-menu-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--sunsol-blue);
+  transition: var(--transition);
+}
+
+.nav-menu-item a:hover::after,
+.nav-menu-item a.active::after {
+  width: 100%;
+}
+
+.nav-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Botones con estilo corporativo Sunsol */
+.btn-sunsol-primary {
+  background-color: var(--sunsol-blue);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(34, 65, 124, 0.2);
+  transition: var(--transition);
+}
+
+.btn-sunsol-primary:hover {
+  background-color: var(--sunsol-blue-dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(34, 65, 124, 0.28);
+}
+
+.btn-sunsol-secondary {
+  background-color: #FFFFFF;
+  color: var(--sunsol-blue);
+  border: 1.5px solid var(--sunsol-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.btn-sunsol-secondary:hover {
+  background-color: var(--sunsol-wave-light);
+  transform: translateY(-2px);
+}
+
+.mobile-nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--sunsol-blue);
+}
+
+/* ==========================================================
+   HERO BANNER - SERENO, ELEGANTE & IMPACTANTE
+   ========================================================== */
+.hero-clean {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0 8rem;
+  overflow: hidden;
+}
+
+.hero-clean-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, rgba(21, 42, 80, 0.85) 0%, rgba(34, 65, 124, 0.55) 60%, rgba(21, 42, 80, 0.4) 100%),
+                    url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=85');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.hero-clean-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.hero-pre-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.hero-clean-title {
+  font-family: var(--font-serif);
+  font-size: 3.6rem;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.hero-clean-subtitle {
+  font-size: 1.15rem;
+  color: #E2E8F0;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  max-width: 650px;
+}
+
+/* ==========================================================
+   MOTOR DE RESERVAS MINIMALISTA Y ELEGANTE
+   (Sin colores estridentes, blanco limpio con detalles en azul logo)
+   ========================================================== */
+.booking-section-wrapper {
+  position: relative;
+  z-index: 20;
+  margin-top: -4.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.booking-card-clean {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 1.8rem 2.2rem;
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--border-color);
+}
+
+.booking-clean-form {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+  gap: 1.25rem;
+  align-items: flex-end;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--sunsol-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.form-field-group label i {
+  color: var(--sunsol-wave);
+}
+
+.input-clean {
+  width: 100%;
+  height: 48px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-soft);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-main);
+  outline: none;
+  transition: var(--transition);
+}
+
+.input-clean:focus {
+  background-color: #FFFFFF;
+  border-color: var(--sunsol-blue);
+  box-shadow: 0 0 0 3px rgba(34, 65, 124, 0.1);
+}
+
+.btn-booking-submit {
+  height: 48px;
+  background-color: var(--sunsol-blue);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0 1.8rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(34, 65, 124, 0.2);
+}
+
+.btn-booking-submit:hover {
+  background-color: var(--sunsol-blue-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================
+   ENCABEZADOS DE SECCIÓN (ELEGANTES Y ESPACIOSOS)
+   ========================================================== */
+.section-spacious {
+  padding: 5.5rem 0;
+}
+
+.section-soft-bg {
+  background-color: var(--bg-soft);
+}
+
+.section-head-center {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-tagline {
+  color: var(--sunsol-wave);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-main-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  color: var(--sunsol-blue-dark);
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   HOTELES: TARJETAS LIMPIAS Y REFINADAS
+   ========================================================== */
+.hotels-luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.hotel-luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.hotel-luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--sunsol-blue);
+}
+
+.hotel-card-image-wrap {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+}
+
+.hotel-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hotel-luxury-card:hover .hotel-card-image-wrap img {
+  transform: scale(1.06);
+}
+
+.hotel-location-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(21, 42, 80, 0.85);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.hotel-card-details-box {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.hotel-title-text {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--sunsol-blue-dark);
+  margin-bottom: 0.35rem;
+}
+
+.hotel-plan-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--sunsol-wave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.85rem;
+}
+
+.hotel-card-summary {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.hotel-price-row {
+  margin-top: auto;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.hotel-price-figure {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--sunsol-blue);
+}
+
+.hotel-price-unit {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.hotel-btn-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.hotel-btn-row button {
+  flex: 1;
+  text-align: center;
+  padding: 0.65rem 0;
+  border-radius: var(--radius-xs);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ==========================================================
+   EXPERIENCIAS & SERVICIOS (SERENO & COHESIVO)
+   ========================================================== */
+.experiences-trio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.experience-clean-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.experience-clean-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--sunsol-wave);
+}
+
+.exp-clean-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.exp-clean-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.experience-clean-card:hover .exp-clean-img img {
+  transform: scale(1.05);
+}
+
+.exp-clean-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.exp-clean-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--sunsol-blue-dark);
+  margin-bottom: 0.5rem;
+}
+
+.exp-clean-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.exp-clean-link {
+  color: var(--sunsol-blue);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.exp-clean-link:hover {
+  color: var(--sunsol-wave);
+}
+
+/* ==========================================================
+   BANNER INSTITUCIONAL: FINANCIAMIENTO & CONFIANZA
+   ========================================================== */
+.banner-trust-clean {
+  background: linear-gradient(135deg, var(--sunsol-blue-dark) 0%, var(--sunsol-blue) 100%);
+  border-radius: var(--radius-lg);
+  color: white;
+  padding: 3.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  margin: 2rem 0;
+}
+
+.banner-trust-text h3 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.banner-trust-text p {
+  font-size: 0.98rem;
+  color: #E2E8F0;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.trust-features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.trust-feat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: #FFFFFF;
+}
+
+.trust-feat-item i {
+  color: var(--sunsol-gold);
+}
+
+/* ==========================================================
+   GALERÍA FOTOGRÁFICA ELEGANTE
+   ========================================================== */
+.gallery-filter-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.gallery-filter-pill {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
+
+.gallery-filter-pill.active,
+.gallery-filter-pill:hover {
+  background: var(--sunsol-blue);
+  color: #FFFFFF;
+  border-color: var(--sunsol-blue);
+}
+
+.gallery-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.gallery-photo-thumb {
+  position: relative;
+  height: 240px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-photo-thumb:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(21, 42, 80, 0.85) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-photo-thumb:hover .gallery-photo-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.gallery-overlay-hotel {
+  font-size: 0.75rem;
+  color: #93C5FD;
+}
+
+/* ==========================================================
+   DIRECTORIO DE ATENCIÓN DIRECTA (LIMPIO Y CLARO)
+   ========================================================== */
+.contact-clean-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-card-box {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-card-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--sunsol-blue-dark);
+  margin-bottom: 0.5rem;
+}
+
+.contact-card-box p.location-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.contact-line-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.contact-line-item i {
+  color: var(--sunsol-blue);
+  margin-top: 3px;
+}
+
+/* ==========================================================
+   FOOTER COHESIVO & PROFESIONAL
+   ========================================================== */
+.footer-corporate {
+  background-color: var(--sunsol-blue-dark);
+  color: #CBD5E1;
+  padding: 4.5rem 0 2rem;
+  border-top: 3px solid var(--sunsol-wave);
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand-col img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.footer-brand-col p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #94A3B8;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.footer-social-btn:hover {
+  background: var(--sunsol-wave);
+  transform: translateY(-2px);
+}
+
+.footer-col-title {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+}
+
+.footer-nav-list a {
+  color: #94A3B8;
+}
+
+.footer-nav-list a:hover {
+  color: #FFFFFF;
+  padding-left: 4px;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: #64748B;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================
+   CONSERJE FLOTANTE DE RESERVAS
+   ========================================================== */
+.concierge-float-trigger {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 990;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.concierge-pill-text {
+  background: #FFFFFF;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--sunsol-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.concierge-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--sunsol-blue);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 8px 24px rgba(34, 65, 124, 0.35);
+  border: 2px solid white;
+}
+
+.concierge-float-trigger:hover {
+  transform: translateY(-3px);
+}
+
+/* ==========================================================
+   MODAL UNIFICADO Y ELEGANTE
+   ========================================================== */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(21, 42, 80, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-backdrop.open {
+  display: flex;
+  animation: modalFadeIn 0.25s ease;
+}
+
+.modal-dialog {
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 720px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-float);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  padding: 1.25rem 1.75rem;
+  background: var(--sunsol-blue-dark);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-close {
+  color: #94A3B8;
+  font-size: 1.6rem;
+}
+
+.modal-close:hover {
+  color: #FFFFFF;
+}
+
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* ==========================================================
+   LIGHTBOX FULLSCREEN
+   ========================================================== */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 20, 40, 0.94);
+  z-index: 4000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox-modal.open {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 900px;
+  max-height: 85vh;
+  position: relative;
+  text-align: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: var(--radius-xs);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+.lightbox-caption {
+  color: white;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sidebar-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(300px, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+@media (max-width: 1100px) {
+  .sidebar-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .hotels-luxury-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .experiences-trio-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-clean-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .booking-clean-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .btn-booking-submit {
+    grid-column: span 2;
+  }
+  .banner-trust-clean {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-top-info {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .nav-links-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #FFFFFF;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    clip-path: circle(0% at top right);
+    transition: clip-path 0.35s ease;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .nav-links-menu.open {
+    clip-path: circle(150% at top right);
+  }
+  .hero-clean-title {
+    font-size: 2.4rem;
+  }
+  .booking-clean-form {
+    grid-template-columns: 1fr;
+  }
+  .btn-booking-submit {
+    grid-column: span 1;
+  }
+  .hotels-luxury-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-clean-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================
+   SISTEMA MULTI-PÁGINA & DROPDOWNS OFICIALES
+   ========================================================== */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.nav-item-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 280px;
+  background: #FFFFFF;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dropdown-link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.dropdown-link-item:hover {
+  background: var(--sunsol-wave-light);
+}
+
+.dropdown-link-item i {
+  color: var(--sunsol-blue);
+  font-size: 1.1rem;
+}
+
+.dropdown-link-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--sunsol-blue-dark);
+  line-height: 1.2;
+}
+
+.dropdown-link-sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Hero de Páginas Interiores */
+.page-hero-banner {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
+  padding: 4rem 0;
+}
+
+.page-hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(21, 42, 80, 0.85) 0%, rgba(34, 65, 124, 0.65) 100%);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.breadcrumbs-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs-bar a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.page-hero-title {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.page-hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+/* Sub-barra de navegación rápida de Hotel */
+.hotel-subnav-sticky {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 80px;
+  z-index: 50;
+  box-shadow: var(--shadow-sm);
+}
+
+.hotel-subnav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  overflow-x: auto;
+  padding: 0.75rem 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hotel-subnav-list a {
+  color: var(--text-muted);
+  padding: 0.25rem 0;
+  transition: var(--transition);
+}
+
+.hotel-subnav-list a:hover {
+  color: var(--sunsol-blue);
+}
+
+/* Tarjetas de Habitaciones de Hotel */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.room-luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.room-luxury-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--sunsol-wave);
+}
+
+.room-img-box {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.room-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.room-luxury-card:hover .room-img-box img {
+  transform: scale(1.05);
+}
+
+.room-body-box {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.room-name-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--sunsol-blue-dark);
+  margin-bottom: 0.5rem;
+}
+
+.room-capacity-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.room-price-box {
+  margin-top: auto;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.price-unit-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--sunsol-blue);
+  background: var(--sunsol-wave-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+

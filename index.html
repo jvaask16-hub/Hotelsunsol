@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunsol Hoteles | Resorts Todo Incluido en Margarita e Isla de Coche</title>
+  <meta name="description" content="Sitio web oficial de Sunsol Hoteles. Resorts Todo Incluido en Isla de Margarita e Isla de Coche, Venezuela: Sunsol Ecoland, Sunsol Punta Blanca, Isla Caribe y Unik.">
+  <meta name="keywords" content="Sunsol Hoteles, Isla de Margarita, Isla de Coche, Hoteles Todo Incluido, Turismo Venezuela">
+
+  <!-- Favicon Oficial -->
+  <link rel="icon" type="image/png" href="assets/images/logo-sunsol-clean.png">
+
+  <!-- Tipografías & Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos Oficiales Sunsol -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- =======================================================
+       1. HEADER SUPERIOR LIMPIO Y ELEGANTE
+       ======================================================= -->
+  <header class="site-header">
+    <!-- Barra superior de contacto y accesos -->
+    <div class="header-top-info">
+      <div class="container">
+        <div class="top-contact-pills">
+          <a href="tel:+582954001100"><i class="fas fa-phone-alt"></i> Central: +58 (295) 400.11.00</a>
+          <a href="https://wa.me/584123007867" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: +58 412 300 7867</a>
+          <span><i class="fas fa-map-marker-alt"></i> Margarita & Isla de Coche</span>
+        </div>
+        <div class="top-utilities">
+          <button class="top-link-btn" onclick="openDayPassModal()">
+            <i class="fas fa-ticket-alt"></i> Day Pass
+          </button>
+          <span>&bull;</span>
+          <button class="top-link-btn" onclick="openWebCheckInModal()">
+            <i class="fas fa-file-signature"></i> Web Check-In
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación principal -->
+    <div class="container">
+      <div class="navbar-main">
+        <a href="#inicio" class="brand-logo-link" aria-label="Sunsol Hoteles Inicio">
+          <img src="assets/images/logo-sunsol-clean.png" alt="Sunsol Hoteles" class="brand-logo-img">
+        </a>
+
+        <nav aria-label="Navegación del sitio">
+          <ul class="nav-links-menu">
+            <li class="nav-menu-item"><a href="index.html" class="active">Inicio</a></li>
+            <li class="nav-menu-item nav-item-dropdown">
+              <a href="#hoteles">Hoteles <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i></a>
+              <div class="nav-dropdown-menu">
+                <a href="isla-caribe.html" class="dropdown-link-item">
+                  <i class="fas fa-umbrella-beach"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Isla Caribe</div>
+                    <div class="dropdown-link-sub">Playa El Tirano &bull; Todo Incluido</div>
+                  </div>
+                </a>
+                <a href="punta-blanca.html" class="dropdown-link-item">
+                  <i class="fas fa-ship"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Punta Blanca</div>
+                    <div class="dropdown-link-sub">Isla de Coche &bull; Traslado Incluido</div>
+                  </div>
+                </a>
+                <a href="ecoland.html" class="dropdown-link-item">
+                  <i class="fas fa-water"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Ecoland</div>
+                    <div class="dropdown-link-sub">Playa Puerto Cruz &amp; Laguna</div>
+                  </div>
+                </a>
+                <a href="unik.html" class="dropdown-link-item">
+                  <i class="fas fa-gem"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Unik Luxury</div>
+                    <div class="dropdown-link-sub">Pampatar &bull; Confort Urbano</div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-menu-item"><a href="experiencias.html">Experiencias</a></li>
+            <li class="nav-menu-item"><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li class="nav-menu-item"><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions-group">
+          <button class="btn-sunsol-primary" onclick="openBookingModal()">
+            <i class="fas fa-calendar-alt"></i> Cotizar Reserva
+          </button>
+          <button class="mobile-nav-toggle" aria-label="Abrir Menú">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =======================================================
+       2. HERO BANNER - SERENO, ELEGANTE & IMPACTANTE
+       ======================================================= -->
+  <section class="hero-clean" id="inicio">
+    <div class="hero-clean-bg"></div>
+    <div class="container">
+      <div class="hero-clean-content">
+        <div class="hero-pre-badge">
+          <i class="fas fa-umbrella-beach"></i> El Arte de Vivir el Caribe
+        </div>
+        <h1 class="hero-clean-title">
+          Momentos Inolvidables en el Caribe Venezolano
+        </h1>
+        <p class="hero-clean-subtitle">
+          Descubre la hospitalidad, serenidad y confort de nuestros resorts Todo Incluido en las mejores playas de la Isla de Margarita y la Isla de Coche.
+        </p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#hoteles" class="btn-sunsol-primary">
+            Explorar Hoteles
+          </a>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal()" style="background: rgba(255,255,255,0.9); border-color: white; color: var(--sunsol-blue-dark);">
+            <i class="fab fa-whatsapp"></i> Hablar con un Asesor
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       3. MOTOR DE RESERVAS (BLANCO, MINIMALISTA Y PRECISO)
+       ======================================================= -->
+  <div class="container booking-section-wrapper">
+    <div class="booking-card-clean">
+      <form class="booking-clean-form" onsubmit="handleCleanSearch(event)">
+        <div class="form-field-group">
+          <label><i class="fas fa-hotel"></i> Destino / Hotel</label>
+          <select id="clean-hotel" class="input-clean">
+            <option value="isla-caribe">Sunsol Isla Caribe (Playa El Tirano)</option>
+            <option value="punta-blanca">Sunsol Punta Blanca (Isla de Coche)</option>
+            <option value="ecoland">Sunsol Ecoland (Playa Puerto Cruz)</option>
+            <option value="unik">Sunsol Unik Luxury Hotel (Pampatar)</option>
+          </select>
+        </div>
+
+        <div class="form-field-group">
+          <label><i class="fas fa-calendar-alt"></i> Fecha Llegada</label>
+          <input type="date" id="clean-checkin" class="input-clean" required>
+        </div>
+
+        <div class="form-field-group">
+          <label><i class="fas fa-calendar-alt"></i> Fecha Salida</label>
+          <input type="date" id="clean-checkout" class="input-clean" required>
+        </div>
+
+        <div class="form-field-group">
+          <label><i class="fas fa-user-friends"></i> Huéspedes</label>
+          <select id="clean-guests" class="input-clean">
+            <option value="1">1 Huésped</option>
+            <option value="2" selected>2 Huéspedes</option>
+            <option value="3">3 Huéspedes</option>
+            <option value="4">4 Huéspedes (Familiar)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-booking-submit">
+          <i class="fas fa-search"></i> Buscar Disponibilidad
+        </button>
+      </form>
+    </div>
+
+    <!-- CINTILLO OFICIAL DE CONDICIONES Y GARANTÍAS SUNSOL -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-hand-holding-usd" style="color: var(--sunsol-blue); font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Reserva con el 40%</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Paga en cuotas hasta 5 días antes</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-cocktail" style="color: var(--sunsol-blue); font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Plan Todo Incluido</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Buffet, snacks y bebidas ilimitadas</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-ship" style="color: var(--sunsol-blue); font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Traslado a Coche Incluido</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Lanchas Yaque-Coche en Punta Blanca</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-stopwatch" style="color: #00AA6C; font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Vigencia 72 Horas</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Congela tu tarifa y disponibilidad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================
+       4. SECCIÓN "NUESTROS HOTELES" (LIMPIO & ELEGANTE)
+       ======================================================= -->
+  <section class="section-spacious" id="hoteles">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tagline">Colección Exclusiva</span>
+        <h2 class="section-main-title">Nuestros Hoteles & Resorts</h2>
+        <p class="section-description">
+          Cada una de nuestras propiedades ofrece un concepto único: descanso en familia, desconexión caribeña, aventura marina o sofisticación boutique.
+        </p>
+      </div>
+
+      <div class="hotels-luxury-grid" id="hotels-clean-grid">
+        <!-- Renderizado dinámicamente con js/main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       5. EXPERIENCIAS EMBLEMÁTICAS (ESPACIOSO Y SERENO)
+       ======================================================= -->
+  <section class="section-spacious section-soft-bg" id="experiencias">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tagline">Vive Sunsol</span>
+        <h2 class="section-main-title">Experiencias Hechas a tu Medida</h2>
+        <p class="section-description">
+          Mucho más que una estadía, creamos momentos memorables que atesorarás por siempre.
+        </p>
+      </div>
+
+      <div class="experiences-trio-grid">
+        <!-- Experiencia 1: Coche -->
+        <div class="experience-clean-card">
+          <div class="exp-clean-img">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Isla de Coche">
+          </div>
+          <div class="exp-clean-body">
+            <h3 class="exp-clean-title">Isla de Coche & Navegación</h3>
+            <p class="exp-clean-desc">
+              Aguas mansas de color turquesa, arenas blancas vírgenes y traslados marítimos exclusivos en catamarán desde Margarita hacia Sunsol Punta Blanca.
+            </p>
+            <a href="javascript:void(0)" onclick="openHotelDetails('punta-blanca')" class="exp-clean-link">
+              Conocer Sunsol Punta Blanca <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Experiencia 2: Gastronomía -->
+        <div class="experience-clean-card">
+          <div class="exp-clean-img">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Gastronomía Todo Incluido">
+          </div>
+          <div class="exp-clean-body">
+            <h3 class="exp-clean-title">Gastronomía Todo Incluido</h3>
+            <p class="exp-clean-desc">
+              Restaurantes buffet internacionales, cenas temáticas a la carta, deliciosos mariscos frescos del Caribe y coctelería ilimitada durante todo el día.
+            </p>
+            <a href="javascript:void(0)" onclick="openBookingModal()" class="exp-clean-link">
+              Consultar Planes Todo Incluido <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Experiencia 3: Bodas & Eventos -->
+        <div class="experience-clean-card">
+          <div class="exp-clean-img">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Bodas frente al mar">
+          </div>
+          <div class="exp-clean-body">
+            <h3 class="exp-clean-title">Bodas & Celebraciones</h3>
+            <p class="exp-clean-desc">
+              El escenario soñado para decir "sí, acepto" sobre la arena blanca, celebrar 15 años de ensueño o realizar convenciones corporativas con servicio integral.
+            </p>
+            <a href="javascript:void(0)" onclick="contactarCoordinadora('Bodas y Eventos')" class="exp-clean-link">
+              Hablar con Coordinadora <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       6. BANNER INSTITUCIONAL: PLAN EN CÓMODAS CUOTAS
+       ======================================================= -->
+  <div class="container">
+    <div class="banner-trust-clean">
+      <div class="banner-trust-text">
+        <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #93C5FD; display: block; margin-bottom: 0.4rem;">
+          Facilidades de Pago Sunsol
+        </span>
+        <h3>Disfruta tus Vacaciones Pagando en Cómodas Cuotas</h3>
+        <p>
+          Reserva hoy con un pago inicial y abona a tu ritmo mensualmente antes de tu llegada. Protege tu tarifa y viaja a Margarita o Coche con total tranquilidad.
+        </p>
+        <button class="btn-sunsol-secondary" onclick="openBookingModal()" style="background: white; color: var(--sunsol-blue-dark); border: none;">
+          <i class="fas fa-calculator"></i> Consultar Financiamiento en Cuotas
+        </button>
+      </div>
+
+      <div class="trust-features-list">
+        <div class="trust-feat-item">
+          <i class="fas fa-check-circle"></i>
+          <span>0% Intereses agregados</span>
+        </div>
+        <div class="trust-feat-item">
+          <i class="fas fa-check-circle"></i>
+          <span>Tarifa congelada garantizada</span>
+        </div>
+        <div class="trust-feat-item">
+          <i class="fas fa-check-circle"></i>
+          <span>Aplica para toda la cadena</span>
+        </div>
+        <div class="trust-feat-item">
+          <i class="fas fa-check-circle"></i>
+          <span>Asistencia personalizada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================
+       7. GALERÍA FOTOGRÁFICA ELEGANTE (SIN RUIDO VISUAL)
+       ======================================================= -->
+  <section class="section-spacious" id="galeria">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tagline">Colección Visual</span>
+        <h2 class="section-main-title">Explora la Belleza de Nuestras Islas</h2>
+        <p class="section-description">
+          Playas de aguas turquesas, piscinas relajantes y espacios diseñados para tu bienestar. Haz clic en cualquier imagen para verla en alta definición.
+        </p>
+      </div>
+
+      <!-- Filtros discretos -->
+      <div class="gallery-filter-nav">
+        <button class="gallery-filter-pill active" data-cat="all">Todas las Fotos</button>
+        <button class="gallery-filter-pill" data-cat="playas">Playas & Coche</button>
+        <button class="gallery-filter-pill" data-cat="piscinas">Piscinas & Resorts</button>
+        <button class="gallery-filter-pill" data-cat="habitaciones">Habitaciones & Suites</button>
+        <button class="gallery-filter-pill" data-cat="gastronomia">Gastronomía</button>
+      </div>
+
+      <div class="gallery-cards-grid" id="gallery-clean-grid">
+        <!-- Inyectado por js/main.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       8. DIRECTORIO DE ATENCIÓN DIRECTA Y CONTACTO
+       ======================================================= -->
+  <section class="section-spacious section-soft-bg" id="contacto">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tagline">Atención al Huésped</span>
+        <h2 class="section-main-title">Directorio Oficial de Contacto</h2>
+        <p class="section-description">
+          Comunícate directamente con nuestro equipo de reservas o con la recepción de cada hotel para una atención personalizada.
+        </p>
+      </div>
+
+      <div class="contact-clean-grid">
+        <!-- Hotel 1 -->
+        <div class="contact-card-box">
+          <h4>Sunsol Isla Caribe</h4>
+          <p class="location-sub">Carretera Costanera, Playa El Tirano</p>
+          <div class="contact-line-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+58 (295) 400.1100</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>+58 414 795 4081</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fas fa-envelope"></i>
+            <span>reservaciones4@sunsolhoteles.com</span>
+          </div>
+        </div>
+
+        <!-- Hotel 2 -->
+        <div class="contact-card-box">
+          <h4>Sunsol Punta Blanca</h4>
+          <p class="location-sub">Playa La Punta, Isla de Coche</p>
+          <div class="contact-line-item">
+            <i class="fas fa-ship"></i>
+            <span>Zarpes: Yaque-Coche 14:30 | Retorno 13:00</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>+58 414 795 4081</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fas fa-envelope"></i>
+            <span>reservaciones4@sunsolhoteles.com</span>
+          </div>
+        </div>
+
+        <!-- Hotel 3 -->
+        <div class="contact-card-box">
+          <h4>Sunsol Ecoland</h4>
+          <p class="location-sub">Playa Puerto Cruz, Pedro González</p>
+          <div class="contact-line-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+58 (295) 400.1100</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>0412 384 3057</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fas fa-envelope"></i>
+            <span>reservaciones@sunsolhoteles.com</span>
+          </div>
+        </div>
+
+        <!-- Hotel 4 -->
+        <div class="contact-card-box">
+          <h4>Sunsol Unik Luxury</h4>
+          <p class="location-sub">CC Parque Costazul, Pampatar</p>
+          <div class="contact-line-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+58 (295) 400.1100</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>0412 300 7867</span>
+          </div>
+          <div class="contact-line-item">
+            <i class="fas fa-envelope"></i>
+            <span>reservaciones@sunsolhoteles.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================
+       9. FOOTER CORPORATIVO (AZUL MARINO Y LOGO OFICIAL)
+       ======================================================= -->
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <img src="assets/images/logo-sunsol-white.png" alt="Sunsol Hoteles">
+          <p>
+            Cadena hotelera líder en turismo vacacional Todo Incluido en Isla de Margarita e Isla de Coche, Venezuela. Más de 19 años de hospitalidad caribeña.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://twitter.com" target="_blank" class="footer-social-btn" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com" target="_blank" class="footer-social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" class="footer-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/584123007867" target="_blank" class="footer-social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Nuestros Hoteles</h4>
+          <ul class="footer-nav-list">
+            <li><a href="javascript:void(0)" onclick="openHotelDetails('isla-caribe')">Sunsol Isla Caribe</a></li>
+            <li><a href="javascript:void(0)" onclick="openHotelDetails('punta-blanca')">Sunsol Punta Blanca Coche</a></li>
+            <li><a href="javascript:void(0)" onclick="openHotelDetails('ecoland')">Sunsol Ecoland</a></li>
+            <li><a href="javascript:void(0)" onclick="openHotelDetails('unik')">Sunsol Unik Luxury Hotel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Servicios</h4>
+          <ul class="footer-nav-list">
+            <li><a href="javascript:void(0)" onclick="openDayPassModal()">Sunsol Day Pass</a></li>
+            <li><a href="javascript:void(0)" onclick="openWebCheckInModal()">Web Check-In</a></li>
+            <li><a href="#experiencias">Bodas y Eventos</a></li>
+            <li><a href="#galeria">Galería Fotográfica</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Oficinas Comerciales</h4>
+          <div style="font-size: 0.88rem; line-height: 1.6; color: #94A3B8;">
+            <p style="margin-bottom: 0.6rem;">
+              <strong style="color: white;">Sede Caracas:</strong><br>
+              Torre B, Centro Lido, Piso 7, El Rosal.
+            </p>
+            <p>
+              <strong style="color: white;">Sede Margarita:</strong><br>
+              Av. Aldonza Manrique, Pampatar.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Sunsol Hoteles. Todos los derechos reservados. Hotelería y Turismo en Venezuela.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Términos & Condiciones</a>
+          <a href="#">Políticas de Reserva</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================
+       10. CONSERJE FLOTANTE WHATSAPP (SUTIL Y ELEGANTE)
+       ======================================================= -->
+  <div class="concierge-float-trigger" onclick="openBookingModal()" title="Consulta directa con un Asesor">
+    <div class="concierge-pill-text">
+      <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1rem;"></i>
+      <span>Consultar Disponibilidad</span>
+    </div>
+    <div class="concierge-icon-circle">
+      <i class="fas fa-concierge-bell"></i>
+    </div>
+  </div>
+
+  <!-- =======================================================
+       11. MODAL DE LIGHTBOX FULLSCREEN PARA FOTOS
+       ======================================================= -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <span class="lightbox-close" id="lightbox-close-btn">&times;</span>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-img" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- =======================================================
+       12. MODAL UNIFICADO (COTIZACIÓN, DETALLES Y CHECK-IN)
+       ======================================================= -->
+  <div class="modal-backdrop" id="app-modal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/images/logo-sunsol-white.png" alt="Sunsol Hoteles" style="height: 28px; width: auto; object-fit: contain;">
+          <h3 id="modal-title" style="margin: 0; font-size: 1.15rem; font-weight: 700;">Detalles</h3>
+        </div>
+        <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Inyectado por JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

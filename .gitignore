@@ -1,0 +1,17 @@
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Variables de entorno y credenciales
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+npm-debug.log*
+
+# Carpetas temporales
+.vscode/
+.idea/

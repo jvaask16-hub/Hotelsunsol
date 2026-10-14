@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunsol Punta Blanca &bull; Resort Todo Incluido en Isla de Coche | Sunsol Hoteles</title>
+  <meta name="description" content="Sunsol Punta Blanca en Isla de Coche. Plan Todo Incluido desde $110 USD por persona/noche. Traslado marítimo en lanchas ida y vuelta incluido, piscina infinita y arenas blancas.">
+  <link rel="icon" type="image/png" href="assets/images/logo-sunsol-clean.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- 1. HEADER & TOPBAR -->
+  <header class="site-header">
+    <div class="header-top-info">
+      <div class="container top-info-inner">
+        <div class="top-contact-pills">
+          <a href="tel:+582954001100"><i class="fas fa-phone-alt"></i> +58 (295) 400.1100</a>
+          <a href="https://wa.me/584147954081" target="_blank"><i class="fab fa-whatsapp"></i> Asesor Oficial: +58 414 795 4081</a>
+          <a href="mailto:reservaciones4@sunsolhoteles.com"><i class="fas fa-envelope"></i> reservaciones4@sunsolhoteles.com</a>
+        </div>
+        <div class="top-utilities">
+          <a href="javascript:void(0)" onclick="openWebCheckInModal()" class="top-link-btn">
+            <i class="fas fa-clipboard-check"></i> Web Check-In
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="navbar-main">
+        <a href="index.html" class="brand-logo-link">
+          <img src="assets/images/logo-sunsol-clean.png" alt="Sunsol Hoteles" class="brand-logo-img">
+        </a>
+
+        <nav aria-label="Navegación del sitio">
+          <ul class="nav-links-menu">
+            <li class="nav-menu-item"><a href="index.html">Inicio</a></li>
+            <li class="nav-menu-item nav-item-dropdown">
+              <a href="index.html#hoteles" class="active">Hoteles <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i></a>
+              <div class="nav-dropdown-menu">
+                <a href="isla-caribe.html" class="dropdown-link-item">
+                  <i class="fas fa-umbrella-beach"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Isla Caribe</div>
+                    <div class="dropdown-link-sub">Playa El Tirano &bull; Todo Incluido</div>
+                  </div>
+                </a>
+                <a href="punta-blanca.html" class="dropdown-link-item" style="background: var(--sunsol-wave-light);">
+                  <i class="fas fa-ship"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Punta Blanca</div>
+                    <div class="dropdown-link-sub">Isla de Coche &bull; Traslado Incluido</div>
+                  </div>
+                </a>
+                <a href="ecoland.html" class="dropdown-link-item">
+                  <i class="fas fa-water"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Ecoland</div>
+                    <div class="dropdown-link-sub">Playa Puerto Cruz &amp; Laguna</div>
+                  </div>
+                </a>
+                <a href="unik.html" class="dropdown-link-item">
+                  <i class="fas fa-gem"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Unik Luxury</div>
+                    <div class="dropdown-link-sub">Pampatar &bull; Confort Urbano</div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-menu-item"><a href="experiencias.html">Experiencias</a></li>
+            <li class="nav-menu-item"><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li class="nav-menu-item"><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions-group">
+          <button class="btn-sunsol-primary" onclick="openBookingModal('punta-blanca')">
+            <i class="fas fa-calendar-alt"></i> Cotizar Coche
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. HERO BANNER DE HOTEL -->
+  <section class="page-hero-banner" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=85');">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumbs-bar">
+          <a href="index.html">Inicio</a> &bull; <a href="index.html#hoteles">Hoteles</a> &bull; <span>Sunsol Punta Blanca</span>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 0.75rem;">
+          <i class="fas fa-ship" style="color: #6ee7b7;"></i> TRASLADO MARÍTIMO INCLUIDO &bull; PLAYA LA PUNTA, ISLA DE COCHE
+        </div>
+        <h1 class="page-hero-title">Sunsol Punta Blanca</h1>
+        <p class="page-hero-subtitle">
+          El paraíso exclusivo de arenas blancas y aguas turquesas en la Isla de Coche. Piscina con borde infinito, traslado en lanchas desde Playa El Yaque incluido, open bar y gastronomía caribeña ilimitada.
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 1.5rem; margin-top: 1.75rem; flex-wrap: wrap;">
+          <div style="background: rgba(255,255,255,0.95); color: var(--sunsol-blue-dark); padding: 0.6rem 1.25rem; border-radius: var(--radius-sm);">
+            <span style="font-size: 0.72rem; text-transform: uppercase; font-weight: 800; display: block; color: var(--sunsol-blue);">Tarifa Oficial Desde</span>
+            <div style="display: flex; align-items: baseline; gap: 0.3rem;">
+              <strong style="font-size: 1.8rem; font-weight: 800; color: var(--sunsol-blue); line-height: 1;">$110</strong>
+              <span style="font-size: 0.75rem; font-weight: 700;">USD / pers. / noche</span>
+            </div>
+          </div>
+
+          <button class="btn-sunsol-primary" onclick="openBookingModal('punta-blanca')" style="padding: 0.85rem 2rem; font-size: 1rem;">
+            <i class="fab fa-whatsapp"></i> Cotizar Estadía en Coche
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CINTILLO OFICIAL DE CONDICIONES Y GARANTÍAS SUNSOL -->
+  <div class="container" style="margin-top: 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-ship" style="color: var(--sunsol-blue); font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Lanchas Yaque-Coche</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Zarpe 14:30 | Retorno 13:00</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-hand-holding-usd" style="color: var(--sunsol-blue); font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Reserva con el 40%</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Saldo en cuotas hasta 5 días antes</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-cocktail" style="color: var(--sunsol-blue); font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Plan Todo Incluido</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Buffet, snacks y bebidas ilimitadas</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem; background: #FFFFFF; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <i class="fas fa-stopwatch" style="color: #00AA6C; font-size: 1.4rem;"></i>
+        <div>
+          <strong style="color: var(--sunsol-blue-dark); font-size: 0.85rem; display: block;">Vigencia 72 Horas</strong>
+          <span style="color: var(--text-muted); font-size: 0.76rem;">Tarifa y disponibilidad congelada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. CONTENIDO PRINCIPAL: HABITACIONES & VOUCHER INCLUSIONES -->
+  <main class="container section-spacious">
+    <div class="sidebar-layout-grid">
+      <div>
+        <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--sunsol-blue-dark); margin-bottom: 0.5rem;">
+          Cabañas &amp; Habitaciones en Isla de Coche
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Tarifas oficiales calculadas <strong>por persona y por noche</strong> en Plan Todo Incluido con lanchas ida y vuelta incluidas.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Habitación 1 -->
+          <div style="display: flex; gap: 1.25rem; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); flex-wrap: wrap;">
+            <div style="flex: 1 1 240px; min-height: 180px;">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" alt="Habitación Estándar Coche" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="flex: 2 1 300px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--sunsol-blue-dark);">Habitación Estándar Cabaña</h3>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin: 0.3rem 0 0.6rem;">
+                  <i class="fas fa-user-friends"></i> Capacidad: 2 Adultos &bull; Arquitectura colonial caribeña
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5;">
+                  Cabaña íntima y fresca rodeada de jardines tropicales. Cuenta con aire acondicionado, TV cable, baño privado y cercanía directa a la piscina de borde infinito.
+                </p>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
+                <div>
+                  <div style="font-size: 1.6rem; font-weight: 800; color: var(--sunsol-blue); line-height: 1;">$110 USD</div>
+                  <span class="price-unit-tag">POR PERSONA / POR NOCHE</span>
+                </div>
+                <button class="btn-sunsol-primary" onclick="openBookingModal('punta-blanca')">
+                  Cotizar Esta Cabaña
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Habitación 2 -->
+          <div style="display: flex; gap: 1.25rem; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); flex-wrap: wrap;">
+            <div style="flex: 1 1 240px; min-height: 180px;">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80" alt="Suite Frente al Mar" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="flex: 2 1 300px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--sunsol-blue-dark);">Suite Frente al Mar "Starfish"</h3>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin: 0.3rem 0 0.6rem;">
+                  <i class="fas fa-heart"></i> Especial Parejas &bull; Frente a las aguas calmas de Coche
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.5;">
+                  Ubicación privilegiada a solo pasos de la arena. Despierta con la brisa marina y disfruta de la puesta de sol más romántica de Venezuela.
+                </p>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; border-top: 1px solid var(--border-light); padding-top: 0.75rem;">
+                <div>
+                  <div style="font-size: 1.6rem; font-weight: 800; color: var(--sunsol-blue); line-height: 1;">$185 USD</div>
+                  <span class="price-unit-tag">POR PERSONA / POR NOCHE</span>
+                </div>
+                <button class="btn-sunsol-primary" onclick="openBookingModal('punta-blanca')">
+                  Cotizar Esta Suite
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR: VOUCHER OFICIAL #55315 -->
+      <div>
+        <div style="background: var(--bg-soft); border: 1.5px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; position: sticky; top: 100px;">
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+            <i class="fas fa-certificate" style="color: #00AA6C; font-size: 1.4rem;"></i>
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: #0F5132; text-transform: uppercase;">
+                La Tarifa Incluye
+              </h3>
+              <span style="font-size: 0.74rem; color: var(--text-muted);">Voucher Oficial Cotización #55315</span>
+            </div>
+          </div>
+
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.85rem; color: var(--text-main); margin-bottom: 1.5rem;">
+            <li>&diams; <strong>Horario de los zarpes:</strong>
+              <div style="font-size: 0.78rem; color: var(--sunsol-blue); margin-top: 2px;">
+                &bull; Yaque — Coche: <strong>14:30</strong><br>
+                &bull; Coche — Yaque: <strong>13:00</strong> (coordinar con recepción)
+              </div>
+            </li>
+            <li>&diams; <strong>Traslado marítimo en lanchas ida y vuelta (Yaque-Coche-Yaque) INCLUIDO</strong></li>
+            <li>&diams; <strong>Alojamiento con PLAN TODO INCLUIDO</strong></li>
+            <li>&diams; <strong>Check-in: 3:00 PM | Check-out: 12:00 PM</strong></li>
+            <li>&diams; Todas las comidas tipo buffet (desayuno, almuerzo, cena)</li>
+            <li>&diams; Snacks a orilla de playa y piscina</li>
+            <li>&diams; <strong>1 piscina con borde infinito</strong> con vista panorámica</li>
+            <li>&diams; Bebidas alcohólicas y no alcohólicas nacionales ilimitadas</li>
+            <li>&diams; Club Playa con camastros y toldos en Playa La Punta</li>
+            <li>&diams; Parque Infantil y Discoteca</li>
+            <li>&diams; Wifi en áreas comunes y recreación diaria</li>
+          </ul>
+
+          <div style="background: #FFFBEB; border: 1px solid #FDE68A; padding: 0.85rem; border-radius: var(--radius-sm); margin-bottom: 1.25rem; font-size: 0.78rem; color: #92400E;">
+            <strong><i class="fas fa-exclamation-triangle"></i> Nota de Suplemento:</strong> Para reservas de una sola (1) noche aplica un suplemento adicional de <strong>$50.00 USD</strong>.
+          </div>
+
+          <button class="btn-sunsol-primary" onclick="openBookingModal('punta-blanca')" style="width: 100%; justify-content: center; padding: 0.85rem;">
+            <i class="fab fa-whatsapp"></i> Solicitar Cotización Punta Blanca
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 5. FOOTER CORPORATIVO -->
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <img src="assets/images/logo-sunsol-white.png" alt="Sunsol Hoteles">
+          <p>
+            Cadena hotelera líder en turismo vacacional Todo Incluido en Isla de Margarita e Isla de Coche, Venezuela. Más de 19 años de hospitalidad caribeña.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://wa.me/584147954081" target="_blank" class="footer-social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:reservaciones4@sunsolhoteles.com" class="footer-social-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Hoteles Sunsol</h4>
+          <ul class="footer-nav-list">
+            <li><a href="isla-caribe.html">Sunsol Isla Caribe</a></li>
+            <li><a href="punta-blanca.html">Sunsol Punta Blanca Coche</a></li>
+            <li><a href="ecoland.html">Sunsol Ecoland</a></li>
+            <li><a href="unik.html">Sunsol Unik Luxury Hotel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Contacto Asesor</h4>
+          <div style="font-size: 0.88rem; line-height: 1.6; color: #94A3B8;">
+            <p><strong>Asesor:</strong> Luisa Franco</p>
+            <p><strong>WhatsApp:</strong> +58 414 795 4081</p>
+            <p><strong>Email:</strong> reservaciones4@sunsolhoteles.com</p>
+            <p><strong>Ubicación:</strong> Playa La Punta, Isla de Coche (Zarpe desde Playa El Yaque).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Sunsol Hoteles. Todos los derechos reservados.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="quienes-somos.html">Quiénes Somos</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONSERJE FLOTANTE -->
+  <div class="concierge-float-trigger" onclick="openBookingModal('punta-blanca')" title="Consultar disponibilidad en Coche">
+    <div class="concierge-pill-text">
+      <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1rem;"></i>
+      <span>Cotizar Punta Blanca</span>
+    </div>
+    <div class="concierge-icon-circle">
+      <i class="fas fa-concierge-bell"></i>
+    </div>
+  </div>
+
+  <!-- MODAL DE COTIZACIÓN -->
+  <div class="modal-backdrop" id="app-modal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/images/logo-sunsol-white.png" alt="Sunsol Hoteles" style="height: 28px; width: auto; object-fit: contain;">
+          <h3 id="modal-title" style="margin: 0; font-size: 1.15rem; font-weight: 700;">Detalles</h3>
+        </div>
+        <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-content"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

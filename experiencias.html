@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiencias &bull; Pádel, Spa, Gastronomía y Eventos | Sunsol Hoteles</title>
+  <meta name="description" content="Descubre las experiencias Sunsol Hoteles: Paseos en catamarán a Coche, Sunsol Pádel Club, The Essential Spa, bodas frente al mar y gastronomía caribeña.">
+  <link rel="icon" type="image/png" href="assets/images/logo-sunsol-clean.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-top-info">
+      <div class="container top-info-inner">
+        <div class="top-contact-pills">
+          <a href="tel:+582954001100"><i class="fas fa-phone-alt"></i> +58 (295) 400.1100</a>
+          <a href="https://wa.me/584147954081" target="_blank"><i class="fab fa-whatsapp"></i> Asesor Oficial: +58 414 795 4081</a>
+          <a href="mailto:reservaciones4@sunsolhoteles.com"><i class="fas fa-envelope"></i> reservaciones4@sunsolhoteles.com</a>
+        </div>
+        <div class="top-utilities">
+          <a href="javascript:void(0)" onclick="openWebCheckInModal()" class="top-link-btn">
+            <i class="fas fa-clipboard-check"></i> Web Check-In
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="navbar-main">
+        <a href="index.html" class="brand-logo-link">
+          <img src="assets/images/logo-sunsol-clean.png" alt="Sunsol Hoteles" class="brand-logo-img">
+        </a>
+
+        <nav aria-label="Navegación del sitio">
+          <ul class="nav-links-menu">
+            <li class="nav-menu-item"><a href="index.html">Inicio</a></li>
+            <li class="nav-menu-item nav-item-dropdown">
+              <a href="index.html#hoteles">Hoteles <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i></a>
+              <div class="nav-dropdown-menu">
+                <a href="isla-caribe.html" class="dropdown-link-item">
+                  <i class="fas fa-umbrella-beach"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Isla Caribe</div>
+                    <div class="dropdown-link-sub">Playa El Tirano &bull; Todo Incluido</div>
+                  </div>
+                </a>
+                <a href="punta-blanca.html" class="dropdown-link-item">
+                  <i class="fas fa-ship"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Punta Blanca</div>
+                    <div class="dropdown-link-sub">Isla de Coche &bull; Traslado Incluido</div>
+                  </div>
+                </a>
+                <a href="ecoland.html" class="dropdown-link-item">
+                  <i class="fas fa-water"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Ecoland</div>
+                    <div class="dropdown-link-sub">Playa Puerto Cruz &amp; Laguna</div>
+                  </div>
+                </a>
+                <a href="unik.html" class="dropdown-link-item">
+                  <i class="fas fa-gem"></i>
+                  <div>
+                    <div class="dropdown-link-title">Sunsol Unik Luxury</div>
+                    <div class="dropdown-link-sub">Pampatar &bull; Confort Urbano</div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <li class="nav-menu-item"><a href="experiencias.html" class="active">Experiencias</a></li>
+            <li class="nav-menu-item"><a href="quienes-somos.html">Quiénes Somos</a></li>
+            <li class="nav-menu-item"><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions-group">
+          <button class="btn-sunsol-primary" onclick="openBookingModal()">
+            <i class="fas fa-calendar-alt"></i> Cotizar Reserva
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="page-hero-banner" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1920&q=85');">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumbs-bar">
+          <a href="index.html">Inicio</a> &bull; <span>Experiencias</span>
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); padding: 0.3rem 0.8rem; border-radius: var(--radius-full); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 0.75rem;">
+          <i class="fas fa-star" style="color: #fde047;"></i> VIVE EL CARIBE SUNSOL
+        </div>
+        <h1 class="page-hero-title">Experiencias Hechas a tu Medida</h1>
+        <p class="page-hero-subtitle">
+          Más que una estadía, creamos vivencias extraordinarias: deportes acuáticos, relajación en spa, torneos de pádel, escapadas en catamarán a Coche y banquetes frente al mar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO EXPERIENCIAS -->
+  <main class="container section-spacious">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2.5rem;">
+      <!-- Experiencia 1: Crucero a Coche -->
+      <div class="experience-clean-card">
+        <div class="exp-clean-img" style="height: 240px;">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Sunsol Festival Cruise">
+          <span class="exp-category-pill">ISLA DE COCHE</span>
+        </div>
+        <div class="exp-clean-body">
+          <h3 class="exp-card-title">Sunsol Festival Cruise</h3>
+          <p class="exp-card-desc">
+            Navega en catamarán de lujo por las aguas cristalinas del Caribe hacia la paradisíaca Isla de Coche. Incluye open bar, animación caribeña a bordo, almuerzo buffet y uso de las instalaciones de Sunsol Punta Blanca.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: 1rem;">
+            Consultar Day Pass
+          </button>
+        </div>
+      </div>
+
+      <!-- Experiencia 2: Sunsol Pádel Club -->
+      <div class="experience-clean-card">
+        <div class="exp-clean-img" style="height: 240px;">
+          <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=800&q=80" alt="Sunsol Pádel Club">
+          <span class="exp-category-pill">DEPORTE &amp; LIFESTYLE</span>
+        </div>
+        <div class="exp-clean-body">
+          <h3 class="exp-card-title">Sunsol Pádel Club</h3>
+          <p class="exp-card-desc">
+            Las canchas de pádel panorámicas más modernas de Margarita, situadas en Parque Costazul contiguo a Sunsol Unik. Iluminación profesional LED, escuela de formación, pro shop y sport bar para relajarse tras el partido.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('unik')" style="margin-top: 1rem;">
+            Reservar Cancha
+          </button>
+        </div>
+      </div>
+
+      <!-- Experiencia 3: The Essential Spa -->
+      <div class="experience-clean-card">
+        <div class="exp-clean-img" style="height: 240px;">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="The Essential Spa">
+          <span class="exp-category-pill">BIENESTAR &amp; RELAX</span>
+        </div>
+        <div class="exp-clean-body">
+          <h3 class="exp-card-title">The Essential Spa</h3>
+          <p class="exp-card-desc">
+            Santuario de renovación física y mental. Masajes terapéuticos con aceites esenciales tropicales, hidroterapia, sauna y tratamientos faciales relajantes frente al sonido suave del mar caribeño.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('isla-caribe')" style="margin-top: 1rem;">
+            Conocer Tratamientos
+          </button>
+        </div>
+      </div>
+
+      <!-- Experiencia 4: Bodas y Eventos Frente al Mar -->
+      <div class="experience-clean-card">
+        <div class="exp-clean-img" style="height: 240px;">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Bodas Sunsol">
+          <span class="exp-category-pill">CELEBRACIONES ÚNICAS</span>
+        </div>
+        <div class="exp-clean-body">
+          <h3 class="exp-card-title">Bodas &amp; Lunas de Miel</h3>
+          <p class="exp-card-desc">
+            Da el "Sí, acepto" con los pies en la arena y el atardecer caribeño de fondo. Nuestro equipo de coordinación se encarga del banquete gourmet, montaje floral, música en vivo y hospedaje para tus invitados.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: 1rem;">
+            Solicitar Asesoría de Bodas
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-corporate">
+    <div class="container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <img src="assets/images/logo-sunsol-white.png" alt="Sunsol Hoteles">
+          <p>
+            Cadena hotelera líder en turismo vacacional Todo Incluido en Isla de Margarita e Isla de Coche, Venezuela.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Nuestros Hoteles</h4>
+          <ul class="footer-nav-list">
+            <li><a href="isla-caribe.html">Sunsol Isla Caribe</a></li>
+            <li><a href="punta-blanca.html">Sunsol Punta Blanca Coche</a></li>
+            <li><a href="ecoland.html">Sunsol Ecoland</a></li>
+            <li><a href="unik.html">Sunsol Unik Luxury Hotel</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Reservas Oficiales</h4>
+          <div style="font-size: 0.88rem; color: #94A3B8; line-height: 1.6;">
+            <p><strong>WhatsApp:</strong> +58 414 795 4081</p>
+            <p><strong>Email:</strong> reservaciones4@sunsolhoteles.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 Sunsol Hoteles. Todos los derechos reservados.</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="app-modal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/images/logo-sunsol-white.png" alt="Sunsol Hoteles" style="height: 28px; width: auto; object-fit: contain;">
+          <h3 id="modal-title" style="margin: 0; font-size: 1.15rem; font-weight: 700;">Detalles</h3>
+        </div>
+        <button class="modal-close" id="modal-close-btn" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-content"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

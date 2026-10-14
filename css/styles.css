@@ -265,8 +265,17 @@ button {
 
 .mobile-nav-toggle {
   display: none;
+  background: none;
+  border: none;
   font-size: 1.5rem;
   color: var(--sunsol-blue);
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.mobile-drawer-extra {
+  display: none;
 }
 
 /* ==========================================================
@@ -1132,51 +1141,313 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .header-top-info {
     display: none;
   }
-  .mobile-nav-toggle {
-    display: block;
+  
+  .navbar-main {
+    height: 64px;
   }
+
+  .brand-logo-img {
+    height: 38px;
+    max-width: 155px;
+  }
+
+  /* Ocultar el botón Cotizar del header en móvil para evitar colisión con el logo y el menú */
+  .nav-actions-group .btn-sunsol-primary {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--sunsol-blue);
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Menú desplegable móvil estilo App de Lujo */
   .nav-links-menu {
     position: fixed;
-    top: 80px;
+    top: 64px;
     left: 0;
     width: 100%;
+    height: calc(100vh - 64px);
     background: #FFFFFF;
     flex-direction: column;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    clip-path: circle(0% at top right);
-    transition: clip-path 0.35s ease;
-    gap: 1.25rem;
-    border-bottom: 1px solid var(--border-color);
+    align-items: stretch;
+    padding: 1.25rem 1.5rem 3rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    clip-path: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+    gap: 0;
+    border-bottom: none;
   }
+
   .nav-links-menu.open {
-    clip-path: circle(150% at top right);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
+
+  .nav-menu-item {
+    width: 100%;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .nav-menu-item > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 0.2rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sunsol-blue-dark);
+    width: 100%;
+  }
+
+  .nav-menu-item a::after {
+    display: none;
+  }
+
+  /* Hoteles desplegables en acordeón en móvil */
+  .nav-item-dropdown i.fa-chevron-down {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .nav-item-dropdown.dropdown-open i.fa-chevron-down {
+    transform: rotate(180deg);
+    color: var(--sunsol-blue);
+  }
+
+  .nav-item-dropdown .nav-dropdown-menu {
+    position: static;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 100%;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, padding 0.25s ease;
+  }
+
+  /* Al hacer clic/tap en 'Hoteles ⌄', la pestaña se abre suavemente */
+  .nav-item-dropdown.dropdown-open .nav-dropdown-menu {
+    max-height: 550px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0.5rem 0 0.85rem 0;
+  }
+
+  .dropdown-link-item {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 0.65rem 0.85rem;
+  }
+
+  /* Sección extra en el menú móvil (DayPass, WebCheckin, Cotizar, WhatsApp) */
+  .mobile-drawer-extra {
+    display: block;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1.5px solid var(--border-light);
+  }
+
+  .mobile-drawer-utilities {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .mobile-util-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: #F1F5F9;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--sunsol-blue);
+    cursor: pointer;
+  }
+
+  .mobile-drawer-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .mobile-drawer-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #25D366;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    text-decoration: none;
+  }
+
+  /* Hero & Títulos en móvil */
+  .hero-clean {
+    min-height: auto;
+    padding: 3.5rem 0 5rem;
+  }
+
   .hero-clean-title {
-    font-size: 2.4rem;
+    font-size: 2rem;
+    line-height: 1.22;
   }
+
+  .hero-clean-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .page-hero-banner {
+    min-height: auto;
+    padding: 2.75rem 0;
+  }
+
+  .page-hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .page-hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .hotel-subnav-sticky {
+    top: 64px;
+  }
+
+  /* Motor de reservas */
+  .booking-section-wrapper {
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+  }
+
+  .booking-card-clean {
+    padding: 1.25rem 1rem;
+  }
+
   .booking-clean-form {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
+
   .btn-booking-submit {
     grid-column: span 1;
+    height: 50px;
+    font-size: 1rem;
+    width: 100%;
   }
+
   .hotels-luxury-grid {
     grid-template-columns: 1fr;
   }
+
   .gallery-cards-grid {
     grid-template-columns: 1fr;
   }
+
   .contact-clean-grid {
     grid-template-columns: 1fr;
   }
+
   .footer-top-row {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  /* Conserje flotante ajustado en móvil */
+  .concierge-float-trigger {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .concierge-pill-text {
+    display: none;
+  }
+
+  .concierge-icon-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  /* Modales optimizados para móvil */
+  .modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .modal-dialog {
+    max-height: 94vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Prevenir zoom no deseado de iOS/Android en inputs */
+  input, select, textarea, .input-clean {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-clean-title {
+    font-size: 1.75rem;
+  }
+
+  .page-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .brand-logo-img {
+    height: 34px;
+    max-width: 140px;
   }
 }
 
@@ -1187,7 +1458,8 @@ button {
   position: relative;
 }
 
-.nav-item-dropdown:hover .nav-dropdown-menu {
+.nav-item-dropdown:hover .nav-dropdown-menu,
+.nav-item-dropdown.dropdown-open .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

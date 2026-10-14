@@ -2,10 +2,10 @@
 // SUNSOL HOTELES - LÓGICA MINIMALISTA & ELEGANTE
 // ==========================================================
 
-// Configuración de Supabase (Pega aquí tus credenciales de app.supabase.com)
+// Configuración de Supabase Oficial
 const SUPABASE_CONFIG = {
-  url: "",       // Ej: "https://abcdefghijklm.supabase.co"
-  anonKey: ""   // Tu llave pública anon: "eyJhbGci..."
+  url: "https://vxeafvxigtpuzewkfotc.supabase.co",
+  anonKey: "sb_publishable_RuIMl_9AowE9k7NGl_Umjg_IkLunOSY"
 };
 
 let supabaseClient = null;
@@ -37,19 +37,57 @@ function initNavbar() {
 
   if (toggle && menu) {
     toggle.addEventListener("click", () => {
-      menu.classList.toggle("open");
+      const isOpen = menu.classList.toggle("open");
+      document.body.style.overflow = isOpen ? "hidden" : "";
       const icon = toggle.querySelector("i");
       if (icon) {
-        icon.classList.toggle("fa-bars");
-        icon.classList.toggle("fa-times");
+        if (isOpen) {
+          icon.className = "fas fa-times";
+        } else {
+          icon.className = "fas fa-bars";
+        }
       }
     });
 
-    document.querySelectorAll(".nav-menu-item a").forEach(link => {
-      link.addEventListener("click", () => menu.classList.remove("open"));
+    // Abrir/cerrar la pestaña de Hoteles al tocarla en móvil o desktop
+    const dropdownToggles = document.querySelectorAll(".nav-item-dropdown > a, .dropdown-toggle");
+    dropdownToggles.forEach(toggleLink => {
+      toggleLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const parent = toggleLink.closest(".nav-item-dropdown");
+        if (parent) {
+          parent.classList.toggle("dropdown-open");
+        }
+      });
+    });
+
+    // Cerrar el menú al hacer clic en enlaces normales (excluyendo el botón de Hoteles)
+    document.querySelectorAll(".nav-menu-item > a, .dropdown-link-item").forEach(link => {
+      if (link.classList.contains("dropdown-toggle") || link.closest(".nav-item-dropdown > a")) {
+        return; // No cerrar al tocar el botón de Hoteles
+      }
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
     });
   }
 }
+
+function closeMobileMenu() {
+  const menu = document.querySelector(".nav-links-menu");
+  const toggle = document.querySelector(".mobile-nav-toggle");
+  if (menu && menu.classList.contains("open")) {
+    menu.classList.remove("open");
+  }
+  if (toggle) {
+    const icon = toggle.querySelector("i");
+    if (icon) icon.className = "fas fa-bars";
+  }
+  document.querySelectorAll(".nav-item-dropdown").forEach(d => d.classList.remove("dropdown-open"));
+  document.body.style.overflow = "";
+}
+window.closeMobileMenu = closeMobileMenu;
 
 /* ==========================================================
    FECHAS DEL MOTOR DE RESERVAS
@@ -622,31 +660,31 @@ window.openWebCheckInModal = function() {
         Agiliza tu llegada al resort registrando tus datos de reserva previamente:
       </p>
 
-      <form onsubmit="alert('¡Web Check-in registrado exitosamente!'); closeModal(); return false;" style="display: flex; flex-direction: column; gap: 1rem;">
+      <form onsubmit="handleWebCheckInSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="form-field-group">
             <label>Código de Reserva</label>
-            <input type="text" class="input-clean" placeholder="Ej. SUN-12345" required>
+            <input type="text" id="checkin-code" class="input-clean" placeholder="Ej. SUN-12345" required>
           </div>
           <div class="form-field-group">
             <label>Documento de Identidad</label>
-            <input type="text" class="input-clean" placeholder="Cédula o Pasaporte" required>
+            <input type="text" id="checkin-doc" class="input-clean" placeholder="Cédula o Pasaporte" required>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="form-field-group">
             <label>Hotel</label>
-            <select class="input-clean" required>
-              <option>Sunsol Isla Caribe</option>
-              <option>Sunsol Punta Blanca (Coche)</option>
-              <option>Sunsol Ecoland</option>
-              <option>Sunsol Unik</option>
+            <select id="checkin-hotel" class="input-clean" required>
+              <option value="Sunsol Isla Caribe">Sunsol Isla Caribe</option>
+              <option value="Sunsol Punta Blanca">Sunsol Punta Blanca (Coche)</option>
+              <option value="Sunsol Ecoland">Sunsol Ecoland</option>
+              <option value="Sunsol Unik">Sunsol Unik</option>
             </select>
           </div>
           <div class="form-field-group">
             <label>Fecha de Llegada</label>
-            <input type="date" class="input-clean" required>
+            <input type="date" id="checkin-date" class="input-clean" required>
           </div>
         </div>
 
@@ -658,7 +696,30 @@ window.openWebCheckInModal = function() {
     </div>
   `;
 
-  openModal("Web Check-In Digital", content);
+  openModal("Web Check-In Digital - Sunsol Hoteles", content);
+};
+
+window.handleWebCheckInSubmit = function(e) {
+  e.preventDefault();
+  const codigo = document.getElementById("checkin-code")?.value || "";
+  const doc = document.getElementById("checkin-doc")?.value || "";
+  const hotel = document.getElementById("checkin-hotel")?.value || "";
+  const fecha = document.getElementById("checkin-date")?.value || "";
+
+  if (supabaseClient) {
+    supabaseClient.from('web_checkin').insert([{
+      codigo_reserva: codigo,
+      documento_titular: doc,
+      hotel_destino: hotel,
+      fecha_llegada: fecha
+    }]).then(({ error }) => {
+      if (error) console.error("Error al registrar web check-in:", error);
+      else console.log("¡Web Check-in guardado en Supabase!");
+    });
+  }
+
+  alert(`¡Web Check-in registrado exitosamente para el código ${codigo}! Nos vemos pronto en Sunsol.`);
+  closeModal();
 };
 
 /* ==========================================================

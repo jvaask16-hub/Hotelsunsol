@@ -38,7 +38,7 @@
           <ul class="nav-links-menu">
             <li class="nav-menu-item"><a href="index.html">Inicio</a></li>
             <li class="nav-menu-item nav-item-dropdown">
-              <a href="index.html#hoteles">Hoteles <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i></a>
+              <a href="index.html#hoteles" class="dropdown-toggle" role="button" aria-expanded="false">Hoteles <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 2px;"></i></a>
               <div class="nav-dropdown-menu">
                 <a href="isla-caribe.html" class="dropdown-link-item">
                   <i class="fas fa-umbrella-beach"></i>
@@ -73,12 +73,33 @@
             <li class="nav-menu-item"><a href="experiencias.html" class="active">Experiencias</a></li>
             <li class="nav-menu-item"><a href="quienes-somos.html">Quiénes Somos</a></li>
             <li class="nav-menu-item"><a href="contacto.html">Contacto</a></li>
+
+            <!-- Acciones exclusivas del Menú Móvil -->
+            <li class="mobile-drawer-extra">
+              <div class="mobile-drawer-utilities">
+                <button class="mobile-util-btn" onclick="openDayPassModal(); closeMobileMenu();">
+                  <i class="fas fa-ticket-alt"></i> Day Pass
+                </button>
+                <button class="mobile-util-btn" onclick="openWebCheckInModal(); closeMobileMenu();">
+                  <i class="fas fa-file-signature"></i> Web Check-In
+                </button>
+              </div>
+              <button class="btn-sunsol-primary mobile-drawer-cta" onclick="openBookingModal(); closeMobileMenu();">
+                <i class="fas fa-calendar-alt"></i> Cotizar Reserva Oficial
+              </button>
+              <a href="https://wa.me/584123007867" target="_blank" class="mobile-drawer-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp: +58 412 300 7867
+              </a>
+            </li>
           </ul>
         </nav>
 
         <div class="nav-actions-group">
           <button class="btn-sunsol-primary" onclick="openBookingModal()">
             <i class="fas fa-calendar-alt"></i> Cotizar Reserva
+          </button>
+          <button class="mobile-nav-toggle" aria-label="Abrir Menú">
+            <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>

@@ -1,0 +1,4 @@
+# Vercel Deployment Ignore
+src/
+.vscode/
+*.ps1

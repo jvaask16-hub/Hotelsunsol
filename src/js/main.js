@@ -1538,8 +1538,8 @@ function initResortMap() {
           imgElem.src = img;
           imgElem.alt = title;
         }
-        if (badgeElem && badgeText) {
-          badgeElem.innerHTML = `<i class="fas ${icon}"></i> <span>${badge}</span>`;
+        if (badgeElem) {
+          badgeElem.innerHTML = `<i class="fas ${icon}"></i> <span id="popupBadgeText">${badge}</span>`;
         }
         if (titleElem) titleElem.textContent = title;
         if (descElem) descElem.textContent = desc;

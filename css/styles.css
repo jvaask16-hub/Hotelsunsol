@@ -1412,7 +1412,7 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
   .experiences-trio-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .gallery-cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1670,6 +1670,10 @@ button {
   }
 
   .hotels-luxury-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experiences-trio-grid {
     grid-template-columns: 1fr;
   }
 

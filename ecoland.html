@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -284,7 +284,7 @@
   </main>
 
   <!-- =======================================================
-       MAPA INTERACTIVO DEL RESORT POR ZONAS (ECO LAND)
+       MAPA INTERACTIVO DEL RESORT POR ZONAS (UNIFICADO)
        ======================================================= -->
   <section class="resort-map-section" id="plano-interactivo">
     <div class="container">
@@ -294,392 +294,372 @@
         </div>
         <h2 class="map-main-title">Explora Sunsol Ecoland por Zonas</h2>
         <p class="map-subtitle">
-          Selecciona una zona del resort para ver su plano satelital y haz clic en los marcadores con pulso interactivo para descubrir cada piscina, restaurante, cancha deportiva y área de descanso.
+          Navega por nuestro resort de manera continua. Selecciona una zona para enfocar el mapa con zoom suave o toca cualquier punto con pulso interactivo para ver fotografías y detalles de cada instalación.
         </p>
       </div>
 
-      <!-- Menú Superior de Áreas (Pestañas / Tabs) -->
+      <!-- Barra Superior de Navegación por Zonas (Pan & Zoom) -->
       <div class="map-tabs-container" role="tablist">
-        <button class="map-tab-btn active" data-area="general" role="tab" aria-selected="true">
-          <i class="fas fa-map-marked-alt"></i>
-          <span>Plano General Completo</span>
-          <span class="map-tab-badge">Vista Aérea Master</span>
+        <button class="map-tab-btn active" data-zone="general" role="tab" aria-selected="true">
+          <i class="fas fa-globe-americas"></i>
+          <span>Ver Todo</span>
+          <span class="map-tab-badge">Vista Completa</span>
         </button>
-        <button class="map-tab-btn" data-area="oasis" role="tab" aria-selected="false">
+        <button class="map-tab-btn" data-zone="oasis" role="tab" aria-selected="false">
           <i class="fas fa-umbrella-beach"></i>
-          <span>Área Oasis &amp; Sport Club</span>
-          <span class="map-tab-badge">Playa &amp; Deportes</span>
+          <span>Área Oasis</span>
+          <span class="map-tab-badge">Sport Club &amp; Playa</span>
         </button>
-        <button class="map-tab-btn" data-area="dunas" role="tab" aria-selected="false">
+        <button class="map-tab-btn" data-zone="dunas" role="tab" aria-selected="false">
           <i class="fas fa-water"></i>
-          <span>Área Dunas &amp; Piscinas</span>
-          <span class="map-tab-badge">Villas &amp; Complejo Central</span>
+          <span>Área Dunas</span>
+          <span class="map-tab-badge">Villas &amp; Piscinas</span>
         </button>
-        <button class="map-tab-btn" data-area="laguna" role="tab" aria-selected="false">
+        <button class="map-tab-btn" data-zone="laguna" role="tab" aria-selected="false">
           <i class="fas fa-tree"></i>
-          <span>Área Laguna &amp; Manglar</span>
-          <span class="map-tab-badge">Torres &amp; Naturaleza</span>
+          <span>Área Laguna</span>
+          <span class="map-tab-badge">Torres &amp; Manglar</span>
         </button>
       </div>
 
-      <!-- Visor de Mapas Interactivos Basado en el Mapa Satelital Original -->
-      <div class="map-viewport-wrapper">
+      <!-- Visor del Mapa Interactivo Unificado -->
+      <div class="map-viewport-wrapper" id="mapViewport">
+        <!-- Píldora de instrucción superior -->
         <div class="map-hint-pill">
-          <i class="fas fa-hand-pointer"></i> Toca los puntos con pulso para ver detalles
+          <i class="fas fa-hand-pointer"></i> Toca los pines interactivos para ver detalles
         </div>
 
-        <!-- 0. VISTA: PLANO GENERAL DEL COMPLEJO -->
-        <div class="map-view-scene active" data-scene="general" id="scene-general">
-          <img src="assets/images/map-ecoland-completo.jpg" alt="Mapa Satelital Master Plan Oficial Sunsol Ecoland" class="map-scene-img">
-
-          <!-- Macro Hotspot: Área Laguna & Manglar -->
-          <button class="map-hotspot hotspot-sport" style="top: 25%; left: 24%;" 
-                  data-title="Área Laguna &amp; Manglar Sunsol"
-                  data-category="Sector Noroeste"
-                  data-icon="fa-tree"
-                  data-desc="Torres L01 a L05, Torres 006 a 009, laguna natural de agua dulce con botes de pedal, manglar protegido, piscina Laguna con bar y lobby Shaboro.">
-            <div class="hotspot-ring"><i class="fas fa-tree"></i></div>
-          </button>
-
-          <!-- Macro Hotspot: Sunsol Sport Club -->
-          <button class="map-hotspot hotspot-sport" style="top: 60%; left: 47%;" 
-                  data-title="Sunsol Sport Club &amp; Canchas Deportivas"
-                  data-category="Deportes &amp; Pádel"
-                  data-icon="fa-table-tennis"
-                  data-desc="Canchas reglamentarias de pádel, pickleball, tenis, básquetbol, fútbol sala sintético, voleibol de playa, circuito de golfito y The Essential Spa.">
-            <div class="hotspot-ring"><i class="fas fa-table-tennis"></i></div>
-          </button>
-
-          <!-- Macro Hotspot: Área Oasis -->
-          <button class="map-hotspot hotspot-food" style="top: 66%; left: 25%;" 
-                  data-title="Área Oasis &amp; Club de Playa Puerto Cruz"
-                  data-category="Piscinas &amp; Playa"
-                  data-icon="fa-umbrella-beach"
-                  data-desc="Piscina Oasis con aqua bar, piscina infantil, Restaurante Oasis buffet, Bodegón Sico, Green Bar, Bar Uvas y zona exclusiva de tumbonas frente al mar.">
-            <div class="hotspot-ring"><i class="fas fa-umbrella-beach"></i></div>
-          </button>
-
-          <!-- Macro Hotspot: Área Dunas -->
-          <button class="map-hotspot hotspot-room" style="top: 55%; left: 74%;" 
-                  data-title="Área Dunas &amp; Complejo Central"
-                  data-category="Villas &amp; Entretenimiento"
-                  data-icon="fa-hotel"
-                  data-desc="Anillo de Villas caribeñas D01 a D34, Lobby Dunas principal, Restaurante Cachama gourmet, teatro para espectáculos, piscinas Eco Espejo y Madruguito.">
-            <div class="hotspot-ring"><i class="fas fa-hotel"></i></div>
-          </button>
+        <!-- Controles de Zoom Flotantes -->
+        <div class="map-zoom-controls" aria-label="Controles de zoom del mapa">
+          <button class="map-zoom-btn" id="mapZoomIn" title="Acercar mapa" aria-label="Acercar mapa"><i class="fas fa-plus"></i></button>
+          <button class="map-zoom-btn" id="mapZoomOut" title="Alejar mapa" aria-label="Alejar mapa"><i class="fas fa-minus"></i></button>
+          <button class="map-zoom-btn" id="mapZoomReset" title="Restablecer vista" aria-label="Restablecer vista"><i class="fas fa-compress-arrows-alt"></i></button>
         </div>
 
-        <!-- 1. VISTA: ÁREA OASIS & SPORT CLUB -->
-        <div class="map-view-scene" data-scene="oasis" id="scene-oasis">
-          <img src="assets/images/map-ecoland-oasis.jpg" alt="Mapa Oficial Área Oasis &amp; Sport Club Sunsol Ecoland" class="map-scene-img">
+        <!-- Lienzo Desplazable y Zoomable (Pan & Zoom Container) -->
+        <div class="map-canvas-container" id="mapCanvas">
+          <img src="assets/images/map-ecoland-unificado-master.jpg" alt="Mapa Satelital Master Plan Oficial Sunsol Ecoland" class="map-base-img">
 
-          <!-- Hotspot: Pádel & Pickleball -->
-          <button class="map-hotspot hotspot-sport" style="top: 11%; left: 46%;" 
+          <!-- ==============================================
+               HOTSPOTS: ÁREA OASIS & SPORT CLUB
+               ============================================== -->
+          <!-- Sunsol Pádel Club -->
+          <button class="map-hotspot cat-sport" style="top: 50.7%; left: 45.8%;"
+                  data-zone="oasis"
                   data-title="Sunsol Pádel Club &amp; Pickleball"
-                  data-category="Canchas de Pádel"
+                  data-category="Deportes &amp; Pádel"
+                  data-badge="Sport Club"
                   data-icon="fa-table-tennis"
-                  data-desc="Canchas panorámicas de pádel y pickleball con iluminación profesional nocturna e instructores disponibles.">
-            <div class="hotspot-ring"><i class="fas fa-table-tennis"></i></div>
+                  data-img="assets/images/exp-padel-club.jpg"
+                  data-desc="Canchas panorámicas de pádel y pickleball con iluminación profesional nocturna, alquiler de raquetas y clínicas de entrenamiento disponibles.">
+            <div class="hotspot-pin"><i class="fas fa-table-tennis"></i></div>
+            <span class="hotspot-tooltip">Sunsol Pádel Club</span>
           </button>
 
-          <!-- Hotspot: Cancha de Tenis -->
-          <button class="map-hotspot hotspot-sport" style="top: 14%; left: 58%;" 
+          <!-- Cancha de Tenis -->
+          <button class="map-hotspot cat-sport" style="top: 47.9%; left: 43.0%;"
+                  data-zone="oasis"
                   data-title="Cancha de Tenis Oficial"
                   data-category="Deportes de Raqueta"
+                  data-badge="Sport Club"
                   data-icon="fa-baseball-ball"
-                  data-desc="Cancha reglamentaria en superficie rápida rodeada de áreas verdes para partidos y clínicas deportivas.">
-            <div class="hotspot-ring"><i class="fas fa-baseball-ball"></i></div>
+                  data-img="assets/images/exp-padel-club.jpg"
+                  data-desc="Cancha reglamentaria sobre superficie rápida rodeada de áreas verdes para partidos libres y torneos amistosos entre huéspedes.">
+            <div class="hotspot-pin"><i class="fas fa-baseball-ball"></i></div>
+            <span class="hotspot-tooltip">Cancha de Tenis</span>
           </button>
 
-          <!-- Hotspot: Cancha de Básquet -->
-          <button class="map-hotspot hotspot-sport" style="top: 27%; left: 58%;" 
-                  data-title="Cancha de Básquetbol"
+          <!-- Canchas Multideportivas -->
+          <button class="map-hotspot cat-sport" style="top: 52.0%; left: 43.5%;"
+                  data-zone="oasis"
+                  data-title="Canchas de Baloncesto &amp; Fútbol Sala"
                   data-category="Área Multideportiva"
+                  data-badge="Sport Club"
                   data-icon="fa-basketball-ball"
-                  data-desc="Cancha reglamentaria para baloncesto con tableros de acrílico y superficie amortiguada.">
-            <div class="hotspot-ring"><i class="fas fa-basketball-ball"></i></div>
+                  data-img="assets/images/exp-padel-club.jpg"
+                  data-desc="Canchas con engramado sintético para fútbol sala y superficie amortiguada para baloncesto con iluminación nocturna.">
+            <div class="hotspot-pin"><i class="fas fa-basketball-ball"></i></div>
+            <span class="hotspot-tooltip">Básquet &amp; Fútbol</span>
           </button>
 
-          <!-- Hotspot: Futbolito Sintético -->
-          <button class="map-hotspot hotspot-sport" style="top: 41%; left: 58%;" 
-                  data-title="Cancha de Futbolito de Césped"
-                  data-category="Fútbol Sala"
-                  data-icon="fa-futbol"
-                  data-desc="Cancha de fútbol 5 con engramado sintético para torneos diurnos y partidos entre huéspedes.">
-            <div class="hotspot-ring"><i class="fas fa-futbol"></i></div>
-          </button>
-
-          <!-- Hotspot: Voleibol de Playa -->
-          <button class="map-hotspot hotspot-sport" style="top: 44%; left: 46%;" 
-                  data-title="Cancha de Voleibol de Playa"
-                  data-category="Deportes en la Arena"
-                  data-icon="fa-volleyball-ball"
-                  data-desc="Cancha de arena natural para torneos amistosos y recreación diurna frente a las palmeras de Puerto Cruz.">
-            <div class="hotspot-ring"><i class="fas fa-volleyball-ball"></i></div>
-          </button>
-
-          <!-- Hotspot: Golfito Familiar -->
-          <button class="map-hotspot hotspot-sport" style="top: 39%; left: 71%;" 
+          <!-- Circuito de Golfito -->
+          <button class="map-hotspot cat-sport" style="top: 48.6%; left: 40.6%;"
+                  data-zone="oasis"
                   data-title="Circuito de Golfito Familiar"
                   data-category="Recreación Familiar"
+                  data-badge="Diversión Familiar"
                   data-icon="fa-golf-ball"
-                  data-desc="Divertido circuito temático de minigolf para niños y adultos con obstáculos caribeños y putting greens.">
-            <div class="hotspot-ring"><i class="fas fa-golf-ball"></i></div>
+                  data-img="assets/images/exp-minigolf.jpg"
+                  data-desc="Divertido circuito temático de minigolf para niños y adultos con obstáculos caribeños y putting greens integrados al jardín.">
+            <div class="hotspot-pin"><i class="fas fa-golf-ball"></i></div>
+            <span class="hotspot-tooltip">Golfito Familiar</span>
           </button>
 
-          <!-- Hotspot: The Essential Spa -->
-          <button class="map-hotspot hotspot-room" style="top: 41%; left: 83%;" 
-                  data-title="The Essential Spa &amp; Bienestar"
-                  data-category="Salud &amp; Masajes"
-                  data-icon="fa-spa"
-                  data-desc="Instalaciones de hidroterapia, sauna, masajes relajantes y tratamientos corporales con aceites tropicales esenciales.">
-            <div class="hotspot-ring"><i class="fas fa-spa"></i></div>
-          </button>
-
-          <!-- Hotspot: Piscina Oasis & Kids -->
-          <button class="map-hotspot hotspot-pool" style="top: 23%; left: 18%;" 
-                  data-title="Piscina Oasis &amp; Piscina Infantil"
+          <!-- Piscina Oasis -->
+          <button class="map-hotspot cat-pool" style="top: 45.8%; left: 32.3%;"
+                  data-zone="oasis"
+                  data-title="Piscina Oasis &amp; Aqua Bar"
                   data-category="Piscinas &amp; Solárium"
+                  data-badge="Piscina Familiar"
                   data-icon="fa-swimming-pool"
-                  data-desc="Piscina temática familiar rodeada de jardines, tumbonas, solárium y piscina especial de baja profundidad para niños.">
-            <div class="hotspot-ring"><i class="fas fa-swimming-pool"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Gran piscina de ambiente tropical con aqua bar sumergido, tumbonas caribeñas y piscina de baja profundidad para niños pequeños.">
+            <div class="hotspot-pin"><i class="fas fa-swimming-pool"></i></div>
+            <span class="hotspot-tooltip">Piscina Oasis &amp; Aqua Bar</span>
           </button>
 
-          <!-- Hotspot: Bar Oasis & Bodegón Sico -->
-          <button class="map-hotspot hotspot-food" style="top: 9%; left: 17%;" 
-                  data-title="Bar Oasis &amp; Bodegón Sico"
-                  data-category="Bares &amp; Snacks"
-                  data-icon="fa-cocktail"
-                  data-desc="Bar de cócteles tropicales y minimarket bodegón con bebidas, artículos de playa y meriendas continuas.">
-            <div class="hotspot-ring"><i class="fas fa-cocktail"></i></div>
-          </button>
-
-          <!-- Hotspot: Restaurante Oasis -->
-          <button class="map-hotspot hotspot-food" style="top: 39%; left: 18%;" 
-                  data-title="Restaurante Oasis"
+          <!-- Restaurante Buffet Oasis -->
+          <button class="map-hotspot cat-food" style="top: 43.8%; left: 34.9%;"
+                  data-zone="oasis"
+                  data-title="Restaurante Buffet Oasis"
                   data-category="Gastronomía Buffet"
+                  data-badge="Todo Incluido"
                   data-icon="fa-utensils"
-                  data-desc="Churuata monumental frente a la piscina donde se sirven desayunos, almuerzos buffet y aperitivos diarios.">
-            <div class="hotspot-ring"><i class="fas fa-utensils"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Churuata monumental al aire libre donde se sirven desayunos completos, almuerzos buffet y aperitivos diarios con sabor tropical.">
+            <div class="hotspot-pin"><i class="fas fa-utensils"></i></div>
+            <span class="hotspot-tooltip">Restaurante Oasis</span>
           </button>
 
-          <!-- Hotspot: Green Bar -->
-          <button class="map-hotspot hotspot-food" style="top: 61%; left: 11%;" 
-                  data-title="Green Bar Ecoland"
-                  data-category="Coctelería Tropical"
-                  data-icon="fa-glass-martini-alt"
-                  data-desc="Kiosco de bebidas refrescantes, cervezas frías y cócteles nacionales al pie de las palmeras.">
-            <div class="hotspot-ring"><i class="fas fa-glass-martini-alt"></i></div>
-          </button>
-
-          <!-- Hotspot: Bar Uvas & Club de Playa -->
-          <button class="map-hotspot hotspot-food" style="top: 73%; left: 74%;" 
+          <!-- Bar Uvas & Club de Playa -->
+          <button class="map-hotspot cat-food" style="top: 40.3%; left: 55.2%;"
+                  data-zone="oasis"
                   data-title="Bar Uvas &amp; Club de Playa Puerto Cruz"
                   data-category="Servicio en Playa"
-                  data-icon="fa-umbrella-beach"
-                  data-desc="Atención directa en la arena de Playa Puerto Cruz con toldos, tumbonas y coctelería caribeña ilimitada.">
-            <div class="hotspot-ring"><i class="fas fa-umbrella-beach"></i></div>
+                  data-badge="Beach Club"
+                  data-icon="fa-cocktail"
+                  data-img="assets/images/exp-bar-playa.jpg"
+                  data-desc="Atención directa en la arena dorada de Playa Puerto Cruz con servicio de toldos, tumbonas y coctelería caribeña ilimitada.">
+            <div class="hotspot-pin"><i class="fas fa-cocktail"></i></div>
+            <span class="hotspot-tooltip">Bar Uvas &amp; Club de Playa</span>
           </button>
-        </div>
 
-        <!-- 2. VISTA: ÁREA DUNAS & PISCINAS -->
-        <div class="map-view-scene" data-scene="dunas" id="scene-dunas">
-          <img src="assets/images/map-ecoland-dunas.jpg" alt="Mapa Oficial Área Dunas &amp; Piscinas Sunsol Ecoland" class="map-scene-img">
+          <!-- Playa Puerto Cruz -->
+          <button class="map-hotspot cat-nature" style="top: 34.0%; left: 46.9%;"
+                  data-zone="oasis"
+                  data-title="Playa Puerto Cruz"
+                  data-category="Playa Privilegiada"
+                  data-badge="Acceso al Mar"
+                  data-icon="fa-umbrella-beach"
+                  data-img="assets/images/ecoland-beach.jpg"
+                  data-desc="Más de 1 kilómetro de arenas doradas y aguas cristalinas del Caribe frente al resort, con seguridad, toldos y deportes náuticos.">
+            <div class="hotspot-pin"><i class="fas fa-umbrella-beach"></i></div>
+            <span class="hotspot-tooltip">Playa Puerto Cruz</span>
+          </button>
 
-          <!-- Hotspot: Complejo Villas Dunas D01-D34 -->
-          <button class="map-hotspot hotspot-room" style="top: 22%; left: 42%;" 
+          <!-- The Essential Spa -->
+          <button class="map-hotspot cat-room" style="top: 48.6%; left: 48.4%;"
+                  data-zone="oasis"
+                  data-title="The Essential Spa &amp; Bienestar"
+                  data-category="Salud &amp; Relajación"
+                  data-badge="Bienestar"
+                  data-icon="fa-spa"
+                  data-img="assets/images/ecoland-spa.jpg"
+                  data-desc="Instalaciones de hidroterapia, sauna de vapor, masajes relajantes con piedras calientes y tratamientos corporales con aceites tropicales.">
+            <div class="hotspot-pin"><i class="fas fa-spa"></i></div>
+            <span class="hotspot-tooltip">The Essential Spa</span>
+          </button>
+
+          <!-- ==============================================
+               HOTSPOTS: ÁREA DUNAS & PISCINAS
+               ============================================== -->
+          <!-- Villas Dunas D01-D34 -->
+          <button class="map-hotspot cat-room" style="top: 61.8%; left: 22.4%;"
+                  data-zone="dunas"
                   data-title="Villas Caribeñas Dunas (D01 - D34)"
                   data-category="Alojamiento &amp; Villas"
+                  data-badge="Villas de Playa"
                   data-icon="fa-home"
-                  data-desc="Exclusivo conjunto de villas independientes estilo caribeño (D01 a D34), rodeadas de jardines y caminerías privadas.">
-            <div class="hotspot-ring"><i class="fas fa-home"></i></div>
+                  data-img="assets/images/ecoland-room-oasis.jpg"
+                  data-desc="Exclusivo complejo circular de 34 villas independientes estilo caribeño, rodeadas de jardines tropicales privados y senderos peatonales.">
+            <div class="hotspot-pin"><i class="fas fa-home"></i></div>
+            <span class="hotspot-tooltip">Villas Dunas D01-D34</span>
           </button>
 
-          <!-- Hotspot: Villas Cayena & Café con Leche -->
-          <button class="map-hotspot hotspot-room" style="top: 21%; left: 63%;" 
-                  data-title="Villas Premium Cayena &amp; Café con Leche"
-                  data-category="Suites de Lujo"
-                  data-icon="fa-star"
-                  data-desc="Villas de máxima categoría con amplios espacios, acabados de primera y terrazas con vista a los jardines y dunas.">
-            <div class="hotspot-ring"><i class="fas fa-star"></i></div>
-          </button>
-
-          <!-- Hotspot: Lobby Dunas -->
-          <button class="map-hotspot hotspot-room" style="top: 53%; left: 43%;" 
+          <!-- Lobby Dunas -->
+          <button class="map-hotspot cat-room" style="top: 53.5%; left: 22.1%;"
+                  data-zone="dunas"
                   data-title="Lobby Dunas &amp; Recepción Principal"
-                  data-category="Recepción &amp; Atención"
+                  data-category="Recepción &amp; Concierge"
+                  data-badge="Check-in Principal"
                   data-icon="fa-concierge-bell"
-                  data-desc="Atrio central del resort con servicio de concierge 24 horas, sala de estar, información turística y check-in oficial.">
-            <div class="hotspot-ring"><i class="fas fa-concierge-bell"></i></div>
+                  data-img="assets/images/hotel-ecoland-real.png"
+                  data-desc="Atrio central del resort con servicio de concierge 24 horas, sala de estar ejecutiva, información de excursiones y recepción oficial.">
+            <div class="hotspot-pin"><i class="fas fa-concierge-bell"></i></div>
+            <span class="hotspot-tooltip">Lobby Dunas</span>
           </button>
 
-          <!-- Hotspot: Sport Bar & Sala de Juegos -->
-          <button class="map-hotspot hotspot-food" style="top: 62%; left: 43%;" 
-                  data-title="Sport Bar &amp; Sala de Juegos"
-                  data-category="Ocio &amp; Entretenimiento"
-                  data-icon="fa-gamepad"
-                  data-desc="Bar temático con transmisión de eventos deportivos en pantallas gigantes, mesas de billar, juegos de mesa y aperitivos.">
-            <div class="hotspot-ring"><i class="fas fa-gamepad"></i></div>
-          </button>
-
-          <!-- Hotspot: Gran Salón & Salón Dorado -->
-          <button class="map-hotspot hotspot-room" style="top: 66%; left: 30%;" 
-                  data-title="Gran Salón &amp; Salón Dorado"
-                  data-category="Eventos &amp; Convenciones"
-                  data-icon="fa-award"
-                  data-desc="Espacios climatizados para bodas, congresos ejecutivos, conferencias y celebraciones especiales frente al mar.">
-            <div class="hotspot-ring"><i class="fas fa-award"></i></div>
-          </button>
-
-          <!-- Hotspot: Restaurante Cachama -->
-          <button class="map-hotspot hotspot-food" style="top: 72%; left: 55%;" 
-                  data-title="Restaurante Cachama"
+          <!-- Restaurante Cachama -->
+          <button class="map-hotspot cat-food" style="top: 50.0%; left: 18.8%;"
+                  data-zone="dunas"
+                  data-title="Restaurante Gourmet Cachama"
                   data-category="Gastronomía de Especialidades"
+                  data-badge="Cocina Gourmet"
                   data-icon="fa-utensils"
-                  data-desc="Restaurante gourmet con especialidad en pescados frescos del Caribe, frutos del mar y exquisitos postres artesanales.">
-            <div class="hotspot-ring"><i class="fas fa-utensils"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Restaurante de alta gastronomía con especialidad en pescados frescos del Caribe, mariscos selectos y exquisitos postres artesanales.">
+            <div class="hotspot-pin"><i class="fas fa-utensils"></i></div>
+            <span class="hotspot-tooltip">Restaurante Cachama</span>
           </button>
 
-          <!-- Hotspot: Teatro de Animación -->
-          <button class="map-hotspot hotspot-room" style="top: 63%; left: 11%;" 
-                  data-title="Teatro de Animación &amp; Shows Nocturnos"
-                  data-category="Espectáculos en Vivo"
-                  data-icon="fa-theater-masks"
-                  data-desc="Escenario al aire libre para presentaciones musicales diarias, danzas típicas venezolanas, shows de magia y concursos.">
-            <div class="hotspot-ring"><i class="fas fa-theater-masks"></i></div>
-          </button>
-
-          <!-- Hotspot: Piscina Eco Espejo -->
-          <button class="map-hotspot hotspot-pool" style="top: 75%; left: 20%;" 
-                  data-title="Piscina Eco Espejo &amp; Solárium"
+          <!-- Piscina Monumental Eco Espejo -->
+          <button class="map-hotspot cat-pool" style="top: 46.5%; left: 28.1%;"
+                  data-zone="dunas"
+                  data-title="Piscina Monumental Eco Espejo"
                   data-category="Piscina Monumental"
+                  data-badge="Solárium &amp; Aquagym"
                   data-icon="fa-swimming-pool"
-                  data-desc="Piscina de aguas cristalinas con solárium de palmeras, actividades acuáticas guiadas y área para tomar el sol.">
-            <div class="hotspot-ring"><i class="fas fa-swimming-pool"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Piscina de aguas cristalinas con solárium de palmeras, actividades acuáticas guiadas por el equipo de animación y reposeras de lujo.">
+            <div class="hotspot-pin"><i class="fas fa-swimming-pool"></i></div>
+            <span class="hotspot-tooltip">Piscina Eco Espejo</span>
           </button>
 
-          <!-- Hotspot: Piscina Madruguito & Toallas -->
-          <button class="map-hotspot hotspot-pool" style="top: 78%; left: 9%;" 
-                  data-title="Piscina Madruguito &amp; Puesto de Toallas"
-                  data-category="Piscinas &amp; Servicios"
+          <!-- Teatro de Animación -->
+          <button class="map-hotspot cat-room" style="top: 48.6%; left: 16.7%;"
+                  data-zone="dunas"
+                  data-title="Teatro de Animación &amp; Espectáculos"
+                  data-category="Espectáculos en Vivo"
+                  data-badge="Entretenimiento"
+                  data-icon="fa-theater-masks"
+                  data-img="assets/images/exp-teatro-shows.jpg"
+                  data-desc="Gran escenario al aire libre para presentaciones culturales nocturnas, shows infantiles, danzas venezolanas y noches de comedia.">
+            <div class="hotspot-pin"><i class="fas fa-theater-masks"></i></div>
+            <span class="hotspot-tooltip">Teatro de Animación</span>
+          </button>
+
+          <!-- Piscina Madruguito & Toallas -->
+          <button class="map-hotspot cat-pool" style="top: 46.5%; left: 20.3%;"
+                  data-zone="dunas"
+                  data-title="Piscina Madruguito &amp; Toallero"
+                  data-category="Piscinas Relax"
+                  data-badge="Relax &amp; Toallas"
                   data-icon="fa-swimming-pool"
-                  data-desc="Ambiente tranquilo para relajación matutina y punto de canje de toallas para playa y piscinas.">
-            <div class="hotspot-ring"><i class="fas fa-swimming-pool"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Piscina de aguas mansas y atmósfera tranquila para disfrutar el sol de la mañana, con puesto de canje de toallas para playa y piscinas.">
+            <div class="hotspot-pin"><i class="fas fa-swimming-pool"></i></div>
+            <span class="hotspot-tooltip">Piscina Madruguito</span>
           </button>
 
-          <!-- Hotspot: Bar Olímpica -->
-          <button class="map-hotspot hotspot-food" style="top: 82%; left: 30%;" 
-                  data-title="Bar Olímpica"
-                  data-category="Aqua Bar &amp; Cócteles"
-                  data-icon="fa-cocktail"
-                  data-desc="Bar de piscina con barra de licores nacionales, piña colada, mojitos y jugos de frutas tropicales ilimitados.">
-            <div class="hotspot-ring"><i class="fas fa-cocktail"></i></div>
+          <!-- Sport Bar & Sala de Juegos -->
+          <button class="map-hotspot cat-food" style="top: 50.7%; left: 24.0%;"
+                  data-zone="dunas"
+                  data-title="Sport Bar &amp; Sala de Juegos"
+                  data-category="Bares &amp; Ocio"
+                  data-badge="Juegos &amp; Deportes"
+                  data-icon="fa-gamepad"
+                  data-img="assets/images/exp-sala-juegos.jpg"
+                  data-desc="Bar temático con pantallas para transmisión de eventos deportivos en vivo, mesas de billar, juegos de salón y coctelería continua.">
+            <div class="hotspot-pin"><i class="fas fa-gamepad"></i></div>
+            <span class="hotspot-tooltip">Sport Bar &amp; Juegos</span>
           </button>
 
-          <!-- Hotspot: Piscina Logano -->
-          <button class="map-hotspot hotspot-pool" style="top: 78%; left: 42%;" 
-                  data-title="Piscina Logano"
-                  data-category="Piscinas"
-                  data-icon="fa-swimming-pool"
-                  data-desc="Piscina semicircular de aguas mansas integrada a las terrazas del complejo Dunas.">
-            <div class="hotspot-ring"><i class="fas fa-swimming-pool"></i></div>
-          </button>
-
-          <!-- Hotspot: Acceso a Playa -->
-          <button class="map-hotspot hotspot-food" style="top: 91%; left: 21%;" 
-                  data-title="Paseo y Salida Directa a Playa Puerto Cruz"
-                  data-category="Acceso al Mar"
-                  data-icon="fa-umbrella-beach"
-                  data-desc="Caminería directa de madera hacia el club de playa con tumbonas reservadas bajo las palmeras caribeñas.">
-            <div class="hotspot-ring"><i class="fas fa-umbrella-beach"></i></div>
-          </button>
-        </div>
-
-        <!-- 3. VISTA: ÁREA LAGUNA & MANGLAR -->
-        <div class="map-view-scene" data-scene="laguna" id="scene-laguna">
-          <img src="assets/images/map-ecoland-laguna.jpg" alt="Mapa Oficial Área Laguna &amp; Manglar Sunsol Ecoland" class="map-scene-img">
-
-          <!-- Hotspot: Torres Laguna L01-L05 -->
-          <button class="map-hotspot hotspot-room" style="top: 41%; left: 52%;" 
-                  data-title="Torres Laguna (L01 a L05)"
-                  data-category="Alojamiento &amp; Suites"
-                  data-icon="fa-building"
-                  data-desc="Torres residenciales de 3 niveles con balcones panorámicos hacia el manglar y la laguna natural de agua dulce.">
-            <div class="hotspot-ring"><i class="fas fa-building"></i></div>
-          </button>
-
-          <!-- Hotspot: Torres Ecoland 006-009 -->
-          <button class="map-hotspot hotspot-room" style="top: 55%; left: 65%;" 
-                  data-title="Torres Ecoland (006 a 009)"
-                  data-category="Habitaciones Familiares"
-                  data-icon="fa-building"
-                  data-desc="Cómodas habitaciones con aire acondicionado, camas King y dobles, ideales para familias y parejas.">
-            <div class="hotspot-ring"><i class="fas fa-building"></i></div>
-          </button>
-
-          <!-- Hotspot: Manglar Sunsol & Laguna -->
-          <button class="map-hotspot hotspot-sport" style="top: 73%; left: 33%;" 
-                  data-title="Manglar Sunsol &amp; Laguna de Agua Dulce"
+          <!-- ==============================================
+               HOTSPOTS: ÁREA LAGUNA & MANGLAR
+               ============================================== -->
+          <!-- Manglar Sunsol & Laguna -->
+          <button class="map-hotspot cat-nature" style="top: 59.7%; left: 65.1%;"
+                  data-zone="laguna"
+                  data-title="Manglar Sunsol &amp; Laguna Natural"
                   data-category="Santuario Ecológico"
+                  data-badge="Naturaleza Protegida"
                   data-icon="fa-tree"
-                  data-desc="Impresionante laguna natural navegable rodeada de manglares protegidos, hogar de garzas blancas, flamencos y fauna autóctona.">
-            <div class="hotspot-ring"><i class="fas fa-tree"></i></div>
+                  data-img="assets/images/ecoland-kayak.jpg"
+                  data-desc="Hermosa laguna natural de agua dulce rodeada de manglares protegidos, hábitat de garzas blancas, flamencos y fauna silvestre caribeña.">
+            <div class="hotspot-pin"><i class="fas fa-tree"></i></div>
+            <span class="hotspot-tooltip">Manglar &amp; Laguna</span>
           </button>
 
-          <!-- Hotspot: Botes de Pedal & Kayaks -->
-          <button class="map-hotspot hotspot-pool" style="top: 73%; left: 46%;" 
-                  data-title="Embarcadero de Botes de Pedal &amp; Kayaks"
+          <!-- Embarcadero Botes de Pedal & Kayaks -->
+          <button class="map-hotspot cat-pool" style="top: 57.6%; left: 60.4%;"
+                  data-zone="laguna"
+                  data-title="Embarcadero de Botes &amp; Kayaks"
                   data-category="Aventura Náutica"
+                  data-badge="Actividad Incluida"
                   data-icon="fa-ship"
-                  data-desc="Paseos acuáticos recreativos en botes de pedal y kayaks incluidos en su plan de estadía Todo Incluido.">
-            <div class="hotspot-ring"><i class="fas fa-ship"></i></div>
+                  data-img="assets/images/exp-bote-pedal.jpg"
+                  data-desc="Muelle náutico ecológico con paseos guiados en kayaks y botes de pedal familiares para recorrer la laguna sin costo adicional.">
+            <div class="hotspot-pin"><i class="fas fa-ship"></i></div>
+            <span class="hotspot-tooltip">Botes de Pedal &amp; Kayaks</span>
           </button>
 
-          <!-- Hotspot: Lobby Shaboro -->
-          <button class="map-hotspot hotspot-room" style="top: 80%; left: 46%;" 
-                  data-title="Lobby Shaboro Laguna"
-                  data-category="Recepción Laguna"
-                  data-icon="fa-concierge-bell"
-                  data-desc="Área de recepción, información y bienvenida exclusiva para los huéspedes del sector Laguna.">
-            <div class="hotspot-ring"><i class="fas fa-concierge-bell"></i></div>
+          <!-- Torres Laguna L01-L05 -->
+          <button class="map-hotspot cat-room" style="top: 73.6%; left: 64.6%;"
+                  data-zone="laguna"
+                  data-title="Torres Residenciales Laguna (L01 a L05)"
+                  data-category="Habitaciones con Vista"
+                  data-badge="Vista a la Laguna"
+                  data-icon="fa-building"
+                  data-img="assets/images/ecoland-room-laguna.jpg"
+                  data-desc="Edificios habitacionales de 3 niveles con amplios balcones panorámicos frente a la laguna natural y atardeceres mágicos sobre el valle.">
+            <div class="hotspot-pin"><i class="fas fa-building"></i></div>
+            <span class="hotspot-tooltip">Torres Laguna L01-L05</span>
           </button>
 
-          <!-- Hotspot: Piscina Laguna & Bar Laguna -->
-          <button class="map-hotspot hotspot-pool" style="top: 39%; left: 27%;" 
-                  data-title="Piscina Laguna &amp; Bar Laguna"
+          <!-- Torres Familiares 006-009 -->
+          <button class="map-hotspot cat-room" style="top: 68.1%; left: 55.2%;"
+                  data-zone="laguna"
+                  data-title="Torres Familiares Ecoland (006 a 009)"
+                  data-category="Habitaciones Familiares"
+                  data-badge="Confort Familiar"
+                  data-icon="fa-hotel"
+                  data-img="assets/images/ecoland-room-oasis.jpg"
+                  data-desc="Suites equipadas con camas King y dobles, climatización silenciosa y cercanía directa al área de piscinas y restaurantes.">
+            <div class="hotspot-pin"><i class="fas fa-hotel"></i></div>
+            <span class="hotspot-tooltip">Torres Familiares 006-009</span>
+          </button>
+
+          <!-- Piscina Laguna & Aqua Bar -->
+          <button class="map-hotspot cat-pool" style="top: 76.4%; left: 67.2%;"
+                  data-zone="laguna"
+                  data-title="Piscina Laguna &amp; Aqua Bar"
                   data-category="Piscinas &amp; Relax"
+                  data-badge="Zona Serena"
                   data-icon="fa-swimming-pool"
-                  data-desc="Piscina de diseño orgánico en un entorno sereno, con bar de bebidas y puesto de toallas propio.">
-            <div class="hotspot-ring"><i class="fas fa-swimming-pool"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Piscina serena de diseño libre integrada a los jardines de las torres, con su propio aqua bar de jugos naturales y cócteles nacionales.">
+            <div class="hotspot-pin"><i class="fas fa-swimming-pool"></i></div>
+            <span class="hotspot-tooltip">Piscina Laguna &amp; Bar</span>
           </button>
 
-          <!-- Hotspot: Restaurante Tilapia -->
-          <button class="map-hotspot hotspot-food" style="top: 38%; left: 11%;" 
-                  data-title="Restaurante Tilapia"
+          <!-- Restaurante Tilapia -->
+          <button class="map-hotspot cat-food" style="top: 73.6%; left: 69.3%;"
+                  data-zone="laguna"
+                  data-title="Restaurante Tilapia al Aire Libre"
                   data-category="Gastronomía Caribeña"
+                  data-badge="Vista al Manglar"
                   data-icon="fa-utensils"
-                  data-desc="Comedor con vistas a los manglares y terraza al aire libre para disfrutar de desayunos y almuerzos tropicales.">
-            <div class="hotspot-ring"><i class="fas fa-utensils"></i></div>
+                  data-img="assets/images/ecoland-main.jpg"
+                  data-desc="Comedor campestre con terraza panorámica hacia los manglares para deleitarse con desayunos y almuerzos en contacto con la naturaleza.">
+            <div class="hotspot-pin"><i class="fas fa-utensils"></i></div>
+            <span class="hotspot-tooltip">Restaurante Tilapia</span>
           </button>
 
-          <!-- Hotspot: Entrada Principal -->
-          <button class="map-hotspot hotspot-room" style="top: 48%; left: 80%;" 
-                  data-title="Entrada Principal &amp; Control de Acceso"
+          <!-- Entrada Principal & Lobby Shaboro -->
+          <button class="map-hotspot cat-room" style="top: 61.8%; left: 54.7%;"
+                  data-zone="laguna"
+                  data-title="Entrada Principal &amp; Lobby Shaboro"
                   data-category="Acceso Oficial"
+                  data-badge="Control 24/7"
                   data-icon="fa-map-signs"
-                  data-desc="Pórtico oficial de ingreso a Sunsol Ecoland con seguridad privada 24/7 y estacionamiento vigilado.">
-            <div class="hotspot-ring"><i class="fas fa-map-signs"></i></div>
+                  data-img="assets/images/hotel-ecoland-real.png"
+                  data-desc="Pórtico de bienvenida oficial con seguridad privada 24/7, recepción Shaboro y estación de carritos ecológicos de transporte interno.">
+            <div class="hotspot-pin"><i class="fas fa-map-signs"></i></div>
+            <span class="hotspot-tooltip">Entrada &amp; Lobby Shaboro</span>
           </button>
         </div>
 
-        <!-- Tarjeta Flotante Pop-up Informativa (Única, Dinámica y Reutilizable) -->
+        <!-- Tarjeta Flotante Pop-up Informativa Moderna -->
         <aside class="map-info-popup" id="mapInfoPopup" aria-live="polite">
-          <div class="popup-header-row">
-            <span class="popup-category-tag"><i class="fas fa-map-marker-alt"></i> Amenidad</span>
+          <div class="popup-img-wrapper">
+            <img src="assets/images/ecoland-main.jpg" alt="Detalle del lugar" class="popup-hero-img" id="popupImg">
+            <span class="popup-category-badge" id="popupBadge">
+              <i class="fas fa-map-marker-alt"></i> <span id="popupBadgeText">Amenidad</span>
+            </span>
             <button class="popup-close-btn" id="mapPopupClose" aria-label="Cerrar tarjeta">&times;</button>
           </div>
-          <h3 class="popup-title">Punto de Interés</h3>
-          <p class="popup-description">
+          <h3 class="popup-title" id="popupTitle">Punto de Interés</h3>
+          <p class="popup-description" id="popupDesc">
             Haz clic en cualquier punto del mapa para ver sus detalles, servicios y actividades disponibles.
           </p>
           <button class="popup-cta-btn" onclick="openBookingModal('ecoland')">
@@ -687,6 +667,16 @@
           </button>
         </aside>
       </div>
+
+      <!-- Barra de Leyenda Inferior por Categorías -->
+      <div class="map-legend-bar" aria-label="Leyenda de marcadores">
+        <div class="legend-item"><span class="legend-dot dot-sport"></span> Deportes &amp; Pádel</div>
+        <div class="legend-item"><span class="legend-dot dot-pool"></span> Piscinas &amp; Acuático</div>
+        <div class="legend-item"><span class="legend-dot dot-food"></span> Gastronomía &amp; Bares</div>
+        <div class="legend-item"><span class="legend-dot dot-room"></span> Villas &amp; Habitaciones</div>
+        <div class="legend-item"><span class="legend-dot dot-nature"></span> Naturaleza &amp; Playa</div>
+      </div>
+    </div>
     </div>
   </section>
 

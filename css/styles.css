@@ -1978,7 +1978,7 @@ button {
 }
 
 /* ==========================================================
-   COMPONENTE: MAPA INTERACTIVO DE ZONAS RESORT
+   COMPONENTE: MAPA INTERACTIVO DE ZONAS RESORT (UNIFICADO)
    ========================================================== */
 .resort-map-section {
   padding: 4.5rem 0;
@@ -1986,11 +1986,12 @@ button {
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
   position: relative;
+  overflow: hidden;
 }
 
 .map-header-block {
   text-align: center;
-  max-width: 720px;
+  max-width: 740px;
   margin: 0 auto 2.5rem;
 }
 
@@ -2023,7 +2024,7 @@ button {
   line-height: 1.6;
 }
 
-/* Navegación por pestañas de zonas */
+/* Barra Superior de Zonas (Pan & Zoom Nav) */
 .map-tabs-container {
   display: flex;
   justify-content: center;
@@ -2037,7 +2038,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.85rem 1.75rem;
+  padding: 0.85rem 1.65rem;
   border-radius: var(--radius-full);
   background: #FFFFFF;
   border: 1.5px solid var(--border-color);
@@ -2045,8 +2046,9 @@ button {
   font-weight: 700;
   font-size: 0.92rem;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-sm);
+  user-select: none;
 }
 
 .map-tab-btn i {
@@ -2063,257 +2065,433 @@ button {
 }
 
 .map-tab-btn.active {
-  background: var(--sunsol-blue);
-  border-color: var(--sunsol-blue);
+  background: linear-gradient(135deg, #152A50 0%, #22417C 100%);
+  border-color: #152A50;
   color: #FFFFFF;
-  box-shadow: 0 8px 24px rgba(34, 65, 124, 0.28);
+  box-shadow: 0 10px 25px rgba(21, 42, 80, 0.3);
+  transform: translateY(-1px);
 }
 
 .map-tab-btn.active i {
-  color: #FFFFFF;
-  transform: scale(1.1);
+  color: #60A5FA;
+  transform: scale(1.15);
 }
 
 .map-tab-badge {
   font-size: 0.72rem;
-  padding: 0.15rem 0.5rem;
+  padding: 0.18rem 0.55rem;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.06);
   color: inherit;
   font-weight: 600;
+  transition: background 0.2s ease;
 }
 
 .map-tab-btn.active .map-tab-badge {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
 }
 
-/* Contenedor del mapa y vistas */
+/* Visor del Mapa (Viewport) */
 .map-viewport-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1160px;
+  max-width: 1200px;
   margin: 0 auto;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 16px 45px rgba(21, 42, 80, 0.15);
-  border: 1px solid var(--border-color);
-  background: #0E1A30;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(226, 232, 240, 0.9);
+  background: #0B1728;
+  aspect-ratio: 4 / 3;
 }
 
-.map-view-scene {
-  display: none;
-  position: relative;
+/* Lienzo interactivo zoomable y desplazable */
+.map-canvas-container {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  overflow: hidden;
-  animation: mapFadeIn 0.4s ease forwards;
+  height: 100%;
+  transform-origin: 50% 50%;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  user-select: none;
 }
 
-.map-view-scene.active {
-  display: block;
-}
-
-.map-scene-img {
+.map-base-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   user-select: none;
   pointer-events: none;
 }
 
-/* Marcadores interactivos (Hotspots) */
+/* Controles de Zoom Flotantes */
+.map-zoom-controls {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 0.35rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.map-zoom-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #1E293B;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.map-zoom-btn:hover {
+  background: #F1F5F9;
+  color: var(--sunsol-blue);
+  transform: scale(1.05);
+}
+
+.map-zoom-btn:active {
+  transform: scale(0.95);
+}
+
+/* Marcadores Interactivos (Hotspots) */
 .map-hotspot {
   position: absolute;
   transform: translate(-50%, -50%);
-  z-index: 20;
+  z-index: 25;
   cursor: pointer;
   background: none;
   border: none;
   padding: 0;
   outline: none;
+  transition: opacity 0.35s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
 }
 
-.hotspot-ring {
+.map-hotspot.is-dimmed {
+  opacity: 0.25;
+  filter: grayscale(60%);
+  pointer-events: auto;
+}
+
+.map-hotspot.is-focused {
+  opacity: 1;
+  filter: none;
+  z-index: 30;
+}
+
+.hotspot-pin {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--sunsol-blue);
   border: 2.5px solid #FFFFFF;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  font-size: 0.92rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
   position: relative;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Efecto de pulso continuo */
-.hotspot-ring::before {
+/* Pulso animado concéntrico */
+.hotspot-pin::before {
   content: '';
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 2px solid var(--sunsol-wave);
-  animation: pulseWave 2.2s infinite ease-out;
+  border: 2px solid currentColor;
+  animation: hotspotRadar 2.2s infinite ease-out;
   pointer-events: none;
 }
 
-.hotspot-ring::after {
+.hotspot-pin::after {
   content: '';
   position: absolute;
   inset: -12px;
   border-radius: 50%;
-  border: 1.5px solid rgba(74, 126, 194, 0.5);
-  animation: pulseWave 2.2s infinite ease-out 0.65s;
+  border: 1.5px solid currentColor;
+  opacity: 0.5;
+  animation: hotspotRadar 2.2s infinite ease-out 0.7s;
   pointer-events: none;
 }
 
-.map-hotspot:hover .hotspot-ring,
-.map-hotspot.active .hotspot-ring {
-  transform: scale(1.22);
-  background: var(--sunsol-blue-dark);
-  box-shadow: 0 6px 20px rgba(34, 65, 124, 0.5);
+/* Categorías por color */
+.cat-sport .hotspot-pin { background: #10B981; color: #10B981; }
+.cat-sport .hotspot-pin i { color: #FFFFFF; }
+
+.cat-pool .hotspot-pin { background: #0284C7; color: #0284C7; }
+.cat-pool .hotspot-pin i { color: #FFFFFF; }
+
+.cat-food .hotspot-pin { background: #D97706; color: #D97706; }
+.cat-food .hotspot-pin i { color: #FFFFFF; }
+
+.cat-room .hotspot-pin { background: #1E3A8A; color: #2563EB; }
+.cat-room .hotspot-pin i { color: #FFFFFF; }
+
+.cat-nature .hotspot-pin { background: #059669; color: #10B981; }
+.cat-nature .hotspot-pin i { color: #FFFFFF; }
+
+/* Estados Hover & Activo */
+.map-hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.18);
+  z-index: 35;
 }
 
-.map-hotspot.hotspot-pool .hotspot-ring { background: #0284C7; }
-.map-hotspot.hotspot-food .hotspot-ring { background: #D97706; }
-.map-hotspot.hotspot-sport .hotspot-ring { background: #16A34A; }
-.map-hotspot.hotspot-room .hotspot-ring { background: var(--sunsol-blue); }
+.map-hotspot.active {
+  transform: translate(-50%, -50%) scale(1.28);
+  z-index: 40;
+}
 
-/* Tarjeta flotante Pop-up informativa */
+.map-hotspot.active .hotspot-pin {
+  box-shadow: 0 0 0 4px #F59E0B, 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Tooltip emergente en Hover */
+.hotspot-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 50;
+}
+
+.hotspot-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.94) transparent transparent transparent;
+}
+
+.map-hotspot:hover .hotspot-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tarjeta Flotante Pop-up Informativa (Diseño Moderno) */
 .map-info-popup {
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  width: 360px;
-  max-width: calc(100% - 4rem);
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(12px);
-  border-radius: 14px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  padding: 1.4rem;
-  z-index: 50;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: 370px;
+  max-width: calc(100% - 3rem);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.8);
+  padding: 1.25rem;
+  z-index: 60;
   display: none;
-  animation: popupSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: popupSlideIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .map-info-popup.active {
   display: block;
 }
 
-.popup-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.6rem;
+.popup-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.9rem;
+  background: #E2E8F0;
 }
 
-.popup-category-tag {
+.popup-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.popup-category-badge {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.65rem;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: var(--sunsol-blue);
-  background: var(--sunsol-wave-light);
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
 }
 
 .popup-close-btn {
-  background: none;
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
   border: none;
-  color: var(--text-muted);
-  font-size: 1.25rem;
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   line-height: 1;
-  padding: 0.2rem;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  z-index: 10;
 }
 
 .popup-close-btn:hover {
-  color: var(--sunsol-blue-dark);
+  background: rgba(15, 23, 42, 0.95);
+  transform: scale(1.1);
 }
 
 .popup-title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   color: var(--sunsol-blue-dark);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.4rem;
   line-height: 1.25;
 }
 
 .popup-description {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--text-main);
   line-height: 1.5;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .popup-cta-btn {
   width: 100%;
-  background: var(--sunsol-blue);
+  background: linear-gradient(135deg, #152A50 0%, #22417C 100%);
   color: #FFFFFF;
   border: none;
-  padding: 0.65rem 1rem;
-  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  transition: var(--transition);
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(21, 42, 80, 0.25);
 }
 
 .popup-cta-btn:hover {
-  background: var(--sunsol-blue-dark);
+  background: linear-gradient(135deg, #1D3D72 0%, #2B529E 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(21, 42, 80, 0.35);
 }
 
-/* Controles de ayuda en el mapa */
+/* Barra de Leyenda Inferior */
+.map-legend-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot.dot-sport { background: #10B981; }
+.legend-dot.dot-pool { background: #0284C7; }
+.legend-dot.dot-food { background: #D97706; }
+.legend-dot.dot-room { background: #1E3A8A; }
+.legend-dot.dot-nature { background: #059669; }
+
+/* Píldora de instrucción superior */
 .map-hint-pill {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background: rgba(21, 42, 80, 0.85);
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(8px);
   color: #FFFFFF;
-  padding: 0.4rem 0.85rem;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  z-index: 15;
+  gap: 0.45rem;
+  z-index: 35;
   pointer-events: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* Animaciones */
-@keyframes mapFadeIn {
-  from { opacity: 0; transform: scale(1.02); }
-  to { opacity: 1; transform: scale(1); }
+@keyframes hotspotRadar {
+  0% { transform: scale(1); opacity: 0.85; }
+  100% { transform: scale(2.2); opacity: 0; }
 }
 
-@keyframes popupSlideUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulseWave {
-  0% { transform: scale(0.9); opacity: 0.9; }
-  100% { transform: scale(1.7); opacity: 0; }
+@keyframes popupSlideIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Responsive del Mapa en Móvil */
 @media (max-width: 768px) {
-  .map-view-scene {
-    aspect-ratio: 4 / 3;
+  .map-viewport-wrapper {
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
   }
 
   .map-tab-btn {
@@ -2321,7 +2499,7 @@ button {
     font-size: 0.82rem;
   }
 
-  .hotspot-ring {
+  .hotspot-pin {
     width: 32px;
     height: 32px;
     font-size: 0.78rem;
@@ -2333,7 +2511,21 @@ button {
     right: 0.75rem;
     width: auto;
     max-width: none;
-    padding: 1.1rem;
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .popup-img-wrapper {
+    height: 120px;
+  }
+
+  .map-legend-bar {
+    gap: 0.85rem;
+    font-size: 0.76rem;
+  }
+
+  .hotspot-tooltip {
+    display: none; /* En móvil se abre la tarjeta */
   }
 }
 

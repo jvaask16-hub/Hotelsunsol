@@ -1268,58 +1268,214 @@ window.handleCleanSearch = function(e) {
 };
 
 /* ==========================================================
-   COMPONENTE: MAPA INTERACTIVO DE ZONAS RESORT (ECO LAND)
+   COMPONENTE: MAPA INTERACTIVO DE ZONAS RESORT (UNIFICADO)
    ========================================================== */
 function initResortMap() {
   const tabs = document.querySelectorAll(".map-tab-btn");
-  const scenes = document.querySelectorAll(".map-view-scene");
+  const canvas = document.getElementById("mapCanvas");
+  const viewport = document.getElementById("mapViewport");
   const popup = document.getElementById("mapInfoPopup");
-  if (!tabs.length || !scenes.length) return;
+  const zoomInBtn = document.getElementById("mapZoomIn");
+  const zoomOutBtn = document.getElementById("mapZoomOut");
+  const zoomResetBtn = document.getElementById("mapZoomReset");
+  const hotspots = document.querySelectorAll(".map-hotspot");
 
-  // 1. Alternancia de Áreas / Pestañas
+  if (!canvas || !hotspots.length) return;
+
+  // Coordenadas óptimas de Pan & Zoom para cada zona
+  const zoneTransforms = {
+    general: { scale: 1, x: 0, y: 0 },
+    oasis:   { scale: 2.05, x: 8, y: 4 },    // Sport Club, Tenis, Pádel, Piscina Oasis, Bar Uvas
+    dunas:   { scale: 1.95, x: 25, y: -6 },  // Villas Dunas, Lobby, Eco Espejo, Teatro
+    laguna:  { scale: 1.95, x: -19, y: -15 } // Manglar, Botes de pedal, Torres Laguna, Tilapia
+  };
+
+  let currentScale = 1;
+  let currentX = 0;
+  let currentY = 0;
+  let currentZone = "general";
+
+  function applyTransform(scale, x, y, smooth = true) {
+    currentScale = Math.max(1, Math.min(3.2, scale));
+    currentX = currentScale === 1 ? 0 : x;
+    currentY = currentScale === 1 ? 0 : y;
+
+    canvas.style.transition = smooth ? "transform 0.75s cubic-bezier(0.16, 1, 0.3, 1)" : "none";
+    canvas.style.transform = `scale(${currentScale}) translate(${currentX}%, ${currentY}%)`;
+  }
+
+  function filterHotspots(targetZone) {
+    hotspots.forEach(hotspot => {
+      const pinZone = hotspot.getAttribute("data-zone");
+      if (targetZone === "general" || pinZone === targetZone) {
+        hotspot.classList.remove("is-dimmed");
+        if (targetZone !== "general") {
+          hotspot.classList.add("is-focused");
+        } else {
+          hotspot.classList.remove("is-focused");
+        }
+      } else {
+        hotspot.classList.add("is-dimmed");
+        hotspot.classList.remove("is-focused");
+      }
+    });
+  }
+
+  // 1. Alternancia de Áreas con Transición y Zoom Suave
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-      const targetArea = tab.getAttribute("data-area");
-      
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
+      const targetZone = tab.getAttribute("data-zone") || "general";
+      currentZone = targetZone;
 
-      scenes.forEach(scene => {
-        if (scene.getAttribute("data-scene") === targetArea) {
-          scene.classList.add("active");
-        } else {
-          scene.classList.remove("active");
-        }
+      tabs.forEach(t => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
       });
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
 
-      // Cerrar popup al cambiar de zona
+      const cfg = zoneTransforms[targetZone] || zoneTransforms.general;
+      applyTransform(cfg.scale, cfg.x, cfg.y, true);
+      filterHotspots(targetZone);
+
+      // Cerrar tarjeta al cambiar de zona principal
       if (popup) popup.classList.remove("active");
-      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+      hotspots.forEach(h => h.classList.remove("active"));
     });
   });
 
-  // 2. Interacción con Marcadores (Hotspots)
-  document.querySelectorAll(".map-hotspot").forEach(hotspot => {
+  // 2. Controles de Zoom Manual (+ / - / Reset)
+  if (zoomInBtn) {
+    zoomInBtn.addEventListener("click", () => {
+      applyTransform(currentScale + 0.35, currentX, currentY, true);
+    });
+  }
+
+  if (zoomOutBtn) {
+    zoomOutBtn.addEventListener("click", () => {
+      const newScale = currentScale - 0.35;
+      if (newScale <= 1.05) {
+        // Volver a vista general
+        const generalTab = document.querySelector('.map-tab-btn[data-zone="general"]');
+        if (generalTab) generalTab.click();
+        else {
+          applyTransform(1, 0, 0, true);
+          filterHotspots("general");
+        }
+      } else {
+        applyTransform(newScale, currentX, currentY, true);
+      }
+    });
+  }
+
+  if (zoomResetBtn) {
+    zoomResetBtn.addEventListener("click", () => {
+      const generalTab = document.querySelector('.map-tab-btn[data-zone="general"]');
+      if (generalTab) {
+        generalTab.click();
+      } else {
+        applyTransform(1, 0, 0, true);
+        filterHotspots("general");
+      }
+    });
+  }
+
+  // 3. Arrastre Suave del Mapa (Drag & Pan cuando el mapa está con zoom)
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let startTransX = 0;
+  let startTransY = 0;
+
+  if (viewport) {
+    viewport.addEventListener("mousedown", (e) => {
+      if (currentScale <= 1 || e.target.closest(".map-hotspot") || e.target.closest(".map-info-popup") || e.target.closest(".map-zoom-controls")) return;
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startTransX = currentX;
+      startTransY = currentY;
+      canvas.style.transition = "none";
+      viewport.style.cursor = "grabbing";
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      const dx = (e.clientX - startX) / (viewport.offsetWidth * currentScale) * 100;
+      const dy = (e.clientY - startY) / (viewport.offsetHeight * currentScale) * 100;
+      const limit = 40;
+      currentX = Math.max(-limit, Math.min(limit, startTransX + dx));
+      currentY = Math.max(-limit, Math.min(limit, startTransY + dy));
+      canvas.style.transform = `scale(${currentScale}) translate(${currentX}%, ${currentY}%)`;
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      viewport.style.cursor = "";
+      canvas.style.transition = "transform 0.4s ease-out";
+    });
+
+    // Soporte táctil en móviles
+    viewport.addEventListener("touchstart", (e) => {
+      if (currentScale <= 1 || e.touches.length !== 1 || e.target.closest(".map-hotspot") || e.target.closest(".map-info-popup")) return;
+      isDragging = true;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      startTransX = currentX;
+      startTransY = currentY;
+      canvas.style.transition = "none";
+    }, { passive: true });
+
+    viewport.addEventListener("touchmove", (e) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      const dx = (e.touches[0].clientX - startX) / (viewport.offsetWidth * currentScale) * 100;
+      const dy = (e.touches[0].clientY - startY) / (viewport.offsetHeight * currentScale) * 100;
+      const limit = 40;
+      currentX = Math.max(-limit, Math.min(limit, startTransX + dx));
+      currentY = Math.max(-limit, Math.min(limit, startTransY + dy));
+      canvas.style.transform = `scale(${currentScale}) translate(${currentX}%, ${currentY}%)`;
+    }, { passive: true });
+
+    viewport.addEventListener("touchend", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      canvas.style.transition = "transform 0.4s ease-out";
+    });
+  }
+
+  // 4. Interacción con Marcadores (Hotspots) y Tarjeta Informativa Flotante
+  hotspots.forEach(hotspot => {
     hotspot.addEventListener("click", (e) => {
       e.stopPropagation();
       const title = hotspot.getAttribute("data-title") || "Punto de Interés";
       const desc = hotspot.getAttribute("data-desc") || "Instalación oficial de Sunsol Ecoland.";
       const category = hotspot.getAttribute("data-category") || "Amenidad";
+      const badge = hotspot.getAttribute("data-badge") || category;
       const icon = hotspot.getAttribute("data-icon") || "fa-map-pin";
+      const img = hotspot.getAttribute("data-img") || "assets/images/ecoland-main.jpg";
       const hotelId = hotspot.getAttribute("data-hotel") || "ecoland";
 
       // Resaltar marcador activo
-      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+      hotspots.forEach(h => h.classList.remove("active"));
       hotspot.classList.add("active");
 
-      // Rellenar popup
+      // Rellenar y desplegar la tarjeta flotante
       if (popup) {
-        const catElem = popup.querySelector(".popup-category-tag");
-        const titleElem = popup.querySelector(".popup-title");
-        const descElem = popup.querySelector(".popup-description");
+        const imgElem = document.getElementById("popupImg");
+        const badgeElem = document.getElementById("popupBadge");
+        const badgeText = document.getElementById("popupBadgeText");
+        const titleElem = document.getElementById("popupTitle");
+        const descElem = document.getElementById("popupDesc");
         const ctaBtn = popup.querySelector(".popup-cta-btn");
 
-        if (catElem) catElem.innerHTML = `<i class="fas ${icon}"></i> ${category}`;
+        if (imgElem) {
+          imgElem.src = img;
+          imgElem.alt = title;
+        }
+        if (badgeElem && badgeText) {
+          badgeElem.innerHTML = `<i class="fas ${icon}"></i> <span>${badge}</span>`;
+        }
         if (titleElem) titleElem.textContent = title;
         if (descElem) descElem.textContent = desc;
         if (ctaBtn) {
@@ -1331,21 +1487,29 @@ function initResortMap() {
     });
   });
 
-  // 3. Botón de Cierre del Pop-up
+  // 5. Botón de Cierre de la Tarjeta Flotante
   const closeBtn = document.getElementById("mapPopupClose");
   if (closeBtn && popup) {
     closeBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       popup.classList.remove("active");
-      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+      hotspots.forEach(h => h.classList.remove("active"));
     });
   }
 
-  // Cerrar popup al hacer click fuera
+  // Cerrar al hacer clic fuera
   document.addEventListener("click", (e) => {
-    if (popup && !popup.contains(e.target) && !e.target.closest(".map-hotspot")) {
+    if (popup && popup.classList.contains("active") && !popup.contains(e.target) && !e.target.closest(".map-hotspot")) {
       popup.classList.remove("active");
-      document.querySelectorAll(".map-hotspot").forEach(h => h.classList.remove("active"));
+      hotspots.forEach(h => h.classList.remove("active"));
+    }
+  });
+
+  // Cerrar con tecla Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && popup && popup.classList.contains("active")) {
+      popup.classList.remove("active");
+      hotspots.forEach(h => h.classList.remove("active"));
     }
   });
 }

@@ -1279,6 +1279,7 @@ function initResortMap() {
   const zoomOutBtn = document.getElementById("mapZoomOut");
   const zoomResetBtn = document.getElementById("mapZoomReset");
   const hotspots = document.querySelectorAll(".map-hotspot");
+  const legendBtns = document.querySelectorAll(".legend-filter-btn");
 
   if (!canvas || !hotspots.length) return;
 
@@ -1294,6 +1295,7 @@ function initResortMap() {
   let currentX = 0;
   let currentY = 0;
   let currentZone = "general";
+  let currentCategory = "all";
 
   function applyTransform(scale, x, y, smooth = true) {
     currentScale = Math.max(1, Math.min(3.2, scale));
@@ -1304,12 +1306,15 @@ function initResortMap() {
     canvas.style.transform = `scale(${currentScale}) translate(${currentX}%, ${currentY}%)`;
   }
 
-  function filterHotspots(targetZone) {
+  function applyHotspotFilters() {
     hotspots.forEach(hotspot => {
       const pinZone = hotspot.getAttribute("data-zone");
-      if (targetZone === "general" || pinZone === targetZone) {
+      const matchZone = (currentZone === "general" || pinZone === currentZone);
+      const matchCat = (currentCategory === "all" || hotspot.classList.contains(currentCategory));
+
+      if (matchZone && matchCat) {
         hotspot.classList.remove("is-dimmed");
-        if (targetZone !== "general") {
+        if (currentZone !== "general" || currentCategory !== "all") {
           hotspot.classList.add("is-focused");
         } else {
           hotspot.classList.remove("is-focused");
@@ -1336,9 +1341,25 @@ function initResortMap() {
 
       const cfg = zoneTransforms[targetZone] || zoneTransforms.general;
       applyTransform(cfg.scale, cfg.x, cfg.y, true);
-      filterHotspots(targetZone);
+      applyHotspotFilters();
 
       // Cerrar tarjeta al cambiar de zona principal
+      if (popup) popup.classList.remove("active");
+      hotspots.forEach(h => h.classList.remove("active"));
+    });
+  });
+
+  // Filtros interactivos por Categoría
+  legendBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const targetCat = btn.getAttribute("data-cat") || "all";
+      currentCategory = targetCat;
+
+      legendBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      applyHotspotFilters();
+
       if (popup) popup.classList.remove("active");
       hotspots.forEach(h => h.classList.remove("active"));
     });
@@ -1359,8 +1380,9 @@ function initResortMap() {
         const generalTab = document.querySelector('.map-tab-btn[data-zone="general"]');
         if (generalTab) generalTab.click();
         else {
+          currentZone = "general";
           applyTransform(1, 0, 0, true);
-          filterHotspots("general");
+          applyHotspotFilters();
         }
       } else {
         applyTransform(newScale, currentX, currentY, true);
@@ -1374,8 +1396,9 @@ function initResortMap() {
       if (generalTab) {
         generalTab.click();
       } else {
+        currentZone = "general";
         applyTransform(1, 0, 0, true);
-        filterHotspots("general");
+        applyHotspotFilters();
       }
     });
   }

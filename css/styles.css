@@ -1340,6 +1340,397 @@ button {
 }
 
 /* ==========================================================
+   MODAL COTIZADOR: DISEÑO DE LUJO ELEGANTE Y MODERNO
+   ========================================================== */
+.booking-modal-dialog {
+  max-width: 800px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 35px 80px -15px rgba(15, 23, 42, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+.booking-modal-dialog .modal-header {
+  padding: 1.15rem 1.75rem;
+  background: linear-gradient(135deg, #0F1D38 0%, #1A365D 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.booking-modal-dialog .modal-body {
+  padding: 1.5rem 1.75rem;
+  background: #FFFFFF;
+}
+
+.booking-trust-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 0.7rem 1.1rem;
+  font-size: 0.82rem;
+  color: #334155;
+  flex-wrap: wrap;
+}
+
+.booking-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.booking-trust-item i {
+  color: var(--sunsol-blue);
+  font-size: 0.9rem;
+}
+
+.booking-trust-badge {
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Grillas y Campos de Formulario */
+.booking-field-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.booking-field-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.booking-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.booking-field-label {
+  font-size: 0.81rem;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  letter-spacing: -0.1px;
+}
+
+.booking-field-label i {
+  color: var(--sunsol-blue);
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
+.booking-field-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 0.9rem;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #0F172A;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.booking-field-input:hover {
+  border-color: #94A3B8;
+}
+
+.booking-field-input:focus {
+  border-color: var(--sunsol-blue);
+  box-shadow: 0 0 0 3px rgba(34, 65, 124, 0.12);
+}
+
+/* Tarjetas de Servicios Opcionales (Toggles) */
+.booking-addons-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.booking-addons-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.booking-addons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.booking-addon-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.95rem;
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.booking-addon-toggle:hover {
+  border-color: #CBD5E1;
+  background: #FFFFFF;
+}
+
+.booking-addon-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sunsol-blue);
+  cursor: pointer;
+}
+
+.booking-addon-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.booking-addon-info strong {
+  font-size: 0.83rem;
+  color: #1E293B;
+  line-height: 1.25;
+}
+
+.booking-addon-info span {
+  font-size: 0.73rem;
+  color: #64748B;
+  margin-top: 1px;
+}
+
+.booking-addon-price {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0369A1;
+  background: #E0F2FE;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+/* Tarjeta Resumen de Cotización (Voucher Card) */
+.booking-summary-card {
+  background: linear-gradient(135deg, #0F1D38 0%, #1A365D 100%);
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  color: #FFFFFF;
+  box-shadow: 0 10px 25px -5px rgba(15, 29, 56, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.booking-summary-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.booking-summary-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #93C5FD;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.booking-summary-nights {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: #F8FAFC;
+  line-height: 1.45;
+}
+
+.booking-summary-total-box {
+  text-align: right;
+}
+
+.booking-summary-total-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #94A3B8;
+  display: block;
+}
+
+.booking-summary-total-price {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.booking-summary-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  flex-wrap: wrap;
+}
+
+.booking-downpayment-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+}
+
+.booking-downpayment-pill span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #A7F3D0;
+  text-transform: uppercase;
+}
+
+.booking-downpayment-pill strong {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: #34D399;
+}
+
+.booking-downpayment-note {
+  font-size: 0.76rem;
+  color: #CBD5E1;
+  line-height: 1.35;
+}
+
+/* Botones de Acción Modernizados */
+.booking-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+.btn-booking-cancel {
+  padding: 0.7rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748B;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-booking-cancel:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.btn-booking-voucher {
+  background: #FFFFFF;
+  border: 1.5px solid var(--sunsol-blue);
+  color: var(--sunsol-blue);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-booking-voucher:hover {
+  background: #F0F6FF;
+  border-color: #1A365D;
+}
+
+.btn-booking-whatsapp {
+  background: #16A34A;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.45rem;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-booking-whatsapp:hover {
+  background: #15803D;
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.45);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 660px) {
+  .booking-field-row-2,
+  .booking-field-row-3,
+  .booking-addons-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+  .booking-actions-row {
+    flex-direction: column-reverse;
+    gap: 0.65rem;
+  }
+  .booking-actions-row .modal-actions-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+  .booking-actions-row button,
+  .booking-actions-row .modal-actions-right button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ==========================================================
    LIGHTBOX FULLSCREEN
    ========================================================== */
 .lightbox-modal {

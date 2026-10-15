@@ -293,7 +293,7 @@ const SUNSOL_DATA = {
       id: "romantico",
       title: "Plan Romántico & Lunas de Miel",
       badge: "MOMENTO ÍNTIMO",
-      image: "assets/images/punta-blanca-beach.jpg",
+      image: "assets/images/exp-bodas-celebraciones.jpg",
       description: "Diseñado para aniversarios, propuestas de matrimonio o parejas que buscan renovar su amor frente a los más hermosos atardeceres.",
       includes: [
         "Decoración romántica especial en la habitación con pétalos",
@@ -307,7 +307,7 @@ const SUNSOL_DATA = {
       id: "bodas",
       title: "Plan de Bodas en la Playa",
       badge: "EL SÍ, ACEPTO SOÑADO",
-      image: "assets/images/punta-blanca-main.jpg",
+      image: "assets/images/exp-bodas-celebraciones.jpg",
       description: "Casarse descalzos sobre la arena blanca de Isla de Coche o frente al mar de Playa Puerto Cruz con montaje nupcial de ensueño.",
       includes: [
         "Ceremonia privada en playa o jardín con arco nupcial floral",

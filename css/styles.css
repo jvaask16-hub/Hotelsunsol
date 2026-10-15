@@ -2286,7 +2286,8 @@ button {
 }
 
 .map-hotspot:hover .hotspot-tooltip,
-.map-hotspot.is-focused .hotspot-tooltip,
+.map-hotspot:focus .hotspot-tooltip,
+.map-hotspot:focus-visible .hotspot-tooltip,
 .map-hotspot.active .hotspot-tooltip {
   opacity: 1;
   transform: translateX(-50%) translateY(0);

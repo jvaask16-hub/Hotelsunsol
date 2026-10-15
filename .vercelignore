@@ -1,4 +1,7 @@
-# Vercel Deployment Ignore
+# Vercel Deployment Ignore - Private Internal Files
 src/
+supabase/
 .vscode/
 *.ps1
+*.md
+.git/

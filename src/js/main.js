@@ -1,4 +1,4 @@
-﻿// ==========================================================
+// ==========================================================
 // SUNSOL HOTELES - LÓGICA MINIMALISTA & ELEGANTE
 // ==========================================================
 
@@ -743,8 +743,13 @@ window.downloadVoucherPDF = function(event) {
   const container = document.createElement("div");
   container.id = "temp-voucher-container";
   container.style.position = "fixed";
-  container.style.left = "-9999px";
   container.style.top = "0";
+  container.style.left = "0";
+  container.style.width = "800px";
+  container.style.zIndex = "-99999";
+  container.style.opacity = "1";
+  container.style.pointerEvents = "none";
+  container.style.overflow = "hidden";
   container.innerHTML = generateVoucherDocumentHTML(voucherData);
   document.body.appendChild(container);
 
@@ -767,34 +772,59 @@ window.downloadVoucherPDF = function(event) {
     }
   };
 
-  if (window.html2pdf) {
-    const opt = {
-      margin:       [6, 6, 6, 6],
-      filename:     `Voucher-Cotizacion-Sunsol-${hotelId}-${quoteCode}.pdf`,
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2, useCORS: true, logging: false },
-      jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' }
-    };
-
-    window.html2pdf().set(opt).from(elementToPrint).save().then(() => {
-      cleanup();
-    }).catch(err => {
-      console.warn("Fallo html2pdf, usando fallback de impresión:", err);
-      printVoucherFallback(elementToPrint.innerHTML);
-      cleanup();
+  // Pre-cargar imágenes para asegurar que no se renderice en blanco
+  const images = Array.from(elementToPrint.querySelectorAll("img"));
+  const imgPromises = images.map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(resolve => {
+      img.onload = resolve;
+      img.onerror = resolve;
     });
-  } else {
-    printVoucherFallback(elementToPrint.innerHTML);
-    cleanup();
-  }
+  });
+
+  Promise.all(imgPromises).then(() => {
+    setTimeout(() => {
+      if (window.html2pdf) {
+        const opt = {
+          margin:       [4, 4, 4, 4],
+          filename:     `Voucher-Cotizacion-Sunsol-${hotelId}-${quoteCode}.pdf`,
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            scrollX: 0,
+            scrollY: 0,
+            x: 0,
+            y: 0,
+            width: 800,
+            windowWidth: 800
+          },
+          jsPDF:        { unit: 'mm', format: 'letter', orientation: 'portrait' },
+          pagebreak:    { mode: 'avoid-all' }
+        };
+
+        window.html2pdf().set(opt).from(elementToPrint).save().then(() => {
+          cleanup();
+        }).catch(err => {
+          console.warn("Fallo html2pdf, usando fallback de impresión:", err);
+          printVoucherFallback(elementToPrint.innerHTML);
+          cleanup();
+        });
+      } else {
+        printVoucherFallback(elementToPrint.innerHTML);
+        cleanup();
+      }
+    }, 150);
+  });
 };
 
 function generateVoucherDocumentHTML(data) {
   return `
-    <div style="width: 800px; height: 1040px; min-height: 1040px; max-height: 1040px; box-sizing: border-box; background: #FFFFFF; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0F172A; padding: 22px 26px; position: relative; border: 1px solid #CBD5E1; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+    <div style="width: 800px; height: 1010px; min-height: 1010px; max-height: 1010px; box-sizing: border-box; background: #FFFFFF; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #0F172A; padding: 20px 24px; position: relative; border: 1px solid #CBD5E1; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
       
       <!-- TOP LUXURY BRAND BAR -->
-      <div style="height: 5px; background: linear-gradient(90deg, #152A50 0%, #22417C 35%, #0284C7 70%, #D97706 100%); margin: -22px -26px 0 -26px;"></div>
+      <div style="height: 5px; background: linear-gradient(90deg, #152A50 0%, #22417C 35%, #0284C7 70%, #D97706 100%); margin: -20px -24px 0 -24px;"></div>
 
       <!-- HEADER BRAND & VOUCHER TITLE -->
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px;">

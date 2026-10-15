@@ -57,7 +57,7 @@ const SUNSOL_DATA = {
       id: "ecoland-nature",
       tag: "COMPLEJO ECOLÓGICO",
       title: "Sunsol Ecoland & Playa Puerto Cruz",
-      subtitle: "El resort más completo de Margarita: Laguna natural con botes, 4 piscinas temáticas y acceso a las mejores aguas del Caribe",
+      subtitle: "El resort más completo de Margarita: Laguna natural con botes, 6 piscinas temáticas y acceso a las mejores aguas del Caribe",
       discountBadge: "TARIFA ESPECIAL TODO INCLUIDO",
       image: "assets/images/ecoland-hero.jpg",
       hotelId: "ecoland"
@@ -217,11 +217,11 @@ const SUNSOL_DATA = {
         "assets/images/ecoland-room-oasis.jpg",
         "assets/images/ecoland-spa.jpg"
       ],
-      description: "El complejo vacacional más extenso e impresionante de la región. Cuenta con una laguna natural navegable en botes de pedal, 4 piscinas temáticas, dunas de arena y acceso a Playa Puerto Cruz y Playa Zaragoza.",
+      description: "El complejo vacacional más extenso e impresionante de la región. Cuenta con una laguna natural navegable en botes de pedal, 6 piscinas temáticas, dunas de arena y acceso a Playa Puerto Cruz y Playa Zaragoza.",
       features: [
         "Plan Todo Incluido 24 Horas",
         "Laguna natural navegable con muelles fotográficos",
-        "4 Complejos de piscinas (infantiles, familiares y relax)",
+        "6 Complejos de piscinas (olímpica, relax, familiares e infantiles)",
         "5 Restaurantes de especialidades y bares de playa",
         "Club de niños 'SunKids' con recreación dirigida",
         "Canchas de tenis, voleibol de playa y gimnasio"

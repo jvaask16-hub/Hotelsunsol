@@ -370,7 +370,7 @@ window.openBookingModal = function(preselectedHotelId = '') {
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
         <div class="form-field-group">
           <label><i class="fas fa-user-edit"></i> Estimado(a) / Nombre Titular</label>
-          <input type="text" id="modal-name" class="input-clean" placeholder="Ej. Daymaris Rodríguez" required>
+          <input type="text" id="modal-name" class="input-clean" placeholder="Ej. Nombre y Apellido" required>
         </div>
         <div class="form-field-group">
           <label><i class="fab fa-whatsapp"></i> WhatsApp / Teléfono</label>
@@ -589,7 +589,7 @@ window.downloadVoucherPDF = function(event) {
   const infants = parseInt(document.getElementById("modal-infants")?.value) || 0;
 
   let name = document.getElementById("modal-name")?.value.trim();
-  if (!name) name = "DAYMARIS RODRÍGUEZ";
+  if (!name) name = "HUÉSPED TITULAR";
   let phone = document.getElementById("modal-phone")?.value.trim();
   if (!phone) phone = "+58 414 000 0000";
 

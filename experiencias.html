@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -179,52 +179,45 @@
     </div>
   </section>
 
-  <!-- CONTENIDO EXPERIENCIAS (CATÁLOGO COMPLETO DE 12 EXPERIENCIAS) -->
+  <!-- CONTENIDO EXPERIENCIAS: CATÁLOGO COMPLETO DE VIVENCIAS SUNSOL -->
   <main class="container section-spacious" style="padding-top: 1rem;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+
+    <!-- Filtros de Categorías para Navegación Intuitiva -->
+    <div class="gallery-filter-nav" style="margin-bottom: 2.5rem;">
+      <button class="gallery-filter-pill exp-filter-pill active" onclick="filterExperiences('all', this)"><i class="fas fa-th-large"></i> Todas las Experiencias</button>
+      <button class="gallery-filter-pill exp-filter-pill" onclick="filterExperiences('laguna', this)"><i class="fas fa-water"></i> Laguna &amp; Aventura</button>
+      <button class="gallery-filter-pill exp-filter-pill" onclick="filterExperiences('deportes', this)"><i class="fas fa-table-tennis-paddle-ball"></i> Deportes &amp; Pádel</button>
+      <button class="gallery-filter-pill exp-filter-pill" onclick="filterExperiences('entretenimiento', this)"><i class="fas fa-film"></i> Cine &amp; Entretenimiento</button>
+      <button class="gallery-filter-pill exp-filter-pill" onclick="filterExperiences('familia', this)"><i class="fas fa-child"></i> EcoKids &amp; Familia</button>
+      <button class="gallery-filter-pill exp-filter-pill" onclick="filterExperiences('relax', this)"><i class="fas fa-spa"></i> Bienestar &amp; Spa</button>
+      <button class="gallery-filter-pill exp-filter-pill" onclick="filterExperiences('coche', this)"><i class="fas fa-ship"></i> Isla de Coche</button>
+    </div>
+
+    <div id="experiences-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
       
-      <!-- Experiencia 1: Crucero Festival Cruise a Coche -->
-      <div class="experience-clean-card">
+      <!-- 1. Paseos en Bote de Pedal en Laguna Natural -->
+      <div class="experience-clean-card" data-cat="laguna aventura familia">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-festival-cruise.jpg" alt="Sunsol Festival Cruise Day Pass en Isla de Coche">
+          <img src="assets/images/exp-bote-pedal.jpg" alt="Paseos en Bote Pedal en la Laguna Natural de Ecoland" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
-            NAÚTICA &bull; ISLA DE COCHE
+            LAGUNA &amp; NATURALEZA &bull; ECOLAND
           </span>
-          <h3 class="exp-clean-title">Sunsol Festival Cruise</h3>
+          <h3 class="exp-clean-title">Paseo en Bote de Pedal</h3>
           <p class="exp-clean-desc">
-            Navega en catamarán por las aguas cristalinas del Caribe hacia la paradisíaca Isla de Coche. Disfruta de música a bordo, animación en vivo, open bar de bebidas nacionales, almuerzo buffet y acceso VIP a la playa de Sunsol Punta Blanca.
+            Navega en familia por las aguas tranquilas de la emblemática laguna natural de agua dulce en Sunsol Ecoland. Disfruta de la fauna autóctona, manglares protegidos y una panorámica irrepetible de las dunas.
           </p>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: auto; width: 100%;">
-            <i class="fas fa-ship"></i> Consultar Festival Cruise
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-water"></i> Vivir Experiencia Laguna
           </button>
         </div>
       </div>
 
-      <!-- Experiencia 2: Coche Express Day Pass -->
-      <div class="experience-clean-card">
+      <!-- 2. Paseos en Kayak en Laguna Natural -->
+      <div class="experience-clean-card" data-cat="laguna aventura deportes">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-coche-express.jpg" alt="Sunsol Coche Express Day Pass">
-        </div>
-        <div class="exp-clean-body">
-          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
-            DAY PASS DIRECTO &bull; ISLA DE COCHE
-          </span>
-          <h3 class="exp-clean-title">Sunsol Coche Express</h3>
-          <p class="exp-clean-desc">
-            Escapada exprés a Isla de Coche. Traslado rápido en lanchas desde Playa El Yaque, almuerzo buffet caribeño, bebidas nacionales ilimitadas, toldos y tumbonas en la mejor playa de arena blanca de Coche.
-          </p>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: auto; width: 100%;">
-            <i class="fas fa-bolt"></i> Reservar Coche Express
-          </button>
-        </div>
-      </div>
-
-      <!-- Experiencia 3: Paseos en Kayak & Laguna Natural -->
-      <div class="experience-clean-card">
-        <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-kayak-laguna.jpg" alt="Paseos en Kayak y Botes de Pedal en Sunsol Ecoland">
+          <img src="assets/images/exp-kayak-laguna.jpg" alt="Paseos en Kayak en Sunsol Ecoland" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
@@ -232,18 +225,170 @@
           </span>
           <h3 class="exp-clean-title">Kayaks en la Laguna Natural</h3>
           <p class="exp-clean-desc">
-            Explora la serenidad de nuestra laguna natural de agua dulce navegando en kayaks y botes de pedal rodeados de manglares, dunas y aves tropicales, justo frente a las arenas doradas de Playa Puerto Cruz.
+            Aventura y remo sobre la laguna de agua dulce con kayaks individuales y dobles. Una actividad deportiva y ecológica ideal para conectar con la naturaleza tropical a pasos de Playa Puerto Cruz.
           </p>
           <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
-            <i class="fas fa-water"></i> Vivir Aventura Ecoland
+            <i class="fas fa-ship"></i> Reservar Kayak en Ecoland
           </button>
         </div>
       </div>
 
-      <!-- Experiencia 4: Sunsol Pádel Club -->
-      <div class="experience-clean-card">
+      <!-- 3. Excursión y Senderismo al Faro de la Montaña -->
+      <div class="experience-clean-card" data-cat="aventura deportes">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-padel-club.jpg" alt="Sunsol Pádel Club en Parque Costazul">
+          <img src="assets/images/exp-faro-montana.jpg" alt="Excursión y Senderismo al Faro de la Montaña en Ecoland" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            ECOTURISMO &bull; PLAYA PUERTO CRUZ
+          </span>
+          <h3 class="exp-clean-title">Excursión al Faro de la Montaña</h3>
+          <p class="exp-clean-desc">
+            Caminata ecológica guiada ascendiendo hacia el icónico faro blanco y rojo. Un mirador natural privilegiado con vista de 360 grados sobre Playa Puerto Cruz, Bahía de Zaragoza y la inmensidad del Mar Caribe.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-hiking"></i> Conocer Senderismo
+          </button>
+        </div>
+      </div>
+
+      <!-- 4. Paseos en Bicicleta por Ciclovía Frente al Mar -->
+      <div class="experience-clean-card" data-cat="deportes familia">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-ciclovia-mar.jpg" alt="Ciclovía y Paseos en Bicicleta frente al Mar en Ecoland" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            AIRE LIBRE &bull; ECOLAND
+          </span>
+          <h3 class="exp-clean-title">Paseo en Bicicleta Frente al Mar</h3>
+          <p class="exp-clean-desc">
+            Más de 1.5 km de ciclovía y senderos panorámicos bordeando las dunas y la orilla del mar caribeño. Disponibilidad de bicicletas de paseo incluidas para grandes y chicos con la brisa costera como compañera.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-bicycle"></i> Explorar en Bicicleta
+          </button>
+        </div>
+      </div>
+
+      <!-- 5. Sala de Cine Sunsol -->
+      <div class="experience-clean-card" data-cat="entretenimiento familia">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-cine.jpg" alt="Sala de Cine Sunsol Ecoland" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            CINE &amp; CULTURA &bull; ECOLAND
+          </span>
+          <h3 class="exp-clean-title">Sala de Cine Climatizada</h3>
+          <p class="exp-clean-desc">
+            Disfruta de funciones diarias de cine en una moderna sala con pantalla panorámica, sonido envolvente y cómodas butacas. Proyecciones familiares e infantiles para relajarse después de un día de playa.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-film"></i> Ver Cartelera de Cine
+          </button>
+        </div>
+      </div>
+
+      <!-- 6. Teatro & Espectáculos Nocturnos en Vivo -->
+      <div class="experience-clean-card" data-cat="entretenimiento">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-teatro-shows.jpg" alt="Teatro y Shows Nocturnos en Sunsol Hoteles" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            ESPECTÁCULOS &bull; SHOWS EN VIVO
+          </span>
+          <h3 class="exp-clean-title">Teatro &amp; Espectáculos en Vivo</h3>
+          <p class="exp-clean-desc">
+            Noches vibrantes con elencos profesionales de baile, música en vivo, obras teatrales cómicas, noches temáticas caribeñas y animación interactiva para compartir en familia con coctelería abierta.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-masks-theater"></i> Conocer Shows Nocturnos
+          </button>
+        </div>
+      </div>
+
+      <!-- 7. Área EcoKids & Club Infantil -->
+      <div class="experience-clean-card" data-cat="familia">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-ecokids.jpg" alt="Área EcoKids y Parque Infantil en Sunsol Ecoland" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            DIVERSIÓN INFANTIL &bull; SUPERVISADA
+          </span>
+          <h3 class="exp-clean-title">Área EcoKids &amp; Parque Infantil</h3>
+          <p class="exp-clean-desc">
+            Espacio infantil seguro con parque de juegos de madera, toboganes, columpios, dinámicas recreativas y talleres ecológicos guiados por coordinadores profesionales para que los consentidos vivan su mejor aventura.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-child"></i> Vacaciones con Niños
+          </button>
+        </div>
+      </div>
+
+      <!-- 8. Sala de Juegos de Mesa & Billar -->
+      <div class="experience-clean-card" data-cat="entretenimiento familia">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-sala-juegos.jpg" alt="Sala de Juegos y Billar en Sunsol Hoteles" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            CLUB SOCIAL &bull; RECREACIÓN
+          </span>
+          <h3 class="exp-clean-title">Sala de Juegos &amp; Billar</h3>
+          <p class="exp-clean-desc">
+            Salón de entretenimiento bajo aire acondicionado con mesas de billar profesional, tenis de mesa (ping-pong), futbolito y juegos de mesa tradicionales para competir y disfrutar sanamente entre amigos.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-dice"></i> Ver Espacios de Juego
+          </button>
+        </div>
+      </div>
+
+      <!-- 9. Sala de Videojuegos & Gaming Zone -->
+      <div class="experience-clean-card" data-cat="entretenimiento">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-videojuegos.jpg" alt="Sala de Videojuegos y Gaming Zone en Sunsol Hoteles" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            GAMING ZONE &bull; TEENS
+          </span>
+          <h3 class="exp-clean-title">Sala de Videojuegos &amp; Gaming</h3>
+          <p class="exp-clean-desc">
+            Zona gamer equipada con pantallas de alta resolución, consolas modernas y simuladores de carreras. El rincón favorito de adolescentes y entusiastas de los videojuegos en un entorno seguro y divertido.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-gamepad"></i> Conocer Gaming Zone
+          </button>
+        </div>
+      </div>
+
+      <!-- 10. Mini Golf Familiar de 9 Hoyos -->
+      <div class="experience-clean-card" data-cat="deportes familia">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-minigolf.jpg" alt="Mini Golf en Sunsol Ecoland" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            DESTREZA &bull; ECOLAND
+          </span>
+          <h3 class="exp-clean-title">Mini Golf Familiar</h3>
+          <p class="exp-clean-desc">
+            Divertido circuito de golfito de 9 hoyos rodeado de palmeras y vegetación tropical. Retos de destreza con palos y pelotas disponibles para compartir partidas amistosas entre padres e hijos.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-golf-ball-tee"></i> Jugar Mini Golf
+          </button>
+        </div>
+      </div>
+
+      <!-- 11. Sunsol Pádel Club -->
+      <div class="experience-clean-card" data-cat="deportes">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-padel-club.jpg" alt="Sunsol Pádel Club en Parque Costazul" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
@@ -251,7 +396,7 @@
           </span>
           <h3 class="exp-clean-title">Sunsol Pádel Club</h3>
           <p class="exp-clean-desc">
-            Vive la pasión del pádel en las canchas panorámicas techadas más modernas de Margarita, contiguas a Sunsol Unik en Parque Costazul. Iluminación profesional LED, clínica de juego, pro shop y lounge bar.
+            Vive la pasión del pádel en las canchas panorámicas más modernas de Margarita, contiguas a Sunsol Unik en Parque Costazul. Iluminación profesional LED, clínica de juego, alquiler de palas, pro shop y lounge bar.
           </p>
           <button class="btn-sunsol-secondary" onclick="openBookingModal('unik')" style="margin-top: auto; width: 100%;">
             <i class="fas fa-table-tennis-paddle-ball"></i> Reservar Cancha de Pádel
@@ -259,10 +404,10 @@
         </div>
       </div>
 
-      <!-- Experiencia 5: The Essential Spa & Wellness -->
-      <div class="experience-clean-card">
+      <!-- 12. The Essential Spa & Wellness -->
+      <div class="experience-clean-card" data-cat="relax">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/ecoland-spa.jpg" alt="The Essential Spa en Sunsol Hoteles">
+          <img src="assets/images/ecoland-spa.jpg" alt="The Essential Spa en Sunsol Hoteles" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
@@ -278,10 +423,48 @@
         </div>
       </div>
 
-      <!-- Experiencia 6: Camas Balinesas en Isla de Coche -->
-      <div class="experience-clean-card">
+      <!-- 13. Isla de Coche & Sunsol Punta Blanca -->
+      <div class="experience-clean-card" data-cat="coche relax">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-camas-balinesas.jpg" alt="Camas Balinesas VIP en Sunsol Punta Blanca Coche">
+          <img src="assets/images/exp-coche-aerial.jpg" alt="Isla de Coche y Sunsol Punta Blanca vista aérea" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            PARAÍSO CARIBEÑO &bull; ISLA DE COCHE
+          </span>
+          <h3 class="exp-clean-title">Isla de Coche &amp; Catamarán</h3>
+          <p class="exp-clean-desc">
+            Aguas transparentes color turquesa, arenas blancas vírgenes y traslados marítimos exclusivos hacia Sunsol Punta Blanca. Un edén caribeño para desconectarse en suites frente a la playa con piscina de borde infinito.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-ship"></i> Conocer Sunsol Punta Blanca
+          </button>
+        </div>
+      </div>
+
+      <!-- 14. Beach Club & Day Pass Isla de Coche -->
+      <div class="experience-clean-card" data-cat="coche relax">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-coche-beachclub.jpg" alt="Beach Club y Day Pass en Sunsol Punta Blanca Coche" style="object-position: center;">
+        </div>
+        <div class="exp-clean-body">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
+            DAY PASS TODO INCLUIDO &bull; COCHE
+          </span>
+          <h3 class="exp-clean-title">Beach Club &amp; Day Pass Coche</h3>
+          <p class="exp-clean-desc">
+            Pasa el día más placentero de tus vacaciones en la mejor playa de Isla de Coche. Navegación en lanchas rápidas o catamarán, almuerzo estilo buffet, open bar ilimitado de bebidas nacionales, toldos y tumbonas en la arena.
+          </p>
+          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: auto; width: 100%;">
+            <i class="fas fa-ticket-alt"></i> Reservar Day Pass en Coche
+          </button>
+        </div>
+      </div>
+
+      <!-- 15. Camas Balinesas en Playa La Punta -->
+      <div class="experience-clean-card" data-cat="coche relax">
+        <div class="exp-clean-img" style="height: 230px;">
+          <img src="assets/images/exp-camas-balinesas.jpg" alt="Camas Balinesas VIP en Sunsol Punta Blanca Coche" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
@@ -297,10 +480,10 @@
         </div>
       </div>
 
-      <!-- Experiencia 7: Piscina Panorámica Rooftop & XE Bar -->
-      <div class="experience-clean-card">
+      <!-- 16. Piscina Panorámica Rooftop & XE Bar -->
+      <div class="experience-clean-card" data-cat="relax entretenimiento">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-unik-rooftop.jpg" alt="Piscina Panorámica Rooftop en Sunsol Unik Luxury Hotel">
+          <img src="assets/images/exp-unik-rooftop.jpg" alt="Piscina Panorámica Rooftop en Sunsol Unik Luxury Hotel" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
@@ -316,48 +499,10 @@
         </div>
       </div>
 
-      <!-- Experiencia 8: Ciclovía Costera & Paseos en Bici -->
-      <div class="experience-clean-card">
+      <!-- 17. Bar de Playa Pitahaya & Coctelería Tropical -->
+      <div class="experience-clean-card" data-cat="relax">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-ciclovia-mar.jpg" alt="Ciclovía y Paseos en Bicicleta frente al Mar en Ecoland">
-        </div>
-        <div class="exp-clean-body">
-          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
-            AIRE LIBRE &bull; ECOLAND
-          </span>
-          <h3 class="exp-clean-title">Ciclovía Frente al Mar Caribe</h3>
-          <p class="exp-clean-desc">
-            Recorre más de 1.5 km de ciclovía y senderos ecológicos bordeando la orilla del mar caribeño y los jardines de Sunsol Ecoland. Disponibilidad de bicicletas de paseo incluidas para toda la familia.
-          </p>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
-            <i class="fas fa-bicycle"></i> Explorar en Ecoland
-          </button>
-        </div>
-      </div>
-
-      <!-- Experiencia 9: Senderismo al Faro de la Montaña -->
-      <div class="experience-clean-card">
-        <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-faro-montana.jpg" alt="Excursión y Senderismo al Faro de la Montaña en Ecoland">
-        </div>
-        <div class="exp-clean-body">
-          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
-            ECOTURISMO &bull; PLAYA PUERTO CRUZ
-          </span>
-          <h3 class="exp-clean-title">Excursión al Faro de la Montaña</h3>
-          <p class="exp-clean-desc">
-            Caminata ecológica guiada hacia el icónico faro blanco y rojo en la colina. Disfruta de un mirador natural privilegiado con vista panorámica de 360 grados de Playa Puerto Cruz, Zaragoza y el Mar Caribe.
-          </p>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal('ecoland')" style="margin-top: auto; width: 100%;">
-            <i class="fas fa-hiking"></i> Conocer Senderismo
-          </button>
-        </div>
-      </div>
-
-      <!-- Experiencia 10: Bar de Playa Pitahaya & Coctelería -->
-      <div class="experience-clean-card">
-        <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-bar-playa.jpg" alt="Bar de Playa Pitahaya en Sunsol Isla Caribe">
+          <img src="assets/images/exp-bar-playa.jpg" alt="Bar de Playa Pitahaya en Sunsol Isla Caribe" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
@@ -365,7 +510,7 @@
           </span>
           <h3 class="exp-clean-title">Bar de Playa Pitahaya &amp; Cócteles</h3>
           <p class="exp-clean-desc">
-            Refréscate sobre la tarima de madera frente a las olas de Playa El Tirano en Sunsol Isla Caribe. Barra libre de cócteles tropicales, cerveza nacional, snacks calientes y la mejor vista al mar abierto.
+            Refréscate sobre la tarima de madera frente a las olas de Playa El Tirano en Sunsol Isla Caribe. Barra libre de cócteles tropicales, cerveza nacional fría, snacks y la mejor vista al mar abierto.
           </p>
           <button class="btn-sunsol-secondary" onclick="openBookingModal('isla-caribe')" style="margin-top: auto; width: 100%;">
             <i class="fas fa-glass-martini-alt"></i> Todo Incluido Isla Caribe
@@ -373,39 +518,20 @@
         </div>
       </div>
 
-      <!-- Experiencia 11: Parque de Arena & Zona Kids -->
-      <div class="experience-clean-card">
+      <!-- 18. Bodas & Celebraciones de Ensueño -->
+      <div class="experience-clean-card" data-cat="coche relax">
         <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/exp-kids-club.jpg" alt="Parque de Arena y Churuatas de Descanso en Isla Caribe">
-        </div>
-        <div class="exp-clean-body">
-          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
-            FAMILIAR &bull; CLUB DE PLAYA
-          </span>
-          <h3 class="exp-clean-title">Parque de Arena &amp; Churuatas</h3>
-          <p class="exp-clean-desc">
-            Espacios diseñados para el entretenimiento familiar. Amplias churuatas de palma con tumbonas de madera frente a los cocoteros, parque de arena seguro para los niños y dinámicas diarias con el equipo de recreación.
-          </p>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal('isla-caribe')" style="margin-top: auto; width: 100%;">
-            <i class="fas fa-child"></i> Vacaciones en Familia
-          </button>
-        </div>
-      </div>
-
-      <!-- Experiencia 12: Bodas & Eventos Frente al Mar -->
-      <div class="experience-clean-card">
-        <div class="exp-clean-img" style="height: 230px;">
-          <img src="assets/images/punta-blanca-beach.jpg" alt="Bodas y Eventos Frente al Mar en Sunsol Punta Blanca Coche">
+          <img src="assets/images/punta-blanca-beach.jpg" alt="Bodas y Eventos Frente al Mar en Sunsol Punta Blanca Coche" style="object-position: center;">
         </div>
         <div class="exp-clean-body">
           <span style="font-size: 0.72rem; font-weight: 800; color: var(--sunsol-wave); text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 0.4rem;">
             CELEBRACIONES &bull; FRENTE AL MAR
           </span>
-          <h3 class="exp-clean-title">Bodas &amp; Lunas de Miel</h3>
+          <h3 class="exp-clean-title">Bodas &amp; Celebraciones de Ensueño</h3>
           <p class="exp-clean-desc">
-            Da el "Sí, acepto" con los pies en la arena blanca y el atardecer caribeño de fondo en Margarita o Coche. Nuestro equipo de coordinación se encarga del banquete gourmet, montaje floral, música en vivo y hospedaje.
+            Da el "Sí, acepto" con los pies en la arena blanca y el atardecer caribeño de fondo en Margarita o Coche. Nuestro equipo de coordinación se encarga del banquete gourmet, montaje floral, música y hospedaje.
           </p>
-          <button class="btn-sunsol-secondary" onclick="openBookingModal('punta-blanca')" style="margin-top: auto; width: 100%;">
+          <button class="btn-sunsol-secondary" onclick="contactarCoordinadora('Bodas y Eventos')" style="margin-top: auto; width: 100%;">
             <i class="fas fa-heart"></i> Solicitar Asesoría de Bodas
           </button>
         </div>
@@ -464,5 +590,22 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/html2pdf.bundle.min.js"></script>
   <script src="js/app.min.js"></script>
+  <script>
+    function filterExperiences(category, btn) {
+      document.querySelectorAll('.exp-filter-pill').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      if (btn) btn.classList.add('active');
+      var cards = document.querySelectorAll('#experiences-grid .experience-clean-card');
+      cards.forEach(function(card) {
+        var cats = card.getAttribute('data-cat') || '';
+        if (category === 'all' || cats.indexOf(category) !== -1) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>

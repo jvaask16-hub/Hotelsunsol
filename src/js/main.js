@@ -776,7 +776,6 @@ window.downloadVoucherPDF = function(event) {
     saldo60: saldo60,
     guestName: name.toUpperCase(),
     guestPhone: phone,
-    advisorName: "LUISA FRANCO",
     advisorEmail: "reservaciones4@sunsolhoteles.com",
     advisorPhone: "+58 414-7954081",
     inclusionsHTML: inclusionsHTML
@@ -890,7 +889,7 @@ function generateVoucherDocumentHTML(data) {
         </div>
       </div>
 
-      <!-- GUEST & ADVISOR BAR -->
+      <!-- GUEST & VALIDITY BAR -->
       <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 11px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
         <div>
           <span style="font-size: 9px; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.6px; display: block;">Huésped Titular</span>
@@ -898,11 +897,6 @@ function generateVoucherDocumentHTML(data) {
             <strong style="color: #0F172A; font-size: 13.5px; font-weight: 800;">${data.guestName}</strong>
             <span style="font-size: 10.5px; color: #64748B;">${data.guestPhone}</span>
           </div>
-        </div>
-        <div style="text-align: center; border-left: 1px solid #E2E8F0; border-right: 1px solid #E2E8F0; padding: 0 16px;">
-          <span style="font-size: 9px; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.6px; display: block;">Asesor Oficial Sunsol</span>
-          <strong style="color: #1E40AF; font-size: 12.5px; font-weight: 700; display: block; margin-top: 2px;">${data.advisorName}</strong>
-          <span style="font-size: 10px; color: #64748B;">${data.advisorPhone}</span>
         </div>
         <div style="text-align: right;">
           <div style="background: #ECFDF5; border: 1px solid #A7F3D0; color: #047857; font-size: 10px; font-weight: 800; padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px;">
@@ -1039,11 +1033,11 @@ function generateVoucherDocumentHTML(data) {
         <strong><i class="fas fa-shield-alt" style="color: #1D4ED8; margin-right: 5px;"></i> Garantía de Tarifa Congelada por 72 Horas:</strong> Con el fin de brindarle total tranquilidad en la planificación de su viaje, esta propuesta cuenta con una vigencia garantizada de 72 horas a partir de su emisión. Durante este lapso, el sistema mantendrá congelada tanto la tarifa como la disponibilidad. Para validar, abone el 40% antes del <strong>${data.fechaLimite}</strong>.
       </div>
 
-      <!-- FOOTER & OFFICIAL ADVISOR CONTACT -->
+      <!-- FOOTER & OFFICIAL RESERVATIONS CONTACT -->
       <div style="border-top: 1.5px solid #E2E8F0; padding-top: 9px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #475569;">
         <div>
           <div style="color: #0F172A; font-weight: 700;">
-            <i class="fab fa-whatsapp" style="color: #16A34A; margin-right: 3px;"></i> WhatsApp: <strong>${data.advisorPhone}</strong> &bull; <i class="fas fa-envelope" style="color: #22417C; margin-left: 6px; margin-right: 3px;"></i> Email: <strong>${data.advisorEmail}</strong>
+            <i class="fab fa-whatsapp" style="color: #16A34A; margin-right: 3px;"></i> WhatsApp Oficial: <strong>${data.advisorPhone}</strong> &bull; <i class="fas fa-envelope" style="color: #22417C; margin-left: 6px; margin-right: 3px;"></i> Email: <strong>${data.advisorEmail}</strong>
           </div>
           <div style="color: #64748B; font-size: 9.5px; margin-top: 2px;">
             <strong>Ubicación:</strong> ${data.hotelAddress}

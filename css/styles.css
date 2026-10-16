@@ -1611,24 +1611,26 @@ button {
 .booking-downpayment-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(16, 185, 129, 0.18);
-  border: 1px solid rgba(52, 211, 153, 0.4);
-  padding: 0.4rem 0.9rem;
-  border-radius: 8px;
+  gap: 0.6rem;
+  background: rgba(194, 155, 56, 0.16);
+  border: 1.5px solid rgba(229, 192, 123, 0.45);
+  padding: 0.45rem 1rem;
+  border-radius: 10px;
 }
 
 .booking-downpayment-pill span {
   font-size: 0.72rem;
   font-weight: 700;
-  color: #A7F3D0;
+  color: #F5DC98;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .booking-downpayment-pill strong {
-  font-size: 1.18rem;
+  font-size: 1.22rem;
   font-weight: 800;
-  color: #34D399;
+  color: #FFE082;
+  letter-spacing: -0.2px;
 }
 
 .booking-downpayment-note {

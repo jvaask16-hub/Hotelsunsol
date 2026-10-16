@@ -2230,6 +2230,10 @@ button {
     gap: 2rem !important;
     margin-bottom: 2.5rem !important;
   }
+
+  .about-history-img-wrap {
+    height: 320px !important;
+  }
 }
 
 /* Fila de tarifas y botones de habitaciones */
@@ -2258,6 +2262,23 @@ button {
   gap: 3.5rem;
   align-items: center;
   margin-bottom: 4rem;
+}
+
+.about-history-img-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  height: 450px;
+  width: 100%;
+}
+
+.about-history-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 72%;
+  display: block;
 }
 
 .pillars-grid-3col {
